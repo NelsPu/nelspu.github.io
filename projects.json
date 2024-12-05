@@ -1,0 +1,402 @@
+{
+    "projects": [
+        {
+            "id": "project1",
+            "title": "深色調義式住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。\n大理石與皮革的經典搭配，訴說著義式風格的細膩與奢華。\n客廳以溫暖的咖啡色皮沙發為主角，配上米色窗簾與灰色抱枕，營造柔和溫馨的氛圍。弧形的收納牆面搭配間接燈光，讓空間更具層次感。\n展示層架以背光設計，不只是收納更是一道風景。深色大理石與木作相互輝映，譜出空間的韻律。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png",
+                "image7.png",
+                "image8.png",
+                "image9.png",
+                "image10.png",
+                "image11.png",
+                "image12.png",
+                "image13.png",
+                "image14.png"
+            ]
+        },
+        {
+            "id": "project2",
+            "title": "時代菁英主臥設計",
+            "description": "利用弧形木作修飾床頭上方的樑柱，不僅隱藏了結構，還增添了空間的柔和感。以木皮板製作隱藏門，巧妙遮掩原本的塑膠廁所門，讓空間視覺更統一、更具質感。\n每個細節都考量到美觀與實用，讓生活空間更加舒適與完整！",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project3",
+            "title": "【主臥革新，悠然放鬆】",
+            "description": "如今的小坪數時代，業主大膽地將主臥空間與衣櫃功能切割，讓臥室重新回歸到純粹的放鬆休息場所。\n床頭巧妙地利用木作弧形，並結合了隱藏門概念，將廁所入口巧妙地淡化其存在，營造出床頭風格一致的寧靜。\n此外，我們選用了義大利藝術塗料來增添整體的質感，為空間注入了獨特的藝術氛圍，讓每一刻都充滿了品味與雅致。\n最後，精心設計的多層次光源，不僅為空間增添了溫暖柔和的氛圍，也提供了適合不同場合的照明需求，讓您在任何時候都能享受到最舒適的空間氛圍。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project4",
+            "title": "惠宇朗庭",
+            "description": "這次的設計工程順利進行，我們與業主的合作非常愉快。通過定期的進度報告，業主得以一步步見證自己的家從藍圖走向現實。期間，業主也特地前來現場，親自感受每個設計細節的呈現。這樣的互動讓設計師得以直接與業主溝通，解釋每一處設計的用意與細節，使得設計理念更加貼近業主的期待。\n在看到每個階段完成時，業主的喜悅與滿意溢於言表，這是設計師最大的滿足。我們始終相信，透過精心設計和密切合作，每個家都能成為業主心中的夢想之所在。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png"
+            ]
+        },
+        {
+            "id": "project6",
+            "title": "幸福御墅",
+            "description": "由於臥室的原始坪數不到三坪，為了增加寬闊感，使用了以下設計方式\n1. 鋁件衣架與黑色玻璃\n為了增加空間的穿透感，我們巧妙地選擇了鋁件衣架和黑色玻璃，這不僅維持了正常衣櫃儲物空間，還讓空間感覺更加開闊。\n2. 黑色烤玻璃與鏡面\n我們在牆面上交錯使用了黑色烤玻璃和鏡子，這不僅增加了視覺感，還創造了一個現代感十足的氛圍。鏡子反射，使空間更廣闊。\n3. 創意床頭燈造型\n我們特別設計了獨特的床頭燈造型，營造了一個富有藝術氛圍的臥室。這些燈具不僅提供照明，還增加了空間的個性。\n4. 床底燈條營造飄浮感\n為了增加床組的視覺效果，我們在床底下安裝了柔和的燈條，使床看起來彷彿懸浮在空中。這種設計增加了整個房間的空間感。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project7",
+            "title": "幸福御墅",
+            "description": "這次案例坐落於龍井的幸福御墅，這次與業主的溝通非常順暢，我們很快就確定了設計的方向。\n在這個案例中，我們嘗試不同材質的結合，以打造出多層次感和視覺上的豐富效果。木材、金屬、仿石材等多種材質相互融合，賦予整個空間生動多彩的特色。業主的需求也特別提到，他們希望燈光不僅能實現二元的開關，而是能夠實現更多的調節選項。為了實現這一點，我們採用了大量獨立調節的鋁條燈，為空間增添了更多的可變性。\n由於原始屋高有限，我們巧妙地在天花板的木工部分加入了圓弧形的收邊造型，這一設計不僅增加了層次感，還減緩了天花板的視覺壓迫感。成功營造了一個令人驚嘆的居住空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project8",
+            "title": "大雅舊屋翻新",
+            "description": "這次案例充分體現了孩子對逐漸年邁的父母的愛和關懷。\n我們重新翻新了他們的主臥室，並新增了一間原本格局中沒有的廁所，以確保他們的生活更加舒適便利。\n此外，我們還重新設計了房間的動線，讓走道和廁所門都符合無障礙規範，讓父母在家中的每個角落都更加安心。\n為了減弱天花板上的樑體的壓迫感，我們運用了圓弧形收邊的技法，同時在床頭設計了造型燈光，讓整個空間更加溫馨舒適。\n這是一個讓人感到溫暖和感激的案例，因為它充分展現了家庭之間的愛和關心。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project9",
+            "title": "現代簡約風格住宅設計",
+            "description": "巧妙運用現代設計語彙，創造出純粹而優雅的生活場域。以溫潤的木質元素為基底，搭配純白牆面，營造明亮舒適的空間感受。精心規劃的收納系統與家具配置，讓空間既實用又不失設計美感。透過間接照明的設計，為居家空間增添溫暖柔和的氛圍，打造出兼具機能與品味的現代宅邸。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project10",
+            "title": "現代簡約風格住宅設計",
+            "description": "將都會生活美學完美展現於此空間中。採用灰階色調為主體，搭配溫暖木質元素，創造沉穩內斂的居家氛圍。特製的收納設計完美解決收納需求，同時維持空間的俐落感。大面落地窗引入充足自然採光，讓室內充滿活力與生命力。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project11",
+            "title": "沙鹿小時代3",
+            "description": "寸土寸金的現在，要如何在有限的坪數之中，為客人取得最大的空間利用是這次設計的要點，還需要考量海線地區的溼度，採用V313等級的防潮板",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project12",
+            "title": "坤悅雅樂",
+            "description": "以現代風格為基調，融入細膩質感的居家設計。運用清爽的米色調搭配深色木質元素，營造出優雅沉穩的氛圍。精心配置的燈光設計，讓空間在不同時段展現多變風貌。開放式的空間規劃，讓採光與視野更加寬廣，創造出舒適宜人的生活環境。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png",
+                "image7.png",
+                "image8.png",
+                "image9.png",
+                "image10.png"
+            ]
+        },
+        {
+            "id": "project13",
+            "title": "坤悅雅樂",
+            "description": "完美演繹現代生活的精緻美學，以簡約俐落的線條勾勒空間輪廓。特別設計的展示收納牆，讓生活收藏展現獨特韻味。細緻考量採光與通風需求，讓居家空間更顯舒適自在。燈光層次的堆疊，為空間注入溫暖活力。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project14",
+            "title": "坤悅雅樂",
+            "description": "融合現代設計思維與生活實用性的精緻住宅。白色基底搭配溫潤木質元素，營造明亮清新的空間氛圍。客製化的收納設計滿足日常需求，同時保持空間的簡約清爽。透過巧妙的燈光配置，為生活空間增添溫暖與活力。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project15",
+            "title": "大雅藍鵲",
+            "description": "以現代風格為主軸，展現優雅細緻的居家空間。運用淺色木質與白色為基調，創造明亮開闊的視覺感受。精心規劃的收納動線，讓生活機能更加便利順暢。透過燈光營造溫馨氛圍，打造兼具品味與實用的舒適家園。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project16",
+            "title": "大雅藍鵲",
+            "description": "將現代生活美學與實用機能完美結合。透過灰白色調搭配原木元素，營造清新舒適的空間感。巧妙設計的展示收納牆，讓生活收藏展現獨特魅力。層次豐富的照明配置，為空間增添溫暖活力與時尚感。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project17",
+            "title": "大雅藍鵲",
+            "description": "以純粹簡約的設計語彙，打造理想的現代居所。善用淺色系與木質元素的搭配，創造明亮清新的空間氛圍。量身打造的收納系統，完美滿足日常生活需求。精心配置的燈光設計，讓居家空間展現不同時刻的優雅風貌。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project18",
+            "title": "大雅老屋翻修",
+            "description": "業主為年輕夫婦，即將在明年舉辦婚禮。希望將家裡的兩間房間打通並且重新設計成婚房。施作面積大約在10.5坪(拆除舊有牆面後)。由於原屋高並不高，並且原本的兩台冷氣還正常運行，加上男業主的身高190，故這次並不使用吊隱式冷氣以維持屋高，避免壓迫感。設計方向將此空間區分為: King Size床鋪區、更衣室、小客廳。中間使用長虹玻璃的鋁框門區隔，既有了區隔感也不影響透光。並且風格色調採用了較為溫暖的奶茶色為主體。大量使用非直接照明，營造空間的氛圍感。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png"
+            ]
+        },
+        {
+            "id": "project19",
+            "title": "佳鏵大聯盟",
+            "description": "運用現代設計手法，創造清新雅緻的生活空間。以米白色調為基礎，搭配溫潤木質元素，營造出明亮舒適的居家氛圍。特製的收納系統完美整合於空間中，既實用又美觀。透過燈光設計的巧思，為空間增添溫暖與層次感。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png",
+                "image7.png",
+                "image8.png",
+                "image9.png"
+            ]
+        },
+        {
+            "id": "project20",
+            "title": "佳鏵大聯盟",
+            "description": "以現代簡約風格為基調，融入精緻優雅的設計元素。採用灰階色調搭配自然木紋，創造沉穩內斂的空間氣質。量身訂製的收納設計，滿足機能需求同時保持空間的簡約清爽。精心安排的照明計畫，讓居家空間展現不同面貌。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png"
+            ]
+        },
+        {
+            "id": "project21",
+            "title": "佳鏵大聯盟",
+            "description": "打造富有質感的現代居家空間，以簡約設計語彙呈現生活美學。運用淺色系為主體，搭配細緻的木質元素，營造明亮溫馨的氛圍。巧妙的收納規劃，讓空間既實用又保持整潔。通過燈光設計，創造溫暖舒適的生活環境。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project22",
+            "title": "竹南透天",
+            "description": "透過現代設計手法，將都會風格完美展現。善用灰白色調搭配質感木作，打造簡約時尚的居家氛圍。客製化的收納規劃，讓空間充分發揮效益。精心設計的燈光配置，為生活空間增添溫暖與活力。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png"
+            ]
+        },
+        {
+            "id": "project23",
+            "title": "竹南透天",
+            "description": "將現代設計美學融入生活空間，創造舒適雅致的居家環境。以純白為基底，搭配溫潤木質元素，營造明亮開闊的視覺感受。特製的收納設計，完美契合空間需求。透過燈光層次的變化，展現空間的豐富表情。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png"
+            ]
+        },
+        {
+            "id": "project24",
+            "title": "竹南透天",
+            "description": "以純粹的設計語彙，譜寫現代生活的優雅篇章。運用灰階色調與木質元素的完美比例，營造沉穩大器的空間氛圍。量身打造的收納系統，讓生活更加便利有序。精準的燈光配置，為空間注入溫暖活力。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png",
+                "image7.png",
+                "image8.png",
+                "image9.png",
+                "image10.png",
+                "image11.png",
+                "image12.png",
+                "image13.png"
+            ]
+        },
+        {
+            "id": "project25",
+            "title": "太平透天",
+            "description": "原一樓電視牆寬部不夠，利用隔柵延伸視覺感。中間使用黑玻維持視覺穿透感，搭配結晶鋼烤的廚具中島。利用顏色將空間明確定義為不同區域，但是又不失寬闊感。檯面使用石英石，搭配上餐吊燈的照射，不同角度都會有不同的反射。業主是非常可愛的一家人，對於專業建議也都很願意聆聽。感謝讓我能夠一同參與這過程。喜歡幫客人打好七成的基礎，剩下的三成則是讓客人依自身的興趣與品味去挑選裝飾品，從而創造專屬於每個人自己的風格，這個過程的樂趣是不可言喻的。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png"
+            ]
+        },
+        {
+            "id": "project26",
+            "title": "大雅透天老屋翻新",
+            "description": "喜歡幫業主打底80%，最後的20%，則由業主的家具、擺設染上專屬於自己的氛圍。業主對於家具飾品的品味完全融入了此次的設計概念。特別喜歡放上電子相框及家人照片，能讓人充分感受到這個家庭的溫暖。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png",
+                "image7.png",
+                "image8.png"
+            ]
+        },
+        {
+            "id": "project27",
+            "title": "大毅讚幸福",
+            "description": "使用建材：仿清水模立體塗料、德國Egger板材，Cleaf門板、金屬插座開關、牆面貼黑色烤玻。風格規劃上，使用水泥紋搭配灰黑色打底，營造業主期待的現代X工業風。再利用清水模牆面營造空間內的視覺亮點。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png"
+            ]
+        },
+        {
+            "id": "project28",
+            "title": "大毅讚幸福",
+            "description": "使用建材：仿清水模立體塗料、德國Egger板材，Cleaf門板、金屬插座開關、牆面貼黑色烤玻。風格規劃上，使用水泥紋搭配灰黑色打底，營造業主期待的現代X工業風。再利用清水模牆面營造空間內的視覺亮點。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png",
+                "image7.png",
+                "image8.png",
+                "image9.png",
+                "image10.png",
+                "image11.png",
+                "image12.png"
+            ]
+        },
+        {
+            "id": "project29",
+            "title": "大毅讚幸福",
+            "description": "使用建材：仿清水模立體塗料、德國Egger板材，Cleaf門板、金屬插座開關、牆面貼黑色烤玻。風格規劃上，使用水泥紋搭配灰黑色打底，營造業主期待的現代X工業風。再利用清水模牆面營造空間內的視覺亮點。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        }
+    ]
+}

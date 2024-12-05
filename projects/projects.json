@@ -1,0 +1,417 @@
+{
+    "projects": [
+        {
+            "id": "project1",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png",
+                "image7.png",
+                "image8.png",
+                "image9.png",
+                "image10.png",
+                "image11.png",
+                "image12.png",
+                "image13.png",
+                "image14.png"
+            ]
+        },
+        {
+            "id": "project2",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project3",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project4",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png"
+            ]
+        },
+        {
+            "id": "project5",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png",
+                "image7.png"
+            ]
+        },
+        {
+            "id": "project6",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project7",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project8",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project9",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project10",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project11",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project12",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png",
+                "image7.png",
+                "image8.png",
+                "image9.png",
+                "image10.png"
+            ]
+        },
+        {
+            "id": "project13",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project14",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project15",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project16",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project17",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project18",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png"
+            ]
+        },
+        {
+            "id": "project19",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png",
+                "image7.png",
+                "image8.png",
+                "image9.png"
+            ]
+        },
+        {
+            "id": "project20",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png"
+            ]
+        },
+        {
+            "id": "project21",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        },
+        {
+            "id": "project22",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png"
+            ]
+        },
+        {
+            "id": "project23",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png"
+            ]
+        },
+        {
+            "id": "project24",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png",
+                "image7.png",
+                "image8.png",
+                "image9.png",
+                "image10.png",
+                "image11.png",
+                "image12.png",
+                "image13.png"
+            ]
+        },
+        {
+            "id": "project25",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png"
+            ]
+        },
+        {
+            "id": "project26",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png",
+                "image7.png",
+                "image8.png"
+            ]
+        },
+        {
+            "id": "project27",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png"
+            ]
+        },
+        {
+            "id": "project28",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png",
+                "image7.png",
+                "image8.png",
+                "image9.png",
+                "image10.png",
+                "image11.png",
+                "image12.png"
+            ]
+        },
+        {
+            "id": "project29",
+            "title": "現代簡約風格住宅設計",
+            "description": "位於台中市的現代風格住宅，融合簡約設計元素與溫暖木質調性，創造舒適宜人的生活空間。",
+            "cover": "cover.png",
+            "images": [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+                "image4.png",
+                "image5.png"
+            ]
+        }
+    ]
+}

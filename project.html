@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>專案詳情 - 玥森設計</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index-styles.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="玥森設計" height="30">
+                </a>
+            </div>
+            <div class="menu">
+                <a href="index.html#about">關於我們</a>
+                <a href="index.html#portfolio">作品集</a>
+                <a href="index.html#contact">聯繫我們</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Loading Animation -->
+    <div id="loadingSpinner" class="loading-container">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <style>
+        .loading-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.3s ease-out;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #555;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+    <div id="projectDetails"></div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
