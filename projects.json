@@ -32,7 +32,12 @@
                 "image2.png",
                 "image3.png",
                 "image4.png",
-                "image5.png"
+                "image5.png",
+                "image6.png",
+                "image7.png",
+                "image8.png",
+                "image9.png",
+                "image10.png"
             ]
         },
         {
@@ -43,9 +48,7 @@
             "images": [
                 "image1.png",
                 "image2.png",
-                "image3.png",
-                "image4.png",
-                "image5.png"
+                "image3.png"
             ]
         },
         {
@@ -59,7 +62,14 @@
                 "image3.png",
                 "image4.png",
                 "image5.png",
-                "image6.png"
+                "image6.png",
+                "image7.png",
+                "image8.png",
+                "image9.png",
+                "image10.png",
+                "image11.png",
+                "image12.png",
+                "image13.png"
             ]
         },
         {
@@ -72,7 +82,10 @@
                 "image2.png",
                 "image3.png",
                 "image4.png",
-                "image5.png"
+                "image5.png",
+                "image6.png",
+                "image7.png",
+                "image8.png"
             ]
         },
         {
@@ -83,9 +96,7 @@
             "images": [
                 "image1.png",
                 "image2.png",
-                "image3.png",
-                "image4.png",
-                "image5.png"
+                "image3.png"
             ]
         },
         {
@@ -98,7 +109,14 @@
                 "image2.png",
                 "image3.png",
                 "image4.png",
-                "image5.png"
+                "image5.png",
+                "image6.png",
+                "image7.png",
+                "image8.png",
+                "image9.png",
+                "image10.png",
+                "image11.png",
+                "image12.png"
             ]
         },
         {
@@ -151,11 +169,7 @@
                 "image3.png",
                 "image4.png",
                 "image5.png",
-                "image6.png",
-                "image7.png",
-                "image8.png",
-                "image9.png",
-                "image10.png"
+                "image6.png"
             ]
         },
         {
@@ -168,7 +182,9 @@
                 "image2.png",
                 "image3.png",
                 "image4.png",
-                "image5.png"
+                "image5.png",
+                "image6.png",
+                "image7.png"
             ]
         },
         {
@@ -233,8 +249,7 @@
                 "image2.png",
                 "image3.png",
                 "image4.png",
-                "image5.png",
-                "image6.png"
+                "image5.png"
             ]
         },
         {
@@ -247,11 +262,7 @@
                 "image2.png",
                 "image3.png",
                 "image4.png",
-                "image5.png",
-                "image6.png",
-                "image7.png",
-                "image8.png",
-                "image9.png"
+                "image5.png"
             ]
         },
         {
@@ -264,8 +275,7 @@
                 "image2.png",
                 "image3.png",
                 "image4.png",
-                "image5.png",
-                "image6.png"
+                "image5.png"
             ]
         },
         {
@@ -291,8 +301,7 @@
                 "image2.png",
                 "image3.png",
                 "image4.png",
-                "image5.png",
-                "image6.png"
+                "image5.png"
             ]
         },
         {
@@ -303,7 +312,9 @@
             "images": [
                 "image1.png",
                 "image2.png",
-                "image3.png"
+                "image3.png",
+                "image4.png",
+                "image5.png"
             ]
         },
         {
@@ -316,15 +327,7 @@
                 "image2.png",
                 "image3.png",
                 "image4.png",
-                "image5.png",
-                "image6.png",
-                "image7.png",
-                "image8.png",
-                "image9.png",
-                "image10.png",
-                "image11.png",
-                "image12.png",
-                "image13.png"
+                "image5.png"
             ]
         },
         {
@@ -335,7 +338,10 @@
             "images": [
                 "image1.png",
                 "image2.png",
-                "image3.png"
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png"
             ]
         },
         {
@@ -351,7 +357,8 @@
                 "image5.png",
                 "image6.png",
                 "image7.png",
-                "image8.png"
+                "image8.png",
+                "image9.png"
             ]
         },
         {
@@ -362,7 +369,10 @@
             "images": [
                 "image1.png",
                 "image2.png",
-                "image3.png"
+                "image3.png",
+                "image4.png",
+                "image5.png",
+                "image6.png"
             ]
         },
         {
@@ -375,14 +385,7 @@
                 "image2.png",
                 "image3.png",
                 "image4.png",
-                "image5.png",
-                "image6.png",
-                "image7.png",
-                "image8.png",
-                "image9.png",
-                "image10.png",
-                "image11.png",
-                "image12.png"
+                "image5.png"
             ]
         },
         {
@@ -395,7 +398,8 @@
                 "image2.png",
                 "image3.png",
                 "image4.png",
-                "image5.png"
+                "image5.png",
+                "image6.png"
             ]
         }
     ]
