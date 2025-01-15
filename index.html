@@ -105,15 +105,18 @@
             background-color: rgba(0, 0, 0, 0.3);
             padding: 20px 40px;
             border-radius: 5px;
+            width: 80%;
+            max-width: 800px;
         }
 
         .slide-content .featured-text {
             font-size: 2em;
-            margin: 10px 0;
-            line-height: 1.5;
+            margin: 5px 0;
+            line-height: 1.4;
             font-weight: 400;
             letter-spacing: 2px;
             color: inherit;
+            white-space: nowrap;
         }
 
         .slider-dots {
@@ -137,6 +140,20 @@
 
         .dot.active {
             background-color: white;
+        }
+
+        @media (max-width: 768px) {
+            .slide-content {
+                width: 90%;
+                padding: 15px 20px;
+            }
+
+            .slide-content .featured-text {
+                font-size: 1.2em;
+                margin: 5px 0;
+                letter-spacing: 1px;
+                white-space: normal;
+            }
         }
     </style>
 </head>
@@ -268,12 +285,18 @@
             function handleStart(event) {
                 isDragging = true;
                 startX = event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
-                event.preventDefault();
             }
 
             function handleMove(event) {
                 if (!isDragging) return;
-                event.preventDefault();
+
+                // 只在水平滑動時阻止預設行為
+                const currentX = event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+                const diffX = Math.abs(currentX - startX);
+
+                if (diffX > 5) { // 如果水平移動超過 5px
+                    event.preventDefault();
+                }
             }
 
             function handleEnd(event) {
