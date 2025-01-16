@@ -127,6 +127,7 @@ async function displayProjectDetails(project) {
     container.appendChild(imageGrid);
 }
 
+
 async function waitForImages(project) {
     const useWebP = await supportsWebP();
 
