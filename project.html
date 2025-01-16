@@ -46,7 +46,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: white;
+            background: #1a1a1a;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -57,10 +57,47 @@
         .loading-spinner {
             width: 50px;
             height: 50px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #555;
+            border: 4px solid #333;
+            border-top: 4px solid #ffffff;
             border-radius: 50%;
             animation: spin 1s linear infinite;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        nav {
+            background-color: #fff;
+            color: #333;
+        }
+
+        nav .menu a {
+            color: #333;
+        }
+
+        #projectDetails {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        #projectDetails h1,
+        .project-title,
+        body h1 {
+            color: #ffffff !important;
+        }
+
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #fafafa;
+        }
+
+        p {
+            color: #ffffff;
         }
 
         @keyframes spin {

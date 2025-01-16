@@ -155,6 +155,68 @@
                 white-space: normal;
             }
         }
+
+        body {
+            background-color: #1a1a1a;
+            color: #fafafa;
+        }
+
+        nav {
+            background-color: #fff;
+            color: #333;
+        }
+
+        nav .menu a {
+            color: #333;
+        }
+
+        #portfolio {
+            background-color: #1a1a1a;
+        }
+
+        #portfolio h2 {
+            color: #fafafa;
+        }
+
+        .about-section {
+            background-color: #1e1e1e;
+        }
+
+        .about-content {
+            color: #ffffff;
+        }
+
+        .section-title {
+            color: #ffffff;
+        }
+
+        .divider {
+            background-color: #ffffff;
+        }
+
+        #contact {
+            background-color: #1a1a1a;
+        }
+
+        #contact h2 {
+            color: #fafafa;
+        }
+
+        .social-links a {
+            color: #fafafa;
+        }
+
+        .social-links a:hover {
+            color: #a0a0a0;
+        }
+
+        .about-text {
+            color: #ffffff;
+        }
+
+        .featured-text {
+            color: #ffffff;
+        }
     </style>
 </head>
 
@@ -319,7 +381,7 @@
             }
 
             // 自動輪播
-            let autoPlayInterval = setInterval(nextSlide, 5000);
+            let autoPlayInterval = setInterval(nextSlide, 3000);
 
             // 當使用者互動時暫停自動輪播
             slider.addEventListener('mouseenter', () => {
@@ -328,7 +390,7 @@
 
             // 當使用者離開時恢復自動輪播
             slider.addEventListener('mouseleave', () => {
-                autoPlayInterval = setInterval(nextSlide, 5000);
+                autoPlayInterval = setInterval(nextSlide, 3000);
             });
 
             // 點擊指示點切換圖片
