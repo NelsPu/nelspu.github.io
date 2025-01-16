@@ -239,16 +239,16 @@
     <section class="slide-section">
         <div class="slide-slider" id="slideSlider">
             <div class="slide active">
-                <img src="slides/image10.png" alt="現代風格室內設計">
+                <img src="slides/image10.png" alt="現代風格室內設計" data-original="slides/image10.png">
             </div>
             <div class="slide">
-                <img src="slides/image11.png" alt="簡約風格室內設計">
+                <img src="slides/image11.png" alt="簡約風格室內設計" data-original="slides/image11.png">
             </div>
             <div class="slide">
-                <img src="slides/image12.png" alt="現代風格室內設計">
+                <img src="slides/image12.png" alt="現代風格室內設計" data-original="slides/image12.png">
             </div>
             <div class="slide">
-                <img src="slides/image9.png" alt="現代風格室內設計">
+                <img src="slides/image9.png" alt="現代風格室內設計" data-original="slides/image9.png">
             </div>
         </div>
         <div class="slider-dots">
@@ -309,7 +309,31 @@
     </section>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        // 添加 WebP 支援檢測
+        async function supportsWebP() {
+            if (!self.createImageBitmap) return false;
+
+            const webpData = 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=';
+            const blob = await fetch(webpData).then(r => r.blob());
+
+            return createImageBitmap(blob).then(() => true, () => false);
+        }
+
+        // 在 DOMContentLoaded 事件中處理圖片
+        document.addEventListener('DOMContentLoaded', async function () {
+            const useWebP = await supportsWebP();
+
+            // 處理所有 slider 圖片
+            document.querySelectorAll('.slide img').forEach(img => {
+                const originalSrc = img.getAttribute('data-original');
+                img.src = originalSrc.replace(/\.(png|jpg|jpeg)$/, useWebP ? '.webp' : '$&');
+
+                // 如果 WebP 載入失敗，回退到原始格式
+                img.onerror = function () {
+                    this.src = originalSrc;
+                };
+            });
+
             const slider = document.getElementById('slideSlider');
             const slides = document.querySelectorAll('.slide');
             const dots = document.querySelectorAll('.dot');

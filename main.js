@@ -1,21 +1,20 @@
 // main.js
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
     const loadingSpinner = document.getElementById('loadingSpinner');
 
     // 處理專案列表頁面
     const projectContainer = document.getElementById('projectContainer');
     if (projectContainer) {
-        fetch('projects.json')
-            .then(response => response.json())
-            .then(data => {
-                data.projects.forEach(project => {
-                    const projectCard = createProjectCard(project);
-                    projectContainer.appendChild(projectCard);
-                });
-            })
-            .catch(error => {
-                console.error('Error loading projects:', error);
-            });
+        try {
+            const response = await fetch('projects.json');
+            const data = await response.json();
+            for (const project of data.projects) {
+                const projectCard = await createProjectCard(project);
+                projectContainer.appendChild(projectCard);
+            }
+        } catch (error) {
+            console.error('Error loading projects:', error);
+        }
     }
 
     // 處理專案詳情頁面
@@ -25,38 +24,48 @@ document.addEventListener('DOMContentLoaded', function () {
         const projectId = urlParams.get('id');
 
         if (projectId) {
-            fetch('projects.json')
-                .then(response => response.json())
-                .then(data => {
-                    const project = data.projects.find(p => p.id === projectId);
-                    if (project) {
-                        displayProjectDetails(project);
-                        // 等待所有圖片載入完成
-                        return waitForImages(project);
-                    }
-                })
-                .then(() => {
-                    // 隱藏 loading 動畫
-                    loadingSpinner.classList.add('loading-hidden');
-                    setTimeout(() => {
-                        loadingSpinner.style.display = 'none';
-                    }, 300);
-                })
-                .catch(error => {
-                    console.error('Error loading project details:', error);
-                    loadingSpinner.classList.add('loading-hidden');
-                });
+            try {
+                const response = await fetch('projects.json');
+                const data = await response.json();
+                const project = data.projects.find(p => p.id === projectId);
+                if (project) {
+                    await displayProjectDetails(project);
+                    await waitForImages(project);
+                }
+                loadingSpinner.classList.add('loading-hidden');
+                setTimeout(() => {
+                    loadingSpinner.style.display = 'none';
+                }, 300);
+            } catch (error) {
+                console.error('Error loading project details:', error);
+                loadingSpinner.classList.add('loading-hidden');
+            }
         }
     }
 });
 
-function createProjectCard(project) {
+async function supportsWebP() {
+    if (!self.createImageBitmap) return false;
+
+    const webpData = 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=';
+    const blob = await fetch(webpData).then(r => r.blob());
+
+    return createImageBitmap(blob).then(() => true, () => false);
+}
+
+async function createProjectCard(project) {
     const card = document.createElement('div');
     card.className = 'project-card';
 
     const img = document.createElement('img');
-    img.src = `projects/${project.id}/${project.cover}`;
+    const useWebP = await supportsWebP();
+    img.src = `projects/${project.id}/${project.cover.replace(/\.(png|jpg|jpeg)$/, useWebP ? '.webp' : '$&')}`;
     img.alt = project.title;
+
+    // 如果 WebP 載入失敗，回退到原始格式
+    img.onerror = function () {
+        this.src = `projects/${project.id}/${project.cover}`;
+    };
 
     const overlay = document.createElement('div');
     overlay.className = 'overlay';
@@ -72,8 +81,9 @@ function createProjectCard(project) {
     return card;
 }
 
-function displayProjectDetails(project) {
+async function displayProjectDetails(project) {
     const container = document.getElementById('projectDetails');
+    const useWebP = await supportsWebP();
 
     // 添加標題
     const title = document.createElement('h1');
@@ -95,8 +105,13 @@ function displayProjectDetails(project) {
         imageContainer.className = 'image-container';
 
         const img = document.createElement('img');
-        img.src = `projects/${project.id}/${imageName}`;
+        img.src = `projects/${project.id}/${imageName.replace(/\.(png|jpg|jpeg)$/, useWebP ? '.webp' : '$&')}`;
         img.alt = project.title;
+
+        // 如果 WebP 載入失敗，回退到原始格式
+        img.onerror = function () {
+            this.src = `projects/${project.id}/${imageName}`;
+        };
 
         // 圖片加載完成後確定方向
         img.onload = function () {
@@ -112,14 +127,18 @@ function displayProjectDetails(project) {
     container.appendChild(imageGrid);
 }
 
-// 等待所有圖片載入的輔助函數
-function waitForImages(project) {
+async function waitForImages(project) {
+    const useWebP = await supportsWebP();
+
     const imagePromises = project.images.map(imageName => {
         return new Promise((resolve, reject) => {
             const img = new Image();
             img.onload = resolve;
-            img.onerror = reject;
-            img.src = `projects/${project.id}/${imageName}`;
+            img.onerror = () => {
+                // 如果 WebP 載入失敗，嘗試載入原始格式
+                img.src = `projects/${project.id}/${imageName}`;
+            };
+            img.src = `projects/${project.id}/${imageName.replace(/\.(png|jpg|jpeg)$/, useWebP ? '.webp' : '$&')}`;
         });
     });
 
