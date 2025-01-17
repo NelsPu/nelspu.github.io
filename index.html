@@ -357,40 +357,31 @@
                 dots[currentSlide].classList.add('active');
             }
 
-            // 觸控事件
-            slider.addEventListener('touchstart', handleStart, { passive: false });
-            slider.addEventListener('touchmove', handleMove, { passive: false });
-            slider.addEventListener('touchend', handleEnd);
-
-            // 滑鼠事件
-            slider.addEventListener('mousedown', handleStart);
-            slider.addEventListener('mousemove', handleMove);
-            slider.addEventListener('mouseup', handleEnd);
-            slider.addEventListener('mouseleave', handleEnd);
-
+            // 修改滑鼠事件處理函數
             function handleStart(event) {
                 isDragging = true;
-                startX = event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+                startX = event.type === 'mousedown' ? event.clientX : event.touches[0].clientX;
+                event.preventDefault(); // 防止拖曳時選中文字
             }
 
             function handleMove(event) {
                 if (!isDragging) return;
 
-                // 只在水平滑動時阻止預設行為
-                const currentX = event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
-                const diffX = Math.abs(currentX - startX);
+                event.preventDefault(); // 防止拖曳時的預設行為
+                const currentX = event.type === 'mousemove' ? event.clientX : event.touches[0].clientX;
+                const diff = currentX - startX;
 
-                if (diffX > 5) { // 如果水平移動超過 5px
-                    event.preventDefault();
+                // 可以添加一些視覺反饋，比如輕微的位移效果
+                if (Math.abs(diff) > 5) {
+                    slider.style.cursor = 'grabbing';
                 }
             }
 
             function handleEnd(event) {
                 if (!isDragging) return;
 
-                const endX = event.type.includes('mouse') ? event.pageX :
+                const endX = event.type === 'mouseup' ? event.clientX :
                     (event.changedTouches ? event.changedTouches[0].clientX : startX);
-
                 const diff = endX - startX;
 
                 if (Math.abs(diff) > 50) {
@@ -402,10 +393,30 @@
                 }
 
                 isDragging = false;
+                slider.style.cursor = 'grab';
             }
 
-            // 自動輪播
-            let autoPlayInterval = setInterval(nextSlide, 3000);
+            // 修改事件監聽器
+            slider.addEventListener('mousedown', handleStart);
+            slider.addEventListener('touchstart', handleStart, { passive: false });
+
+            window.addEventListener('mousemove', handleMove);
+            slider.addEventListener('touchmove', handleMove, { passive: false });
+
+            window.addEventListener('mouseup', handleEnd);
+            slider.addEventListener('touchend', handleEnd);
+
+            // 防止拖曳時選中文字
+            slider.addEventListener('dragstart', (e) => e.preventDefault());
+
+            // 當滑鼠離開視窗時，結束拖曳狀態
+            window.addEventListener('mouseleave', () => {
+                isDragging = false;
+                slider.style.cursor = 'grab';
+            });
+
+            // 自動輪播時間改為 5000 毫秒（5秒）
+            let autoPlayInterval = setInterval(nextSlide, 5000);
 
             // 當使用者互動時暫停自動輪播
             slider.addEventListener('mouseenter', () => {
@@ -414,7 +425,7 @@
 
             // 當使用者離開時恢復自動輪播
             slider.addEventListener('mouseleave', () => {
-                autoPlayInterval = setInterval(nextSlide, 4000);
+                autoPlayInterval = setInterval(nextSlide, 5000); // 這裡也改為 5000
             });
 
             // 點擊指示點切換圖片
