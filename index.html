@@ -361,19 +361,24 @@
             function handleStart(event) {
                 isDragging = true;
                 startX = event.type === 'mousedown' ? event.clientX : event.touches[0].clientX;
-                event.preventDefault(); // 防止拖曳時選中文字
+                if (event.type === 'mousedown') {
+                    event.preventDefault(); // 只在滑鼠事件時阻止默認行為
+                }
             }
 
             function handleMove(event) {
                 if (!isDragging) return;
 
-                event.preventDefault(); // 防止拖曳時的預設行為
                 const currentX = event.type === 'mousemove' ? event.clientX : event.touches[0].clientX;
                 const diff = currentX - startX;
 
-                // 可以添加一些視覺反饋，比如輕微的位移效果
                 if (Math.abs(diff) > 5) {
                     slider.style.cursor = 'grabbing';
+                }
+
+                // 只在水平滑動超過閾值時阻止默認行為
+                if (event.type === 'touchmove' && Math.abs(diff) > 10) {
+                    event.preventDefault();
                 }
             }
 
@@ -398,16 +403,13 @@
 
             // 修改事件監聽器
             slider.addEventListener('mousedown', handleStart);
-            slider.addEventListener('touchstart', handleStart, { passive: false });
+            slider.addEventListener('touchstart', handleStart);
 
             window.addEventListener('mousemove', handleMove);
             slider.addEventListener('touchmove', handleMove, { passive: false });
 
             window.addEventListener('mouseup', handleEnd);
             slider.addEventListener('touchend', handleEnd);
-
-            // 防止拖曳時選中文字
-            slider.addEventListener('dragstart', (e) => e.preventDefault());
 
             // 當滑鼠離開視窗時，結束拖曳狀態
             window.addEventListener('mouseleave', () => {
