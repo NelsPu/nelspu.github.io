@@ -220,9 +220,11 @@ nav .nav-container {
 
 .hero-title {
     font-family: var(--font-en);
-    font-size: 11vw;
-    /* 改用螢幕寬度比例 (vw) ，保證單字絕對不會撐爆手機螢幕 */
-    letter-spacing: 0.15em;
+    /* 使用 clamp 限制字體大小，避免在超大螢幕上過於巨大，並讓它精緻一點 */
+    font-size: clamp(3rem, 8vw, 9rem);
+    font-weight: 400;
+    /* 稍微加粗一點點，讓字體在縮小後仍有份量 */
+    letter-spacing: 0.2em;
     color: #fff;
     margin-bottom: 20px;
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
@@ -277,16 +279,21 @@ nav .nav-container {
 .projects {
     display: flex;
     flex-direction: column;
-    gap: 5rem;
+    gap: 8rem;
+    /* 加大桌面版每個專案的間距 */
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 .project-editorial {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 電腦版預設改為兩欄式 */
+    gap: 4rem;
+    /* 設定欄位間距 */
+    align-items: center;
+    /* 垂直置中對齊 */
 }
 
 .project-image {
@@ -326,9 +333,25 @@ nav .nav-container {
 }
 
 .project-info {
-    order: 2;
     padding: 0;
     text-align: left;
+}
+
+/* 設定左右交錯的排版 */
+.project-editorial .project-image {
+    order: 1;
+}
+
+.project-editorial .project-info {
+    order: 2;
+}
+
+.project-editorial:nth-child(even) .project-image {
+    order: 2;
+}
+
+.project-editorial:nth-child(even) .project-info {
+    order: 1;
 }
 
 .project-info h3 {
@@ -338,8 +361,8 @@ nav .nav-container {
 }
 
 .project-info p {
-    font-size: 1.05rem;
-    /* 稍微加大作品說明的內文 */
+    font-size: 1rem;
+    /* 在兩欄式佈局中，稍微縮小內文字級以求平衡 */
     margin-bottom: 1.5rem;
 }
 
@@ -538,24 +561,26 @@ nav .nav-container {
         font-size: 1rem;
     }
 
-    .project-editorial,
-    .project-editorial:nth-child(even) {
+    .projects {
+        gap: 5rem;
+        /* 手機版專案間距 */
+    }
+
+    .project-editorial {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
 
+    /* 在手機版上，重設順序，永遠是圖片在上，文字在下 */
+    .project-editorial .project-image,
     .project-editorial:nth-child(even) .project-image {
         order: 1;
     }
 
+    .project-editorial .project-info,
     .project-editorial:nth-child(even) .project-info {
         order: 2;
         text-align: left;
-        padding-right: 0;
-    }
-
-    .project-info {
-        padding-left: 0;
     }
 
     nav .nav-container {
