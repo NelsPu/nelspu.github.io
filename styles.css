@@ -550,8 +550,10 @@ nav .nav-container {
     }
 
     .hero-title {
-        font-size: 2.8rem;
-        letter-spacing: 0.1em;
+        font-size: clamp(2.4rem, 10vw, 3rem);
+        /* 使用 clamp 讓字體在小螢幕上更具適應性 */
+        letter-spacing: 0.08em;
+        /* 再次微調字元間距 */
     }
 
     #projectDetails h1,
