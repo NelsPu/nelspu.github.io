@@ -97,7 +97,7 @@ nav .nav-container {
     max-width: 1400px;
     width: 100%;
     margin: 0 auto;
-    padding: 1.5rem 40px;
+    padding: 1rem 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -112,12 +112,12 @@ nav .nav-container {
 
 .menu {
     display: flex;
-    gap: 3rem;
+    gap: 1.5rem;
 }
 
 .menu a {
     font-family: var(--font-en);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     position: relative;
@@ -209,7 +209,7 @@ nav .nav-container {
 
 .hero-title {
     font-family: var(--font-en);
-    font-size: 5vw;
+    font-size: 3rem;
     letter-spacing: 0.2em;
     color: #fff;
     margin-bottom: 20px;
@@ -218,7 +218,7 @@ nav .nav-container {
 
 .slide-content .featured-text {
     font-family: var(--font-tw-serif);
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     letter-spacing: 4px;
     color: var(--text-primary);
 }
@@ -249,60 +249,46 @@ nav .nav-container {
    Portfolio Section (Editorial Layout)
    ========================================================================== */
 #portfolio {
-    padding: 10rem 0;
+    padding: 5rem 0;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
 }
 
 .section-header h2 {
     font-family: var(--font-tw-serif);
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .projects {
     display: flex;
     flex-direction: column;
-    gap: 10rem;
+    gap: 5rem;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 20px;
 }
 
 .project-editorial {
-    display: grid;
-    grid-template-columns: 7fr 5fr;
-    align-items: center;
-    gap: 5rem;
-}
-
-.project-editorial:nth-child(even) {
-    grid-template-columns: 5fr 7fr;
-}
-
-.project-editorial:nth-child(even) .project-image {
-    order: 2;
-}
-
-.project-editorial:nth-child(even) .project-info {
-    order: 1;
-    text-align: right;
-    padding-right: 2rem;
-    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .project-image {
     position: relative;
     overflow: hidden;
+    width: 100%;
+    order: 1;
 }
 
 .project-image::before {
     content: '';
     display: block;
-    padding-bottom: 120%;
-    /* Portrait aspect ratio */
+    padding-bottom: 100%;
+    /* Mobile first: Square aspect ratio */
 }
 
 .project-image img {
@@ -319,28 +305,29 @@ nav .nav-container {
     transform: scale(1.05);
 }
 
-.project-info {
-    padding-left: 2rem;
-}
-
 .project-number {
     font-family: var(--font-en);
-    font-size: 4rem;
+    font-size: 3rem;
     color: rgba(255, 255, 255, 0.05);
     line-height: 1;
     display: block;
-    margin-bottom: -1rem;
+}
+
+.project-info {
+    order: 2;
+    padding: 0;
+    text-align: left;
 }
 
 .project-info h3 {
     font-family: var(--font-tw-serif);
-    font-size: 2.2rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
 }
 
 .project-info p {
     font-size: 1rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .discover-btn {
@@ -352,7 +339,8 @@ nav .nav-container {
     letter-spacing: 2px;
     font-size: 0.85rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    padding-bottom: 5px;
+    padding: 10px 0 5px 0;
+    /* Expanded touch target */
 }
 
 .discover-btn:hover {
@@ -364,7 +352,7 @@ nav .nav-container {
    About Section
    ========================================================================== */
 .about-section {
-    padding: 10rem 20px;
+    padding: 6rem 20px;
     background-color: var(--bg-surface);
     text-align: center;
 }
@@ -376,19 +364,19 @@ nav .nav-container {
 
 .about-content .section-title {
     font-family: var(--font-en);
-    font-size: 3rem;
-    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .about-section .featured-text {
     font-family: var(--font-tw-serif);
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: var(--accent-gold);
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .about-section .about-text {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 1.5rem;
 }
 
@@ -396,20 +384,20 @@ nav .nav-container {
    Contact Section
    ========================================================================== */
 #contact {
-    padding: 8rem 20px;
+    padding: 6rem 20px;
     text-align: center;
 }
 
 #contact h2 {
     font-family: var(--font-tw-serif);
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .social-links a {
@@ -427,28 +415,29 @@ nav .nav-container {
    ========================================================================== */
 #projectDetails {
     max-width: 1400px;
-    margin: 120px auto 0;
-    padding: 4rem 40px;
+    margin: 80px auto 0;
+    padding: 2rem 20px;
 }
 
 #projectDetails h1 {
     font-family: var(--font-tw-serif);
-    font-size: 3.5rem;
-    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
     text-align: center;
 }
 
 #projectDetails>p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     max-width: 800px;
-    margin: 0 auto 5rem;
+    margin: 0 auto 3rem;
     text-align: center;
 }
 
 .project-images {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    grid-template-columns: 1fr;
+    /* Mobile first: single column */
+    gap: 20px;
 }
 
 .image-container {
@@ -456,7 +445,7 @@ nav .nav-container {
 }
 
 .image-container.landscape {
-    grid-column: span 2;
+    grid-column: span 1;
 }
 
 .image-container img {
