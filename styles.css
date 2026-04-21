@@ -469,6 +469,17 @@ nav .nav-container {
     display: block;
 }
 
+/* On desktop, use a two-column grid and span landscape images */
+@media (min-width: 901px) {
+    .project-images {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .image-container.landscape {
+        grid-column: span 2;
+    }
+}
+
 /* ==========================================================================
    Loading Spinner
    ========================================================================== */
@@ -514,6 +525,19 @@ nav .nav-container {
         font-size: 3rem;
     }
 
+    #projectDetails h1,
+    .about-content .section-title {
+        font-size: 2rem;
+    }
+
+    .project-info h3 {
+        font-size: 1.5rem;
+    }
+
+    #projectDetails>p {
+        font-size: 1rem;
+    }
+
     .project-editorial,
     .project-editorial:nth-child(even) {
         grid-template-columns: 1fr;
@@ -543,14 +567,6 @@ nav .nav-container {
     }
 
     .menu a {
-        font-size: 0.8rem;
-    }
-
-    .project-images {
-        grid-template-columns: 1fr;
-    }
-
-    .image-container.landscape {
-        grid-column: span 1;
+        font-size: 0.9rem;
     }
 }
