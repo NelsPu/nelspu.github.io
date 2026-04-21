@@ -8,10 +8,11 @@ document.addEventListener('DOMContentLoaded', async function () {
         try {
             const response = await fetch('projects.json');
             const data = await response.json();
-            for (const project of data.projects) {
-                const projectCard = await createProjectCard(project);
+            for (let i = 0; i < data.projects.length; i++) {
+                const projectCard = await createProjectCard(data.projects[i], i);
                 projectContainer.appendChild(projectCard);
             }
+            initScrollAnimations(); // 初始化滾動動畫
         } catch (error) {
             console.error('Error loading projects:', error);
         }
@@ -53,32 +54,30 @@ async function supportsWebP() {
     return createImageBitmap(blob).then(() => true, () => false);
 }
 
-async function createProjectCard(project) {
-    const card = document.createElement('div');
-    card.className = 'project-card';
+async function createProjectCard(project, index) {
+    const article = document.createElement('article');
+    article.className = 'project-editorial reveal';
 
-    const img = document.createElement('img');
     const useWebP = await supportsWebP();
-    img.src = `projects/${project.id}/${project.cover.replace(/\.(png|jpg|jpeg)$/, useWebP ? '.webp' : '$&')}`;
-    img.alt = project.title;
+    const imageUrl = `projects/${project.id}/${project.cover.replace(/\.(png|jpg|jpeg)$/, useWebP ? '.webp' : '$&')}`;
+    const fallbackUrl = `projects/${project.id}/${project.cover}`;
+    const projectNum = String(index + 1).padStart(2, '0'); // 生成 01, 02...
 
-    // 如果 WebP 載入失敗，回退到原始格式
-    img.onerror = function () {
-        this.src = `projects/${project.id}/${project.cover}`;
-    };
+    article.innerHTML = `
+        <div class="project-image">
+            <a href="project.html?id=${project.id}">
+                <img src="${imageUrl}" alt="${project.title}" onerror="this.onerror=null;this.src='${fallbackUrl}';">
+            </a>
+        </div>
+        <div class="project-info">
+            <span class="project-number">${projectNum}</span>
+            <h3>${project.title}</h3>
+            <p>${project.description.substring(0, 80)}...</p>
+            <a href="project.html?id=${project.id}" class="discover-btn">Discover <span>&rarr;</span></a>
+        </div>
+    `;
 
-    const overlay = document.createElement('div');
-    overlay.className = 'overlay';
-    overlay.textContent = project.title;
-
-    card.appendChild(img);
-    card.appendChild(overlay);
-
-    card.addEventListener('click', () => {
-        window.location.href = `project.html?id=${project.id}`;
-    });
-
-    return card;
+    return article;
 }
 
 async function displayProjectDetails(project) {
@@ -144,4 +143,26 @@ async function waitForImages(project) {
     });
 
     return Promise.all(imagePromises);
+}
+
+// 加入 Intersection Observer 處理滾動浮現動畫
+function initScrollAnimations() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // 觸發一次後就解除觀察
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+    });
 }

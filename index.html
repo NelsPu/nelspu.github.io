@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>玥森設計 Moonforest - 室內設計</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@300;400;500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="index-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moon Forest Interior - 專業室內設計服務</title>
     <meta name="description" content="玥森設計 - 專業室內設計團隊，專注於現代風格空間規劃。提供台中地區室內設計、裝修工程、系統家具訂製等服務，打造您理想的居家空間。">
     <meta name="keywords"
         content="室內設計, 空間規劃, 居家設計, 辦公室設計, 商業空間設計, Moon Forest Interior, 玥森設計, 台中室內設計, 系統櫃訂製, 住宅裝修, 室內裝潢, 空間設計, 現代風格設計, 日式風格設計, 室內設計師">
@@ -46,178 +47,12 @@
         },
         "url": "https://moonforestinterior.com",
         "areaServed": "台中",
-        "servesCuisine": "台中市",
         "openingHours": "Mo-Fr 09:00-18:00",
         "sameAs": [
             "https://www.instagram.com/moonforest.interior/"
         ]
     }
     </script>
-    <style>
-        .slide-section {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .slide-slider {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            touch-action: pan-y pinch-zoom;
-            cursor: grab;
-        }
-
-        .slide-slider:active {
-            cursor: grabbing;
-        }
-
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .slide.active {
-            opacity: 1;
-        }
-
-        .slide img,
-        .slide video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .slide-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: #fafafa;
-            z-index: 2;
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 20px 40px;
-            border-radius: 5px;
-            width: 80%;
-            max-width: 800px;
-        }
-
-        .slide-content .featured-text {
-            font-size: 2em;
-            margin: 5px 0;
-            line-height: 1.4;
-            font-weight: 400;
-            letter-spacing: 2px;
-            color: inherit;
-            white-space: nowrap;
-        }
-
-        .slider-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 3;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .dot.active {
-            background-color: white;
-        }
-
-        @media (max-width: 768px) {
-            .slide-content {
-                width: 90%;
-                padding: 15px 20px;
-            }
-
-            .slide-content .featured-text {
-                font-size: 1.2em;
-                margin: 5px 0;
-                letter-spacing: 1px;
-                white-space: normal;
-            }
-        }
-
-        body {
-            background-color: #1a1a1a;
-            color: #fafafa;
-        }
-
-        nav {
-            background-color: #fff;
-            color: #333;
-        }
-
-        nav .menu a {
-            color: #333;
-        }
-
-        #portfolio {
-            background-color: #1a1a1a;
-        }
-
-        #portfolio h2 {
-            color: #fafafa;
-        }
-
-        .about-section {
-            background-color: #1e1e1e;
-        }
-
-        .about-content {
-            color: #ffffff;
-        }
-
-        .section-title {
-            color: #ffffff;
-        }
-
-        .divider {
-            background-color: #ffffff;
-        }
-
-        #contact {
-            background-color: #1a1a1a;
-        }
-
-        #contact h2 {
-            color: #fafafa;
-        }
-
-        .social-links a {
-            color: #fafafa;
-        }
-
-        .social-links a:hover {
-            color: #a0a0a0;
-        }
-
-        .about-text {
-            color: #ffffff;
-        }
-
-        .featured-text {
-            color: #ffffff;
-        }
-    </style>
 </head>
 
 <body>
@@ -258,40 +93,35 @@
             <span class="dot"></span>
         </div>
         <div class="slide-content">
-            <p class="featured-text">專注於打造理想的居住空間，</p>
-            <p class="featured-text">秉持著為生活注入設計的美好。</p>
+            <h1 class="hero-title">MOONFOREST</h1>
+            <p class="featured-text">淬鍊空間本質，重塑生活美學。</p>
         </div>
     </section>
 
     <section id="portfolio">
-        <h2>作品集</h2>
+        <div class="section-header reveal">
+            <span class="section-subtitle">Selected Works</span>
+            <h2>精緻案例</h2>
+        </div>
         <div class="projects" id="projectContainer"></div>
     </section>
 
     <section id="about" class="about-section">
-        <div class="about-content">
+        <div class="about-content reveal">
+            <span class="section-subtitle">Philosophy</span>
             <h1 class="section-title">About</h1>
-            <div class="divider"></div>
-
-            <p class="featured-text">玥森設計，專注於打造理想的居住空間，</p>
-            <p class="featured-text">秉持著為生活注入設計的美好。</p>
-
-            <p class="about-text">融合美學與機能，為您打造寧靜優雅的生活空間。</p>
-            <p class="about-text">深入考量每個空間的獨特性，依據現場狀況規劃最適切的設計方案。</p>
-
-            <p class="about-text">嚴選優質品牌建材，堅持使用具認證的安心產品，</p>
-            <p class="about-text">由經驗豐富且值得信賴的工班團隊執行，</p>
-            <p class="about-text">搭配完善的專案管理與定期進度回報，</p>
-            <p class="about-text">讓您安心將理想居家交給我們。</p>
-
-            <p class="about-text">以大台中地區為服務核心，</p>
-            <p class="about-text">無論您在台中市區或周邊地區，</p>
-            <p class="about-text">我們都能為您打造專屬的質感生活空間。</p>
+            <p class="featured-text">「尋找空間與心靈的完美共鳴」</p>
+            <p class="about-text">我們深信，空間是生活品味的延伸。玥森設計專注於現代極簡與自然美學的交融，褪去繁複，回歸純粹。</p>
+            <p class="about-text">
+                透過光影、材質與比例的精準對話，我們將您的生活輪廓，轉化為具象的空間語彙。由嚴選建材到精工細作，每一個細節都傾注了對品質的極致追求，為您量身打造靜謐、優雅且充滿靈性的棲息之所。</p>
         </div>
     </section>
 
     <section id="contact">
-        <h2>聯絡我們</h2>
+        <div class="reveal">
+            <span class="section-subtitle">Get in Touch</span>
+            <h2>聯絡我們</h2>
+        </div>
         <div class="social-links">
             <a href="https://www.instagram.com/moonforest.interior/" target="_blank">
                 <i class="fab fa-instagram"></i>

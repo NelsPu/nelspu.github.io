@@ -1,320 +1,552 @@
+/* ==========================================================================
+   Variables & Base
+   ========================================================================== */
+:root {
+    --bg-dark: #080808;
+    --bg-surface: #121212;
+    --text-primary: #f0f0f0;
+    --text-secondary: #999999;
+    --accent-gold: #c2a77d;
+
+    --font-en: 'Cormorant Garamond', serif;
+    --font-tw-sans: 'Noto Sans TC', sans-serif;
+    --font-tw-serif: 'Noto Serif TC', serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-tw-sans);
+    line-height: 1.8;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+p {
+    color: var(--text-secondary);
+    font-weight: 300;
+}
+
+a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.4s ease;
+}
+
+/* ==========================================================================
+   Animations & Utilities
+   ========================================================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-subtitle {
+    font-family: var(--font-en);
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    font-style: italic;
+    letter-spacing: 4px;
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Navigation (Glassmorphism Dark)
+   ========================================================================== */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #fff;
+    background-color: rgba(8, 8, 8, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s ease;
 }
 
 nav .nav-container {
-    max-width: 1200px;
+    max-width: 1400px;
     width: 100%;
     margin: 0 auto;
-    padding: 1rem 0;
+    padding: 1.5rem 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo {
-    padding-left: 20px;
-}
-
 .logo img {
-    height: 30px;
+    height: 24px;
     width: auto;
+    filter: brightness(0) invert(1);
+    /* Forces logo to be white if it's black */
 }
 
 .menu {
     display: flex;
-    gap: 2rem;
-    padding-right: 20px;
-    /* 單獨為 menu 添加右邊距 */
+    gap: 3rem;
 }
 
 .menu a {
-    text-decoration: none;
-    color: #333;
+    font-family: var(--font-en);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
 }
 
-.about-section {
+.menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--accent-gold);
+    transition: width 0.3s ease;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   Hero Slider
+   ========================================================================== */
+.slide-section {
     position: relative;
-    padding: 6rem 2rem 4rem 2rem;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #f5f5f5;
+    width: 100%;
+    height: 100vh;
     overflow: hidden;
 }
 
-.about-section::before {
+.slide-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+}
+
+.slide-slider:active {
+    cursor: grabbing;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.slide::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('background.png');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.1;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%);
     z-index: 1;
 }
 
-.about-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+.slide.active {
+    opacity: 1;
 }
 
-.section-title {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #333;
-}
-
-.divider {
-    width: 60px;
-    height: 2px;
-    background-color: #333;
-    margin: 1.5rem auto;
-}
-
-.featured-text {
-    font-size: 2rem;
-    line-height: 1.4;
-    margin-bottom: 1.5rem;
-    color: #333;
-    font-weight: 300;
-}
-
-.about-text {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-#portfolio {
-    padding-top: 80px;
-    margin: 0;
+.slide img,
+.slide video {
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.05);
+    transition: transform 10s linear;
 }
 
-#portfolio h2 {
+.slide.active img {
+    transform: scale(1);
+}
+
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    margin-bottom: 2rem;
-    color: #333;
-    padding: 1rem;
+    z-index: 2;
+    width: 90%;
+}
+
+.hero-title {
+    font-family: var(--font-en);
+    font-size: 5vw;
+    letter-spacing: 0.2em;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.slide-content .featured-text {
+    font-family: var(--font-tw-serif);
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    color: var(--text-primary);
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 3;
+}
+
+.dot {
+    width: 30px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+}
+
+.dot.active {
+    background-color: var(--accent-gold);
+}
+
+/* ==========================================================================
+   Portfolio Section (Editorial Layout)
+   ========================================================================== */
+#portfolio {
+    padding: 10rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.section-header h2 {
+    font-family: var(--font-tw-serif);
+    font-size: 2.5rem;
 }
 
 .projects {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 0 20px;
-    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+    max-width: 1400px;
     margin: 0 auto;
+    padding: 0 40px;
 }
 
-.project-card {
+.project-editorial {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    align-items: center;
+    gap: 5rem;
+}
+
+.project-editorial:nth-child(even) {
+    grid-template-columns: 5fr 7fr;
+}
+
+.project-editorial:nth-child(even) .project-image {
+    order: 2;
+}
+
+.project-editorial:nth-child(even) .project-info {
+    order: 1;
+    text-align: right;
+    padding-right: 2rem;
+    padding-left: 0;
+}
+
+.project-image {
     position: relative;
-    width: 100%;
-    padding-bottom: 75%;
     overflow: hidden;
-    cursor: pointer;
 }
 
-.project-card img {
+.project-image::before {
+    content: '';
+    display: block;
+    padding-bottom: 120%;
+    /* Portrait aspect ratio */
+}
+
+.project-image img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.project-card .overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 1rem;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
+.project-image:hover img {
+    transform: scale(1.05);
 }
 
-.project-card:hover .overlay {
-    transform: translateY(0);
+.project-info {
+    padding-left: 2rem;
 }
 
+.project-number {
+    font-family: var(--font-en);
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.05);
+    line-height: 1;
+    display: block;
+    margin-bottom: -1rem;
+}
+
+.project-info h3 {
+    font-family: var(--font-tw-serif);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-info p {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.discover-btn {
+    font-family: var(--font-en);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 5px;
+}
+
+.discover-btn:hover {
+    color: var(--accent-gold);
+    border-bottom-color: var(--accent-gold);
+}
+
+/* ==========================================================================
+   About Section
+   ========================================================================== */
+.about-section {
+    padding: 10rem 20px;
+    background-color: var(--bg-surface);
+    text-align: center;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-content .section-title {
+    font-family: var(--font-en);
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+.about-section .featured-text {
+    font-family: var(--font-tw-serif);
+    font-size: 2rem;
+    color: var(--accent-gold);
+    margin-bottom: 2.5rem;
+}
+
+.about-section .about-text {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   Contact Section
+   ========================================================================== */
 #contact {
-    padding: 4rem 2rem;
+    padding: 8rem 20px;
     text-align: center;
 }
 
 #contact h2 {
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    color: #333;
+    font-family: var(--font-tw-serif);
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 3rem;
 }
 
 .social-links a {
-    color: #333;
-    font-size: 2rem;
-    transition: color 0.3s ease;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
 }
 
 .social-links a:hover {
-    color: #666;
+    color: var(--accent-gold);
+    transform: translateY(-5px);
 }
 
-/* 專案詳情頁面 */
+/* ==========================================================================
+   Project Details Page
+   ========================================================================== */
 #projectDetails {
-    max-width: 1200px;
-    margin: 80px auto 0;
-    padding: 2rem 20px;
+    max-width: 1400px;
+    margin: 120px auto 0;
+    padding: 4rem 40px;
 }
 
 #projectDetails h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #333;
-    padding-left: 20px;
+    font-family: var(--font-tw-serif);
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
-#projectDetails p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #666;
-    margin-bottom: 2rem;
-    padding-left: 20px;
+#projectDetails>p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 5rem;
+    text-align: center;
 }
 
 .project-images {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
 }
 
 .image-container {
     position: relative;
-    grid-column: span 6;
-}
-
-.image-container.portrait {
-    padding-bottom: 140%;
 }
 
 .image-container.landscape {
-    grid-column: span 12;
-    padding-bottom: 56.25%;
+    grid-column: span 2;
 }
 
 .image-container img {
-    position: absolute;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
+   Loading Spinner
+   ========================================================================== */
+.loading-container {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 4px;
+    background: var(--bg-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease-out;
 }
 
-@media (max-width: 768px) {
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--accent-gold);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 900px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .project-editorial,
+    .project-editorial:nth-child(even) {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .project-editorial:nth-child(even) .project-image {
+        order: 1;
+    }
+
+    .project-editorial:nth-child(even) .project-info {
+        order: 2;
+        text-align: left;
+        padding-right: 0;
+    }
+
+    .project-info {
+        padding-left: 0;
+    }
+
     nav .nav-container {
-        padding: 1rem 15px;
+        padding: 1rem 20px;
     }
 
     .menu {
-        padding-right: 0;
-        /* 移除右邊距 */
-        gap: 1rem;
-        /* 減少選單項目間距 */
-        white-space: nowrap;
-        /* 防止文字換行 */
+        gap: 1.5rem;
     }
 
-    .about-section {
-        padding: 5rem 1rem 3rem 1rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .featured-text {
-        font-size: 1.5rem;
-    }
-
-    .about-text {
-        font-size: 1rem;
-        line-height: 1.4;
-    }
-
-    .projects {
-        grid-template-columns: 1fr;
-        padding: 0 15px;
-        gap: 15px;
-    }
-
-    .project-card {
-        padding-bottom: 66.67%;
+    .menu a {
+        font-size: 0.8rem;
     }
 
     .project-images {
-        gap: 15px;
-        padding: 15px;
-    }
-
-    .image-container,
-    .image-container.portrait,
-    .image-container.landscape {
-        grid-column: 1 / -1;
-    }
-
-    .image-container.portrait {
-        padding-bottom: 125%;
+        grid-template-columns: 1fr;
     }
 
     .image-container.landscape {
-        padding-bottom: 66.67%;
-    }
-
-    #projectDetails {
-        padding: 60px 15px 1rem;
-    }
-
-    #projectDetails h1 {
-        font-size: 2rem;
-        padding-left: 15px;
-    }
-
-    #projectDetails p {
-        font-size: 1rem;
-        padding-left: 15px;
-    }
-
-    #contact {
-        padding: 2rem 1rem;
+        grid-column: span 1;
     }
 }
