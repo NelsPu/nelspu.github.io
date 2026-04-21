@@ -550,7 +550,8 @@ nav .nav-container {
     }
 
     .hero-title {
-        font-size: 3rem;
+        font-size: 2.8rem;
+        letter-spacing: 0.1em;
     }
 
     #projectDetails h1,
