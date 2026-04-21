@@ -18,8 +18,8 @@ html {
     -webkit-text-size-adjust: 100%;
     /* 強制禁止 iOS/Android 擅自縮小字體 */
     text-size-adjust: 100%;
-    font-size: 17px;
-    /* 針對手機版稍微加大基礎字級 (預設是16px) */
+    font-size: 16px;
+    /* 設定標準基礎字級 */
 }
 
 * {
@@ -544,6 +544,11 @@ nav .nav-container {
    Responsive
    ========================================================================== */
 @media (max-width: 900px) {
+    html {
+        font-size: 17px;
+        /* 在手機上稍微加大基礎字級 (預設是16px) */
+    }
+
     .hero-title {
         font-size: 3rem;
     }
