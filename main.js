@@ -31,7 +31,9 @@ document.addEventListener('DOMContentLoaded', async function () {
                 const project = data.projects.find(p => p.id === projectId);
                 if (project) {
                     await displayProjectDetails(project);
-                    await waitForImages(project);
+                    updateProjectMetadata(project);
+                } else {
+                    showProjectError('找不到此設計案例');
                 }
                 loadingSpinner.classList.add('loading-hidden');
                 setTimeout(() => {
@@ -42,16 +44,23 @@ document.addEventListener('DOMContentLoaded', async function () {
                 loadingSpinner.classList.add('loading-hidden');
             }
         }
+        else {
+            showProjectError('請從作品集選擇設計案例');
+            loadingSpinner.classList.add('loading-hidden');
+        }
     }
 });
 
+let webPSupportPromise;
 async function supportsWebP() {
+    if (webPSupportPromise) return webPSupportPromise;
     if (!self.createImageBitmap) return false;
 
     const webpData = 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=';
     const blob = await fetch(webpData).then(r => r.blob());
 
-    return createImageBitmap(blob).then(() => true, () => false);
+    webPSupportPromise = createImageBitmap(blob).then(() => true, () => false);
+    return webPSupportPromise;
 }
 
 async function createProjectCard(project, index) {
@@ -66,7 +75,7 @@ async function createProjectCard(project, index) {
     article.innerHTML = `
         <div class="project-image">
             <a href="project.html?id=${project.id}">
-                <img src="${imageUrl}" alt="${project.title}" onerror="this.onerror=null;this.src='${fallbackUrl}';">
+                <img src="${imageUrl}" alt="${project.title}室內設計案例" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${fallbackUrl}';">
             </a>
         </div>
         <div class="project-info">
@@ -106,6 +115,8 @@ async function displayProjectDetails(project) {
         const img = document.createElement('img');
         img.src = `projects/${project.id}/${imageName.replace(/\.(png|jpg|jpeg)$/, useWebP ? '.webp' : '$&')}`;
         img.alt = project.title;
+        img.loading = 'lazy';
+        img.decoding = 'async';
 
         // 如果 WebP 載入失敗，回退到原始格式
         img.onerror = function () {
@@ -124,6 +135,34 @@ async function displayProjectDetails(project) {
     });
 
     container.appendChild(imageGrid);
+}
+
+function updateProjectMetadata(project) {
+    const pageUrl = new URL(window.location.href);
+    const description = project.description.replace(/\s+/g, ' ').slice(0, 155);
+    const image = new URL(`projects/${project.id}/${project.cover}`, window.location.href).href;
+    document.title = `${project.title}｜台中室內設計案例｜玥森設計`;
+    setMeta('name', 'description', description);
+    setMeta('property', 'og:title', document.title);
+    setMeta('property', 'og:description', description);
+    setMeta('property', 'og:image', image);
+    setMeta('property', 'og:url', pageUrl.href);
+    document.querySelector('link[rel="canonical"]').href = pageUrl.href;
+}
+
+function setMeta(attribute, key, content) {
+    let element = document.querySelector(`meta[${attribute}="${key}"]`);
+    if (!element) {
+        element = document.createElement('meta');
+        element.setAttribute(attribute, key);
+        document.head.appendChild(element);
+    }
+    element.content = content;
+}
+
+function showProjectError(message) {
+    const container = document.getElementById('projectDetails');
+    container.innerHTML = `<div class="project-error"><h1>${message}</h1><p><a href="index.html#portfolio">返回精選案例</a></p></div>`;
 }
 
 

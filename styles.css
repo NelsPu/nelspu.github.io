@@ -60,6 +60,36 @@ a {
     transition: color 0.4s ease;
 }
 
+.skip-link {
+    position: fixed;
+    left: 1rem;
+    top: -5rem;
+    z-index: 10000;
+    padding: .75rem 1rem;
+    background: var(--accent-gold);
+    color: #080808;
+}
+
+.skip-link:focus { top: 1rem; }
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 4px;
+}
+
 /* ==========================================================================
    Animations & Utilities
    ========================================================================== */
@@ -249,14 +279,16 @@ nav .nav-container {
 
 .dot {
     width: 25px;
-    height: 2px;
-    background-color: rgba(255, 255, 255, 0.3);
+    height: 22px;
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)) center / 100% 2px no-repeat;
     cursor: pointer;
     transition: background-color 0.4s ease;
+    padding: 0;
+    border: 0;
 }
 
 .dot.active {
-    background-color: var(--accent-gold);
+    background: linear-gradient(var(--accent-gold), var(--accent-gold)) center / 100% 2px no-repeat;
 }
 
 /* ==========================================================================
@@ -438,8 +470,22 @@ nav .nav-container {
 }
 
 .social-links a {
-    font-size: 1.5rem;
+    font-family: var(--font-en);
+    font-size: 1rem;
+    letter-spacing: 2px;
     color: var(--text-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal { opacity: 1; transform: none; }
 }
 
 .social-links a:hover {

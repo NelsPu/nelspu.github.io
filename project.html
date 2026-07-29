@@ -5,7 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>專案詳情 - 玥森設計</title>
+    <title>室內設計案例｜玥森設計 Moonforest</title>
+    <meta name="description" content="瀏覽玥森設計的住宅空間、舊屋翻新與室內裝修案例，了解格局、材質、收納與光影的設計思考。">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:site_name" content="玥森設計 Moonforest">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://moonforestinterior.com/project.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -24,11 +31,12 @@
 </head>
 
 <body>
-    <nav>
+    <a class="skip-link" href="#projectDetails">跳至專案內容</a>
+    <nav aria-label="主要導覽">
         <div class="nav-container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="logo.png" alt="玥森設計" height="30">
+                    <img src="logo.png" alt="玥森設計首頁" width="154" height="30">
                 </a>
             </div>
             <div class="menu">
@@ -40,11 +48,12 @@
     </nav>
 
     <!-- Loading Animation -->
-    <div id="loadingSpinner" class="loading-container">
-        <div class="loading-spinner"></div>
+    <div id="loadingSpinner" class="loading-container" role="status" aria-live="polite">
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <span class="visually-hidden">案例載入中</span>
     </div>
 
-    <div id="projectDetails"></div>
+    <main id="projectDetails"></main>
 
     <script src="main.js?v=1.1"></script>
 </body>
