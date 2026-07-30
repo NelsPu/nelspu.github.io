@@ -6,10 +6,14 @@ document.addEventListener('DOMContentLoaded', async function () {
     const projectContainer = document.getElementById('projectContainer');
     if (projectContainer) {
         try {
-            const response = await fetch('projects.json');
+            const response = await fetch('projects.json?v=4.0');
             const data = await response.json();
-            for (let i = 0; i < data.projects.length; i++) {
-                const projectCard = await createProjectCard(data.projects[i], i);
+            const featuredIds = ['project30', 'project8', 'project11', 'project18', 'project1', 'project4'];
+            const visibleProjects = document.body.classList.contains('home-page')
+                ? featuredIds.map(id => data.projects.find(project => project.id === id)).filter(Boolean)
+                : data.projects;
+            for (let i = 0; i < visibleProjects.length; i++) {
+                const projectCard = await createProjectCard(visibleProjects[i], i);
                 projectContainer.appendChild(projectCard);
             }
             initScrollAnimations(); // 初始化滾動動畫
@@ -26,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         if (projectId) {
             try {
-                const response = await fetch('projects.json');
+                const response = await fetch('projects.json?v=4.0');
                 const data = await response.json();
                 const project = data.projects.find(p => p.id === projectId);
                 if (project) {
@@ -82,7 +86,7 @@ async function createProjectCard(project, index) {
             <span class="project-number">${projectNum}</span>
             <h3>${project.title}</h3>
             <p>${project.description.substring(0, 80)}...</p>
-            <a href="project.html?id=${project.id}" class="discover-btn">Discover <span>&rarr;</span></a>
+            <a href="project.html?id=${project.id}" class="discover-btn">查看設計 <span>&rarr;</span></a>
         </div>
     `;
 
@@ -98,10 +102,24 @@ async function displayProjectDetails(project) {
     title.textContent = project.title;
     container.appendChild(title);
 
-    // 添加描述
+    // 添加案例導言
     const description = document.createElement('p');
     description.textContent = project.description;
     container.appendChild(description);
+
+    if (project.story) {
+        const story = document.createElement('section');
+        story.className = 'project-story';
+        story.innerHTML = `
+            <div class="story-intro"><span>Design Notes</span><h2>${project.story.headline}</h2></div>
+            <div class="story-grid">
+                <article><span>01</span><h3>屋主需求</h3><p>${project.story.brief}</p></article>
+                <article><span>02</span><h3>空間判斷</h3><p>${project.story.decision}</p></article>
+                <article><span>03</span><h3>設計解法</h3><p>${project.story.solution}</p></article>
+                <article><span>04</span><h3>材質與細節</h3><p>${project.story.detail}</p></article>
+            </div>`;
+        container.appendChild(story);
+    }
 
     // 創建圖片網格容器
     const imageGrid = document.createElement('div');
@@ -114,7 +132,7 @@ async function displayProjectDetails(project) {
 
         const img = document.createElement('img');
         img.src = `projects/${project.id}/${imageName.replace(/\.(png|jpg|jpeg)$/, useWebP ? '.webp' : '$&')}`;
-        img.alt = project.title;
+        img.alt = `${project.title}台中住宅室內設計完工照片`;
         img.loading = 'lazy';
         img.decoding = 'async';
 
@@ -135,6 +153,11 @@ async function displayProjectDetails(project) {
     });
 
     container.appendChild(imageGrid);
+
+    const consultation = document.createElement('section');
+    consultation.className = 'project-consultation';
+    consultation.innerHTML = `<p>你也有類似的格局、收納或翻新問題嗎？</p><h2>先把案場和需求聊清楚</h2><p>不急著做決定，讓我們先了解屋況、預算方向與預計時程。</p><a class="button button-primary" href="https://lin.ee/OdVZUpf" target="_blank" rel="noopener noreferrer">LINE 預約初步諮詢</a>`;
+    container.appendChild(consultation);
 }
 
 function updateProjectMetadata(project) {
