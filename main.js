@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const projectContainer = document.getElementById('projectContainer');
     if (projectContainer) {
         try {
-            const response = await fetch('projects.json?v=4.0');
+            const response = await fetch('projects.json?v=6.0');
             const data = await response.json();
             const featuredIds = ['project30', 'project8', 'project11', 'project18', 'project1', 'project4'];
             const visibleProjects = document.body.classList.contains('home-page')
@@ -26,14 +26,33 @@ document.addEventListener('DOMContentLoaded', async function () {
     const projectDetails = document.getElementById('projectDetails');
     if (projectDetails) {
         const urlParams = new URLSearchParams(window.location.search);
-        const projectId = urlParams.get('id');
+        const requestedProjectId = urlParams.get('id');
+        const mergedProjectIds = {
+            project7: 'project6',
+            project13: 'project12',
+            project14: 'project12',
+            project16: 'project15',
+            project17: 'project15',
+            project20: 'project19',
+            project21: 'project19',
+            project23: 'project22',
+            project24: 'project22',
+            project28: 'project27',
+            project29: 'project27'
+        };
+        const projectId = mergedProjectIds[requestedProjectId] || requestedProjectId;
 
         if (projectId) {
             try {
-                const response = await fetch('projects.json?v=4.0');
+                const response = await fetch('projects.json?v=6.0');
                 const data = await response.json();
                 const project = data.projects.find(p => p.id === projectId);
                 if (project) {
+                    if (requestedProjectId !== projectId) {
+                        const canonicalUrl = new URL(window.location.href);
+                        canonicalUrl.searchParams.set('id', projectId);
+                        window.history.replaceState({}, '', canonicalUrl);
+                    }
                     await displayProjectDetails(project);
                     updateProjectMetadata(project);
                 } else {
