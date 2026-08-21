@@ -118,7 +118,7 @@ a {
 .home-projects .discover-btn { color:#c19a6b; padding-top:.2rem; }
 .center-action { text-align:center; margin-top:3.5rem; }
 .portfolio-home .button-outline { border-color:#69736b; color:#f3eee5; }
-.home-guide-section { padding:8rem 0; background:#f3f0e9; }
+.services-guide { margin-top:7rem; padding:4.5rem; background:#f3f0e9; color:#242521; }
 .home-guide-intro { max-width:430px; }
 .home-guide-intro .text-link { color:#6b5637; font-size:.88rem; }
 .home-guide-grid { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid #aaa99f; border-bottom:1px solid #aaa99f; }
@@ -313,7 +313,8 @@ footer p { color:#777d77; }
   .hero-actions .button { width:100%; }
   .scroll-cue { display:none; }
   .section-shell,.home-projects { width:calc(100% - 32px); }
-  .home-guide-section,.moonblock-section { padding:5rem 0; }
+  .services-guide { margin-top:4.5rem; padding:3rem 1.25rem; }
+  .moonblock-section { padding:5rem 0; }
   .moonblock-figure { min-height:390px; padding:4.5rem .5rem 5rem; }
   .moonblock-figure img { width:112%; }
   .moonblock-figure figcaption { min-height:0; }

@@ -2,11 +2,17 @@
 document.addEventListener('DOMContentLoaded', async function () {
     const loadingSpinner = document.getElementById('loadingSpinner');
 
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => link.closest('details')?.removeAttribute('open'));
+    });
+    initScrollAnimations();
+
     // 處理專案列表頁面
     const projectContainer = document.getElementById('projectContainer');
     if (projectContainer) {
         try {
             const response = await fetch('projects.json?v=6.0');
+            if (!response.ok) throw new Error(`Projects request failed: ${response.status}`);
             const data = await response.json();
             const featuredIds = ['project30', 'project8', 'project11', 'project18', 'project1', 'project4'];
             const visibleProjects = document.body.classList.contains('home-page')
@@ -45,6 +51,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         if (projectId) {
             try {
                 const response = await fetch('projects.json?v=6.0');
+                if (!response.ok) throw new Error(`Project request failed: ${response.status}`);
                 const data = await response.json();
                 const project = data.projects.find(p => p.id === projectId);
                 if (project) {
@@ -64,7 +71,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                 }, 300);
             } catch (error) {
                 console.error('Error loading project details:', error);
-                loadingSpinner.classList.add('loading-hidden');
+                showProjectError('案例暫時無法載入，請稍後再試');
+                loadingSpinner?.classList.add('loading-hidden');
             }
         }
         else {
@@ -157,6 +165,7 @@ async function displayProjectDetails(project) {
 
         // 如果 WebP 載入失敗，回退到原始格式
         img.onerror = function () {
+            this.onerror = null;
             this.src = `projects/${project.id}/${imageName}`;
         };
 
@@ -217,6 +226,7 @@ async function waitForImages(project) {
             img.onload = resolve;
             img.onerror = () => {
                 // 如果 WebP 載入失敗，嘗試載入原始格式
+                img.onerror = reject;
                 img.src = `projects/${project.id}/${imageName}`;
             };
             img.src = `projects/${project.id}/${imageName.replace(/\.(png|jpg|jpeg)$/, useWebP ? '.webp' : '$&')}`;
@@ -228,6 +238,12 @@ async function waitForImages(project) {
 
 // 加入 Intersection Observer 處理滾動浮現動畫
 function initScrollAnimations() {
+    const elements = document.querySelectorAll('.reveal:not(.active)');
+    if (!('IntersectionObserver' in window)) {
+        elements.forEach(el => el.classList.add('active'));
+        return;
+    }
+
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -243,7 +259,7 @@ function initScrollAnimations() {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.reveal').forEach(el => {
+    elements.forEach(el => {
         observer.observe(el);
     });
 }
