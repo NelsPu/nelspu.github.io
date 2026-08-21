@@ -1029,6 +1029,10 @@ nav .nav-container {
 .article-toc strong { margin-bottom:.4rem; }
 .article-toc a { color:#625d55; text-decoration:none; }
 .article-body { font-size:1.02rem; line-height:2.05; }
+.article-body a:not(.button) { color:#704817; font-weight:500; text-decoration:underline; text-decoration-color:#a67a45; text-decoration-thickness:1px; text-underline-offset:.22em; }
+.article-body a:not(.button):hover,.article-body a:not(.button):focus-visible { color:#382106; text-decoration-thickness:2px; }
+.article-conclusion a:not(.button) { color:#e3bd87; text-decoration-color:#c39a65; }
+.article-conclusion a:not(.button):hover,.article-conclusion a:not(.button):focus-visible { color:#fff1dc; }
 .article-body>p,.article-body section>p { margin:1.1rem 0; }
 .article-body section { scroll-margin-top:90px; padding-top:2.5rem; margin-top:2.5rem; border-top:1px solid #ccc4b8; }
 .article-body h2 { font-family:var(--font-tw-serif); font-weight:500; font-size:clamp(1.65rem,3vw,2.25rem); line-height:1.55; letter-spacing:.04em; margin:.4rem 0 1.2rem; }
