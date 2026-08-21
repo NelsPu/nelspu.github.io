@@ -895,3 +895,62 @@ nav .nav-container {
 .not-found img { width:150px; height:auto; filter:brightness(0) invert(1); margin-bottom:2.5rem; }
 .not-found h1 { font-family:var(--font-tw-serif); font-size:clamp(2rem,6vw,4rem); margin:.5rem 0 1rem; }
 .not-found p { max-width:540px; margin-bottom:1.5rem; }
+
+/* Taichung renovation guide */
+.guide-page { background:#f3f0e9; color:#17201b; }
+.guide-page nav { background:rgba(243,240,233,.94); }
+.guide-page .menu a,.guide-page .mobile-menu summary { color:#17201b; }
+.guide-page .logo img,.guide-page footer img { filter:none; }
+.guide-hero { min-height:58svh; display:grid; place-items:end start; padding:10rem max(6vw,24px) 5rem; background:linear-gradient(90deg,rgba(16,27,21,.9),rgba(16,27,21,.3)),url('slides/image12.webp') center/cover; color:#fff; }
+.guide-hero>div { max-width:800px; }
+.guide-hero h1 { font-family:var(--font-tw-serif); font-weight:400; font-size:clamp(3rem,8vw,6rem); margin:.5rem 0 1rem; }
+.guide-hero p { max-width:680px; font-size:1.1rem; line-height:2; }
+.guide-list { padding-top:6rem; padding-bottom:5rem; }
+.guide-card { display:grid; grid-template-columns:1.1fr 1fr; gap:3rem; align-items:center; padding-bottom:5rem; }
+.guide-card-image { display:block; aspect-ratio:16/10; overflow:hidden; }
+.guide-card-image img { width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+.guide-card-image:hover img { transform:scale(1.025); }
+.guide-meta { color:#8a6844; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; }
+.guide-card h2 { font-family:var(--font-tw-serif); font-weight:400; font-size:clamp(1.65rem,3vw,2.5rem); line-height:1.55; margin:.8rem 0 1.2rem; }
+.guide-card h2 a,.text-link { color:inherit; text-decoration:none; }
+.guide-card p { line-height:1.9; }
+.text-link { display:inline-block; margin-top:1rem; border-bottom:1px solid currentColor; }
+.guide-upcoming { padding:4rem 0 7rem; border-top:1px solid #c9c2b6; }
+.guide-upcoming h2 { font-family:var(--font-tw-serif); font-size:2rem; font-weight:400; }
+.guide-upcoming>div { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:2rem; }
+.guide-upcoming p { padding:1.5rem; border:1px solid #c9c2b6; }
+.guide-cta { background:#19251e; color:#fff; text-align:center; padding:6rem 24px; }
+.guide-cta>div { max-width:720px; margin:auto; }
+.guide-cta h2 { font-family:var(--font-tw-serif); font-size:clamp(2rem,5vw,3.5rem); font-weight:400; margin:.6rem 0 1rem; }
+.guide-cta p { margin-bottom:1.8rem; line-height:1.9; }
+.guide-page footer { background:#111914; color:#fff; }
+.article-header { max-width:980px; margin:auto; padding:11rem 24px 4rem; text-align:center; }
+.article-header nav { position:static; display:flex; justify-content:center; gap:.5rem; background:none; font-size:.85rem; }
+.article-header nav a { color:#665d51; }
+.article-header h1 { font-family:var(--font-tw-serif); font-size:clamp(2.2rem,5vw,4.4rem); font-weight:400; line-height:1.45; margin:1rem 0 1.5rem; }
+.article-lead { max-width:760px; margin:auto; font-size:1.12rem; line-height:2; color:#4c504c; }
+.article-author { margin-top:2rem; font-size:.8rem; color:#756d63; }
+.article-cover { max-width:1180px; margin:0 auto 5rem; padding:0 24px; }
+.article-cover img { width:100%; aspect-ratio:16/9; object-fit:cover; }
+.article-cover figcaption { margin-top:.7rem; color:#716a61; font-size:.78rem; }
+.article-layout { max-width:1080px; margin:auto; padding:0 24px 7rem; display:grid; grid-template-columns:210px minmax(0,720px); gap:5rem; justify-content:center; }
+.article-toc { position:sticky; top:110px; align-self:start; display:flex; flex-direction:column; gap:.7rem; padding-left:1.2rem; border-left:1px solid #b5aa99; font-size:.82rem; }
+.article-toc strong { margin-bottom:.4rem; }
+.article-toc a { color:#625d55; text-decoration:none; }
+.article-body { font-size:1.02rem; line-height:2.05; }
+.article-body>p,.article-body section>p { margin:1.1rem 0; }
+.article-body section { padding-top:2.5rem; margin-top:2.5rem; border-top:1px solid #ccc4b8; }
+.article-body h2 { font-family:var(--font-tw-serif); font-weight:400; font-size:clamp(1.65rem,3vw,2.25rem); line-height:1.55; margin:.4rem 0 1.2rem; }
+.article-number { color:#9a7449; font-family:var(--font-en); font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; }
+.article-body ul,.article-body ol { margin:1.3rem 0; padding-left:1.5rem; }
+.article-body li { margin:.55rem 0; }
+.article-note { margin:2rem 0; padding:1.5rem 1.8rem; background:#e5dfd4; border-left:3px solid #9a7449; }
+.article-note p { margin:.4rem 0 0; }
+.article-table { display:grid; grid-template-columns:repeat(3,1fr); margin:2rem 0; border-top:1px solid #b9afa0; border-left:1px solid #b9afa0; }
+.article-table>div { padding:1.3rem; border-right:1px solid #b9afa0; border-bottom:1px solid #b9afa0; }
+.article-table p { font-size:.88rem; line-height:1.75; margin:.6rem 0 0; }
+.article-checklist { padding:2.2rem!important; background:#e5dfd4; border-top:0!important; }
+.article-checklist ul { display:grid; grid-template-columns:repeat(2,1fr); gap:.4rem 2rem; }
+.article-conclusion { padding:3rem!important; background:#19251e; color:#fff; }
+.article-conclusion .button { margin-top:1rem; }
+@media(max-width:800px){.guide-card{grid-template-columns:1fr;gap:1.5rem}.guide-upcoming>div{grid-template-columns:1fr}.article-layout{grid-template-columns:1fr;gap:1rem}.article-toc{position:static;padding:1.2rem;border:1px solid #c9c2b6;margin-bottom:2rem}.article-table{grid-template-columns:1fr}.article-checklist ul{grid-template-columns:1fr}.article-conclusion{padding:2rem!important}.guide-hero{min-height:52svh}.article-header{padding-top:8rem}}
