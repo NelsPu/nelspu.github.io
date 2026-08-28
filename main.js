@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const projectContainer = document.getElementById('projectContainer');
     if (projectContainer) {
         try {
-            const response = await fetch('projects.json?v=6.1');
+            const response = await fetch('projects.json?v=6.2');
             if (!response.ok) throw new Error(`Projects request failed: ${response.status}`);
             const data = await response.json();
             const featuredIds = ['project30', 'project8', 'project11', 'project18', 'project1', 'project4'];
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         if (projectId) {
             try {
-                const response = await fetch('projects.json?v=6.1');
+                const response = await fetch('projects.json?v=6.2');
                 if (!response.ok) throw new Error(`Project request failed: ${response.status}`);
                 const data = await response.json();
                 const project = data.projects.find(p => p.id === projectId);
