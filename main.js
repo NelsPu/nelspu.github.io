@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const projectContainer = document.getElementById('projectContainer');
     if (projectContainer) {
         try {
-            const response = await fetch('projects.json?v=6.0');
+            const response = await fetch('projects.json?v=6.1');
             if (!response.ok) throw new Error(`Projects request failed: ${response.status}`);
             const data = await response.json();
             const featuredIds = ['project30', 'project8', 'project11', 'project18', 'project1', 'project4'];
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         if (projectId) {
             try {
-                const response = await fetch('projects.json?v=6.0');
+                const response = await fetch('projects.json?v=6.1');
                 if (!response.ok) throw new Error(`Project request failed: ${response.status}`);
                 const data = await response.json();
                 const project = data.projects.find(p => p.id === projectId);
@@ -153,6 +153,8 @@ async function displayProjectDetails(project) {
     imageGrid.className = 'project-images';
 
     // 添加所有項目圖片
+    let loadedImageCount = 0;
+
     project.images.forEach(imageName => {
         const imageContainer = document.createElement('div');
         imageContainer.className = 'image-container';
@@ -171,9 +173,15 @@ async function displayProjectDetails(project) {
 
         // 圖片加載完成後確定方向
         img.onload = function () {
-            imageContainer.classList.add(
-                this.naturalHeight > this.naturalWidth ? 'portrait' : 'landscape'
-            );
+            const isPortrait = this.naturalHeight > this.naturalWidth;
+            imageContainer.classList.add(isPortrait ? 'portrait' : 'landscape');
+            loadedImageCount += 1;
+            if (loadedImageCount === project.images.length) {
+                const portraitContainers = [...imageGrid.querySelectorAll('.portrait')];
+                if (portraitContainers.length % 2 === 1) {
+                    portraitContainers.at(-1).classList.add('portrait-single');
+                }
+            }
         };
 
         imageContainer.appendChild(img);

@@ -827,10 +827,21 @@ nav .nav-container {
 @media (min-width: 901px) {
     .project-images {
         grid-template-columns: repeat(2, 1fr);
+        grid-auto-flow: dense;
     }
 
     .image-container.landscape {
         grid-column: span 2;
+    }
+
+    .image-container.portrait-single {
+        grid-column: span 2;
+        display: flex;
+        justify-content: center;
+    }
+
+    .image-container.portrait-single img {
+        width: calc(50% - 10px);
     }
 }
 

@@ -318,13 +318,11 @@
             "id": "project19",
             "title": "佳鏵大聯盟｜淺木日常與整合收納",
             "description": "米白、灰階與自然木紋建立溫和而安定的住宅基調。設計先依物品尺寸和使用頻率分配收納，再整理家具尺度與立面分割；封閉櫃降低生活雜物的干擾，局部照明回應閱讀、走動和展示，讓整潔來自清楚的使用邏輯，而不是空無一物。",
-            "cover": "cover.png",
+            "cover": "image3.webp",
             "images": [
-                "image1.webp",
-                "image2.webp",
                 "image3.webp",
-                "image4.webp",
-                "image5.webp",
+                "project21-image5.webp",
+                "project21-image4.webp",
                 "project20-image1.webp",
                 "project20-image2.webp",
                 "project20-image3.webp",
@@ -332,9 +330,11 @@
                 "project20-image5.webp",
                 "project21-image1.webp",
                 "project21-image2.webp",
-                "project21-image3.webp",
-                "project21-image4.webp",
-                "project21-image5.webp"
+                "image4.webp",
+                "image1.webp",
+                "image2.webp",
+                "image5.webp",
+                "project21-image3.webp"
             ],
             "story": {
                 "headline": "讓整潔成為生活習慣，而不是完工照片裡的表面",
