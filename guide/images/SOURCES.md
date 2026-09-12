@@ -13,3 +13,7 @@ All images below were downloaded from Unsplash for use under the Unsplash Licens
 - `carpentry-guide.jpg` — qyy qyyy — https://unsplash.com/photos/oW4mPEcgdEc
 - `carpentry-ceiling-wall.jpg` — Ambitious Studio / Rick Barrett — https://unsplash.com/photos/FD8CGwuSB2Y
 - `carpentry-inspection.jpg` — Olek Buzunov — https://unsplash.com/photos/Ls6mShbvdpw
+
+The image below was downloaded from Pexels for use under the Pexels License: https://www.pexels.com/license/
+
+- `three-bedroom-budget-materials-hero.webp` — Kaboompics.com — https://www.pexels.com/photo/paper-paint-samples-and-material-samples-4968698/
