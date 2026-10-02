@@ -17,3 +17,10 @@ All images below were downloaded from Unsplash for use under the Unsplash Licens
 The image below was downloaded from Pexels for use under the Pexels License: https://www.pexels.com/license/
 
 - `three-bedroom-budget-materials-hero.webp` — Kaboompics.com — https://www.pexels.com/photo/paper-paint-samples-and-material-samples-4968698/
+
+## Articles published 2026-10-02
+
+Free commercial use under the [Unsplash License](https://unsplash.com/license), checked 2026-10-02. These are illustrative stock photos, not Moonforest project documentation. Downloaded at 1600 × 1000; no attribution marks added.
+
+- `living-room-lighting.jpg` — Mary Skrynnikova — https://unsplash.com/photos/a-living-room-with-a-couch-and-a-lamp-SOg3DskhtAM
+- `small-living-room-layout.jpg` — Nubelson Fernandes — https://unsplash.com/photos/a-living-room-filled-with-furniture-and-a-ladder-0h1fzWOzMQU
