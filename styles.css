@@ -184,9 +184,9 @@ a {
 .moonblock-values span { color:#c6a274; font-family:var(--font-en); }
 .moonblock-values p { color:#aeb3ad; font-size:.86rem; line-height:1.75; }
 .moonblock-values strong { display:block; color:#f0ede6; font-family:var(--font-tw-serif); font-size:1rem; font-weight:500; margin-bottom:.3rem; }
-.designer-section { display:grid; grid-template-columns:1fr 1fr; gap:7vw; padding:8rem 0; align-items:center; }
-.designer-image { min-height:600px; aspect-ratio:4/5; overflow:hidden; background:#242422; }
-.designer-image img { display:block; width:100%; height:100%; min-height:600px; object-fit:cover; object-position:center center; }
+.designer-section { display:grid; grid-template-columns:minmax(280px,.72fr) minmax(0,1.28fr); gap:6vw; padding:8rem 0; align-items:center; }
+.designer-image { width:100%; max-width:460px; min-height:0; aspect-ratio:4/5; justify-self:start; overflow:hidden; background:#242422; }
+.designer-image img { display:block; width:100%; height:100%; min-height:0; object-fit:cover; object-position:center center; }
 .designer-copy h2 { font-family:var(--font-tw-serif); font-size:clamp(2rem,3.8vw,3.2rem); line-height:1.4; font-weight:500; margin-bottom:1.5rem; }
 .designer-copy p { margin-bottom:1rem; }
 .designer-copy .lead { font-size:1.08rem; color:#313630; }
@@ -314,7 +314,8 @@ footer p { color:#777d77; }
   .moonblock-values>div,.moonblock-values>div:first-child { padding:1.4rem 0; border-right:0; border-bottom:1px solid rgba(255,255,255,.2); }
   .moonblock-values>div:last-child { border-bottom:0; }
   .designer-section { grid-template-columns:1fr; gap:3rem; }
-  .designer-image,.designer-image img { min-height:420px; }
+  .designer-image { width:min(72%,420px); }
+  .designer-image,.designer-image img { min-height:0; }
   .portal-layout { grid-template-columns:1fr; }
   .contact-inner { grid-template-columns:1fr; gap:2.5rem; }
 }
@@ -350,7 +351,8 @@ footer p { color:#777d77; }
   .home-projects .project-image::before { padding-bottom:105%; }
   .difference-grid { grid-template-columns:1fr; }
   .difference-grid article,.difference-grid article:nth-child(even) { padding:1.6rem 0; border-right:0; }
-  .designer-image,.designer-image img { min-height:340px; }
+  .designer-image { width:86%; }
+  .designer-image,.designer-image img { min-height:0; }
   .credential { grid-template-columns:1fr; }
   .phone-stage { min-height:auto; padding:2.5rem .5rem 0; }
   .phone-shell { width:min(296px,86vw); height:642px; transform:none; }
