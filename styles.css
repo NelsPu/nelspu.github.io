@@ -314,7 +314,7 @@ footer p { color:#777d77; }
   .moonblock-values>div,.moonblock-values>div:first-child { padding:1.4rem 0; border-right:0; border-bottom:1px solid rgba(255,255,255,.2); }
   .moonblock-values>div:last-child { border-bottom:0; }
   .designer-section { grid-template-columns:1fr; gap:3rem; }
-  .designer-image { width:min(72%,420px); }
+  .designer-image { width:min(72%,420px); justify-self:center; }
   .designer-image,.designer-image img { min-height:0; }
   .portal-layout { grid-template-columns:1fr; }
   .contact-inner { grid-template-columns:1fr; gap:2.5rem; }
