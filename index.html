@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;600&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=11.6">
+  <link rel="stylesheet" href="styles.css?v=12.0">
   <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
   <link rel="manifest" href="site.webmanifest">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZ305BK65S"></script>
@@ -47,14 +47,14 @@
     <section id="top" class="home-hero">
       <picture>
         <source media="(max-width: 600px)" srcset="slides/image11.webp">
-        <img src="slides/image01.webp" alt="台中住宅客廳與收納整合設計" width="2560" height="1440" fetchpriority="high">
+        <img src="slides/image01.webp" alt="台中住宅客廳與收納整合設計" fetchpriority="high" width="2560" height="1440" srcset="responsive/slides/image01-640.webp 640w, responsive/slides/image01-1280.webp 1280w, responsive/slides/image01-1920.webp 1920w" sizes="100vw" decoding="async">
       </picture>
       <div class="hero-shade"></div>
       <div class="hero-copy">
         <span class="eyebrow">台中住宅室內設計 · 新成屋 · 老屋翻新</span>
         <h1>從生活的想法，<br>到真正住進去的每一天</h1>
         <p>好的設計不只是一張漂亮的圖。玥森從格局、收納與材料開始思考，並把施工細節一併照顧，讓完成後的家，真正貼近你想要的生活。</p>
-        <div class="hero-actions"><a class="button button-primary" href="#services">看看我們怎麼做</a><a class="button button-ghost" href="guide/index.html">裝修指南</a></div>
+        <div class="hero-actions"><a class="button button-primary" href="#portfolio">看看住宅案例</a><a class="button button-ghost" href="#contact">聊聊裝修需求</a></div>
         <small>不急著簽約，先把需求、預算與時程說清楚。</small>
       </div>
       <a class="scroll-cue" href="#portfolio" aria-label="往下查看精選案例">往下看精選案例 ↓</a>
@@ -63,6 +63,7 @@
     <section id="portfolio" class="portfolio-home">
       <div class="section-shell section-heading split reveal"><div><span class="eyebrow">Selected homes</span><h2>每個家的樣子，<br>都從生活開始</h2></div><p>除了完工後的樣子，我們也記錄每個案子的現場條件、設計判斷與材料細節。以下是幾個精選住宅案例。</p></div>
       <div class="projects home-projects" id="projectContainer"></div>
+      <noscript><p class="project-error">啟用 JavaScript 即可瀏覽案例，或<a href="#contact">聯絡我們索取案例資料</a>。</p></noscript>
       <div class="center-action"><a class="button button-outline" href="projects.html">查看全部案例</a></div>
     </section>
 
@@ -75,71 +76,20 @@
       </div>
     </section>
 
-    <section id="professional" class="professional-section">
-      <div class="section-shell">
-        <div class="professional-heading reveal">
-          <div><span class="eyebrow">Professional responsibility</span><h2>真正的室內裝修，<br>不只是一種稱呼</h2></div>
-          <div><p class="lead">「室內裝修」是受法規管理的業別。新設立業者除了公司名稱需標示「室內裝修」，還必須依業務範圍配置合格的專業技術人員，並完成室內裝修業登記。</p><p>公司名稱使用「設計」，本身不等於已取得室內裝修業資格。屋主在選擇合作團隊時，可進一步確認業者登記、專業技術人員與實際負責範圍。</p></div>
-        </div>
-        <div class="professional-values">
-          <article class="reveal"><span>01</span><h3>圖面與現場核對</h3><p>在施工前後持續確認尺寸、材料與收口，降低設計與完工之間的落差。</p></article>
-          <article class="reveal"><span>02</span><h3>施工順序與工種銜接</h3><p>把水電、泥作、木作與設備安裝的介面整合起來，減少現場猜測與重工。</p></article>
-          <article class="reveal"><span>03</span><h3>規格與過程留下紀錄</h3><p>將選材、變更、現場進度與待確認事項集中整理，讓每個決定都有依據。</p></article>
-        </div>
-        <!-- 待內政部核發「建築物室內裝修業登記證」後，在此加入登記狀態、證號與核准執業範圍。 -->
-      </div>
-    </section>
-
     <section id="difference" class="difference-section">
       <div class="section-shell">
-        <div class="section-heading reveal"><span class="eyebrow">Why Moonforest</span><h2>好看之外，還有幾件事<br>我們很在意</h2></div>
+        <div class="section-heading reveal"><span class="eyebrow">Why Moonforest</span><h2>三件事，<br>讓裝修更有方向</h2></div>
         <div class="difference-grid">
-          <article class="reveal"><span>01</span><h3>圖面要能在現場成立</h3><p>設計初期就考慮尺寸、收口、材料交接與施工順序，工程期間持續核對現場，降低完工落差。</p></article>
-          <article class="reveal"><span>02</span><h3>預算取捨說明白</h3><p>耐用、安全和每天會使用的地方不隨意犧牲；效益有限的升級，也不為提高總價而推薦。</p></article>
-          <article class="reveal"><span>03</span><h3>熟悉的工班，合理的工期</h3><p>以長期合作、熟悉品質要求的團隊為主。先確認檔期，再提出負責任的工程安排。</p></article>
-          <article class="reveal"><span>04</span><h3>不催你決定，但流程清楚</h3><p>裝修不是小額消費。初談先釐清需求、預算與施工條件，讓彼此判斷是否適合合作。</p></article>
+          <article class="reveal"><span>01</span><h3>先看懂空間，再決定細節</h3><p>透過 MoonBlock 立體預演，一起確認格局、家具與收納的取捨，再深化材質與施工圖面。</p><a class="text-link" href="guide/moonblock-space-preview-system.html">看看空間怎麼預演 →</a></article>
+          <article class="reveal"><span>02</span><h3>預算與工程，一起說清楚</h3><p>把材料、施作範圍與工種銜接放在同一份規劃裡，先確認必要投入，再安排施工與現場核對。</p><a class="text-link" href="guide/taichung-3-bedroom-renovation-budget.html">看實際預算取捨 →</a></article>
+          <article class="reveal"><span>03</span><h3>進度與決定，隨時查得到</h3><p>專屬案件空間集中記錄施工照片、選材與待確認事項，減少翻找訊息，也讓每次討論有依據。</p><a class="text-link" href="guide/confirm-renovation-scope.html#progress">了解案件進度管理 →</a></article>
         </div>
-      </div>
-    </section>
-
-    <section id="moonblock" class="moonblock-section">
-      <div class="section-shell">
-        <div class="moonblock-heading reveal"><div><span class="eyebrow">MoonBlock system</span><h2>獨家空間預演系統，<br>先看懂生活再細化設計</h2></div><div><p class="lead">MoonBlock 是玥森獨家的空間預演系統，讓第一次裝修的屋主不用只看平面圖想像未來的家。</p><p>初期先用立體圖面，把收納、家具、設備與生活區域化成容易辨識的單元，一起討論動線、使用方式與空間概念，直觀看見格局中的取捨。</p><p>確認方向正確後，再逐步細化尺寸、材質、燈光、櫃體與施工細節。MoonBlock 不取代專業設計，而是讓屋主與設計師先有共同畫面，降低「說的是同一件事，想像卻不一樣」的落差。</p><a class="text-link" href="guide/moonblock-space-preview-system.html">完整了解 MoonBlock →</a></div></div>
-        <div class="moonblock-visuals">
-          <figure class="moonblock-figure moonblock-concept reveal"><div><span>01</span><strong>立體空間預演</strong><small>初期討論</small></div><img src="image/moonblock-system.webp" alt="MoonBlock 立體空間預演系統，以圖塊呈現住宅動線、機能與家具配置" width="2560" height="1506"><figcaption>先用立體圖面確認動線、使用方式與空間概念。</figcaption></figure>
-          <div class="moonblock-transition reveal" aria-hidden="true"><span>方向確認</span><i>→</i><small>逐步深化</small></div>
-          <figure class="moonblock-figure moonblock-detail reveal"><div><span>02</span><strong>方向確認後細化</strong><small>簽約後發展</small></div><img src="image/moonblock-detailed.webp" alt="MoonBlock 空間方向確認後的住宅設計細化模型" width="2560" height="1506"><figcaption>方向正確後，再加入材質、櫃體、設備、燈光與施工細節。</figcaption></figure>
-        </div>
-        <div class="moonblock-values reveal"><div><span>01</span><p><strong>更早看見取捨</strong>收納增加多少、走道剩下多少，不只停留在口頭描述。</p></div><div><span>02</span><p><strong>讓討論有共同畫面</strong>家庭成員與設計端能針對同一個空間版本溝通。</p></div><div><span>03</span><p><strong>從概念走向可執行</strong>方向確認後再深化細節，讓每一步都有前一階段的依據。</p></div></div>
       </div>
     </section>
 
     <section id="about" class="designer-section section-shell">
-      <div class="designer-image reveal"><img src="image/studio-portrait.webp" alt="玥森設計在工作室梳理台中住宅室內設計提案" width="1122" height="1402" loading="lazy" decoding="async"></div>
-      <div class="designer-copy reveal"><span class="eyebrow">Design beyond disciplines</span><h2>好的設計，不因領域而不同。</h2><p class="lead">玥森的設計思維，來自不同設計領域的累積。</p><p>在投入住宅空間設計之前，我們曾參與品牌與視覺設計，並在獲得國內外設計獎項的專業團隊中，累積對比例、色彩、材質與整體體驗的理解。</p><p>玥森不以風格作為起點，而是先理解居住者的生活方式，再透過光線、材質、動線與收納建立秩序，讓空間在多年之後依然自然、耐看、適合生活。</p><div class="credential"><span>公司登記</span><div><strong>玥森室內裝修有限公司</strong><p>已完成公司設立登記。</p></div></div><div class="credential credential-secondary"><span>專業資格</span><div><strong>建築物室內裝修工程管理乙級技術士</strong><p>將工程管理的專業帶入材料規格、施工順序與現場銜接，使設計判斷能夠被穩定落實。</p></div></div><blockquote>淬鍊空間本質，重塑生活美學。</blockquote></div>
-    </section>
-
-    <section id="project-portal" class="portal-section">
-      <div class="section-shell portal-layout">
-        <div class="portal-copy reveal"><span class="eyebrow">Project journey</span><h2>合作中的每個決定，<br>都有清楚紀錄</h2><p>裝修過程資訊很多，我們把工程階段、待確認事項、選材結果、付款進度與現場照片整理在專屬案件空間。屋主不必翻找零散訊息，也能隨時掌握家的完成進度。</p><ul><li><span>01</span>工程階段與預定時程</li><li><span>02</span>選材規格與確認紀錄</li><li><span>03</span>施工照片與現場日誌</li><li><span>04</span>待確認事項集中回覆</li></ul><a class="portal-login-link" href="https://project.moonforestinterior.com/client" target="_blank" rel="noopener noreferrer">已簽約客戶登入 <span>↗</span></a></div>
-        <div class="phone-stage reveal">
-          <div class="phone-shell" aria-label="客戶專屬案件空間手機功能示意">
-            <i class="phone-button phone-button-one"></i><i class="phone-button phone-button-two"></i><i class="phone-button phone-button-three"></i>
-            <div class="phone-screen">
-              <div class="dynamic-island"></div>
-              <div class="phone-status"><time>9:41</time><span><i></i><i></i><i></i><b></b></span></div>
-              <div class="portal-preview">
-                <div class="portal-top"><img src="logo.png" alt="玥森設計" width="154" height="30"><span>PRIVATE PROJECT</span></div>
-                <div class="portal-hero-card"><small>住宅裝修計畫</small><h3>家的完成進度</h3><p>目前進行至｜木作工程</p><div><i><em></em></i><strong>65%</strong></div></div>
-                <div class="portal-mini-grid"><article><span>01</span><b>工程進度</b><small>階段清楚排列</small></article><article class="pending"><span>02</span><b>待您確認</b><small>2 項需要查看</small></article><article><span>03</span><b>選材紀錄</b><small>規格完整留存</small></article><article><span>04</span><b>案件相簿</b><small>現場照片紀錄</small></article></div>
-                <div class="portal-journal"><div><span>✓</span><p><b>保護工程完成</b><small>現場照片已更新</small></p><time>07.28</time></div><div><span>•</span><p><b>木作工程進行中</b><small>今日進度已記錄</small></p><time>08.01</time></div></div>
-                <small class="portal-demo-label">功能示意畫面</small>
-              </div>
-              <i class="home-indicator"></i>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="designer-image reveal"><img src="image/studio-portrait.webp" alt="玥森設計在工作室梳理台中住宅室內設計提案" loading="lazy" decoding="async" width="1122" height="1402" srcset="responsive/image/studio-portrait-640.webp 640w, responsive/image/studio-portrait-1122.webp 1122w" sizes="(max-width: 800px) calc(100vw - 40px), 960px"></div>
+      <div class="designer-copy reveal"><span class="eyebrow">About Moonforest</span><h2>從設計出發，<br>也把現場照顧好</h2><p>從品牌與視覺設計累積的比例、色彩和材質思考，延伸到台中住宅室內設計。我們先理解你的生活，再把格局、收納與施工細節整理成能夠執行的方案。</p><div class="credential"><span>公司登記</span><div><strong>玥森室內裝修有限公司</strong><p>已完成公司設立登記。</p></div></div><div class="credential credential-secondary"><span>專業資格</span><div><strong>建築物室內裝修工程管理乙級技術士</strong></div></div><a class="text-link" href="https://project.moonforestinterior.com/client" target="_blank" rel="noopener noreferrer">已簽約客戶登入 ↗</a></div>
     </section>
 
     <section id="process" class="process-section">
@@ -173,7 +123,7 @@
         <details class="reveal"><summary>台中新成屋裝潢預算要怎麼抓？</summary><p>先把總預算分成基礎工程、固定櫃體與木作、家具家電、預備金四部分，並確認報價是否包含設計、工程管理、稅金與清運。每戶格局、建材與收納量不同，先定義範圍比直接套用一個坪數單價更準確。</p></details>
         <details class="reveal"><summary>台中新成屋從設計到完工要多久？</summary><p>時間會受坪數、修改次數、工程範圍、社區申請、材料交期與工班檔期影響。建議從希望入住日往前倒推，除了施工，也要保留需求整理、設計、報價、選材、清潔與修正時間。</p></details>
         <details class="reveal"><summary>什麼時候適合開始找室內設計師？</summary><p>新成屋可在預計交屋前開始了解與接洽；老屋則建議在預計動工前，保留更充裕的屋況評估、設計與報價時間。</p><p>如果預售屋想趁建商客變期調整格局、插座或給排水，建議在建商通知客變後盡快聯絡設計師，才有時間整理需求並配合截止日；能在建造階段先完成的調整，通常可減少交屋後拆除重作的費用與麻煩。若已錯過客變期也不代表不能改，但交屋後重做通常需要較多預算與工期，也要再確認現場及社區的施工限制。</p></details>
-        <details class="reveal"><summary>初步諮詢前需要準備什麼？</summary><p>有平面圖、現場照片、案場地區、坪數、家庭成員、預計入住時間和預算方向就很好。資料還不齊也沒關係，先說明目前進度即可。</p></details>
+        <details class="reveal"><summary>初步諮詢前需要準備什麼？</summary><p>先提供案場地區、房屋類型、室內坪數、預計交屋時間與預算方向即可。資料還不齊也沒關係，不確定的項目可以先寫「待確認」。</p></details>
         <details class="reveal"><summary>為什麼報價不能只看最後的總價？</summary><p>相同品名背後，仍可能有用量、規格、五金配置、施工範圍與責任歸屬的差異。我們鼓勵比較，但建議在相同服務範圍與材料規格下比較。</p></details>
         <details class="reveal"><summary>玥森主要服務哪些縣市與案件？</summary><p>以台中及鄰近縣市的住宅為主，聚焦新成屋、老屋翻新與整體設計工程。若是局部或單一空間，也可以先提供範圍，由我們一起確認是否適合協助。</p></details>
         <details class="reveal"><summary>初談後需要馬上決定嗎？</summary><p>不用。初步溝通的目的，是先釐清需求、預算、時程與合作方式。裝修值得好好比較，我們不會要求你在初談當下立即簽約。</p></details>
@@ -181,11 +131,15 @@
     </section>
 
     <section id="contact" class="contact-section">
-      <div class="section-shell contact-inner reveal"><div><span class="eyebrow">Start a conversation</span><h2>你的家，現在卡在哪一題？</h2><p>把案場地區、房屋類型、坪數、預計入住時間，以及最想解決的三件事傳給我們。先聊清楚，再決定下一步。</p><small>初步整理資料大約 3 分鐘，不需要當下做決定。</small></div><div class="contact-actions"><a class="button button-primary" href="https://lin.ee/OdVZUpf" target="_blank" rel="noopener noreferrer" data-track="line-footer">LINE 預約初步諮詢</a><a href="mailto:nelspu0811+work@gmail.com">Email 寄送資料</a><a href="https://www.instagram.com/moonforest.interior/" target="_blank" rel="noopener noreferrer">Instagram 看更多日常</a><a href="https://www.facebook.com/moonforest.interior/" target="_blank" rel="noopener noreferrer">Facebook 看更多日常</a></div></div>
+      <div class="section-shell contact-inner reveal"><div><span class="eyebrow">Start a conversation</span><h2>從這五項開始，<br>聊聊你的家</h2><p>先提供以下五項資料，讓我們了解你的裝修方向。還沒確定的項目，可以先寫「待確認」。</p><div class="consultation-template"><label for="consultation-template">初步諮詢格式</label><textarea id="consultation-template" rows="5" readonly spellcheck="false">案場地區：
+房屋類型：
+室內坪數：
+預計交屋時間：
+預算方向：</textarea><button type="button" class="button button-outline" id="copy-consultation" hidden>複製諮詢格式</button><p id="copy-status" role="status" aria-live="polite"></p></div></div><div class="contact-actions"><a class="button button-primary" href="https://lin.ee/OdVZUpf" target="_blank" rel="noopener noreferrer" data-track="line-footer">LINE 預約初步諮詢</a><a href="mailto:nelspu0811+work@gmail.com">Email 寄送資料</a><a href="https://www.instagram.com/moonforest.interior/" target="_blank" rel="noopener noreferrer">Instagram 看更多日常</a><a href="https://www.facebook.com/moonforest.interior/" target="_blank" rel="noopener noreferrer">Facebook 看更多日常</a></div></div>
     </section>
   </main>
   <footer><div><img src="logo.png" alt="玥森設計" width="154" height="30"><p>台中住宅室內設計 · 新成屋 · 老屋翻新</p></div><p>© 玥森室內裝修有限公司</p></footer>
   <a class="mobile-contact" href="https://lin.ee/OdVZUpf" target="_blank" rel="noopener noreferrer" data-track="line-mobile">LINE 初步聊聊</a>
-  <script src="main.js?v=6.1"></script>
+  <script src="main.js?v=7.0"></script>
 </body>
 </html>

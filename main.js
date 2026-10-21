@@ -1,6 +1,79 @@
-// main.js
+// Shared interactions for the homepage, portfolio and renovation guides.
+async function fetchProjects() {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 12000);
+    try {
+        const response = await fetch('projects.json?v=7.0', { signal: controller.signal });
+        // Consume the body inside the timeout so stalled downloads also recover.
+        if (!response.ok) throw new Error(`Projects request failed: ${response.status}`);
+        const data = await response.json();
+        if (!Array.isArray(data.projects) || !data.projects.length) throw new Error('Projects data is empty');
+        return data;
+    } finally {
+        clearTimeout(timeout);
+    }
+}
+
+function imageAttributes(media, sizes) {
+    if (!media) return '';
+    const srcset = media.variants.map(v => `${v.src} ${v.width}w`).join(', ');
+    return `width="${media.width}" height="${media.height}" srcset="${srcset}" sizes="${sizes}"`;
+}
+
+function markSinglePortrait(grid) {
+    const portraits = [...grid.querySelectorAll('.portrait')];
+    portraits.forEach(item => item.classList.remove('portrait-single'));
+    if (portraits.length % 2) portraits.at(-1).classList.add('portrait-single');
+}
+
+function showLoadError(container, message) {
+    container.innerHTML = `<div class="project-error" role="alert"><p>${message}</p><button class="button button-primary" type="button">重新載入案例</button> <a class="text-link" href="https://lin.ee/OdVZUpf" target="_blank" rel="noopener noreferrer" data-track="line-load-error">LINE 聯絡我們 →</a></div>`;
+    container.querySelector('button').addEventListener('click', () => window.location.reload());
+}
+
+function initConsultationCopy() {
+    const button = document.getElementById('copy-consultation');
+    const template = document.getElementById('consultation-template');
+    const status = document.getElementById('copy-status');
+    if (!button || !template || !status) return;
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(template.value);
+            status.textContent = '已複製，貼到 LINE 填寫後傳給我們即可。';
+        } catch {
+            template.focus();
+            template.select();
+            template.setSelectionRange(0, template.value.length);
+            status.textContent = '格式已選取，請長按或按 Ctrl／⌘ + C 複製。';
+        }
+    });
+}
+
+function initContactTracking() {
+    document.addEventListener('click', event => {
+        const link = event.target.closest('a[href]');
+        if (!link || typeof window.gtag !== 'function') return;
+        const href = link.getAttribute('href');
+        const method = /^https:\/\/(lin\.ee|line\.me)\//.test(href) ? 'line' : href.startsWith('mailto:') ? 'email' : null;
+        if (!method) return;
+        const location = link.dataset.track || (link.classList.contains('mobile-contact') ? 'mobile' : link.closest('nav') ? 'header' : 'content');
+        window.gtag('event', 'contact_click', { contact_method: method, contact_location: location, page_path: window.location.pathname });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', async function () {
     const loadingSpinner = document.getElementById('loadingSpinner');
+    const initialHash = window.location.hash;
+    let userScrolled = false;
+    ['wheel', 'touchstart', 'pointerdown', 'keydown'].forEach(type => {
+        window.addEventListener(type, () => { userScrolled = true; }, { once: true, passive: true });
+    });
+    initConsultationCopy();
+    initContactTracking();
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') document.querySelector('.mobile-menu[open]')?.removeAttribute('open');
+    });
 
     document.querySelectorAll('.mobile-menu a').forEach(link => {
         link.addEventListener('click', () => link.closest('details')?.removeAttribute('open'));
@@ -11,9 +84,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const projectContainer = document.getElementById('projectContainer');
     if (projectContainer) {
         try {
-            const response = await fetch('projects.json?v=6.2');
-            if (!response.ok) throw new Error(`Projects request failed: ${response.status}`);
-            const data = await response.json();
+            const data = await fetchProjects();
             const featuredIds = ['project30', 'project8', 'project11', 'project18', 'project1', 'project4'];
             const visibleProjects = document.body.classList.contains('home-page')
                 ? featuredIds.map(id => data.projects.find(project => project.id === id)).filter(Boolean)
@@ -23,8 +94,15 @@ document.addEventListener('DOMContentLoaded', async function () {
                 projectContainer.appendChild(projectCard);
             }
             initScrollAnimations(); // 初始化滾動動畫
+            // Restore direct section links after asynchronously inserting the cards.
+            if (initialHash && window.location.hash === initialHash && !userScrolled) {
+                let target;
+                try { target = document.getElementById(decodeURIComponent(initialHash.slice(1))); } catch { /* Invalid fragment. */ }
+                target?.scrollIntoView({ behavior: 'instant', block: 'start' });
+            }
         } catch (error) {
             console.error('Error loading projects:', error);
+            showLoadError(projectContainer, '案例暫時無法載入，請重試或直接與我們聊聊。');
         }
     }
 
@@ -50,9 +128,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         if (projectId) {
             try {
-                const response = await fetch('projects.json?v=6.2');
-                if (!response.ok) throw new Error(`Project request failed: ${response.status}`);
-                const data = await response.json();
+                const data = await fetchProjects();
                 const project = data.projects.find(p => p.id === projectId);
                 if (project) {
                     if (requestedProjectId !== projectId) {
@@ -65,54 +141,39 @@ document.addEventListener('DOMContentLoaded', async function () {
                 } else {
                     showProjectError('找不到此設計案例');
                 }
-                loadingSpinner.classList.add('loading-hidden');
-                setTimeout(() => {
-                    loadingSpinner.style.display = 'none';
-                }, 300);
             } catch (error) {
                 console.error('Error loading project details:', error);
-                showProjectError('案例暫時無法載入，請稍後再試');
-                loadingSpinner?.classList.add('loading-hidden');
+                showLoadError(projectDetails, '案例暫時無法載入，請重試或直接與我們聊聊。');
+            } finally {
+                if (loadingSpinner) loadingSpinner.hidden = true;
             }
         }
         else {
             showProjectError('請從作品集選擇設計案例');
-            loadingSpinner.classList.add('loading-hidden');
+            if (loadingSpinner) loadingSpinner.hidden = true;
         }
     }
 });
-
-let webPSupportPromise;
-async function supportsWebP() {
-    if (webPSupportPromise) return webPSupportPromise;
-    if (!self.createImageBitmap) return false;
-
-    const webpData = 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=';
-    const blob = await fetch(webpData).then(r => r.blob());
-
-    webPSupportPromise = createImageBitmap(blob).then(() => true, () => false);
-    return webPSupportPromise;
-}
 
 async function createProjectCard(project, index) {
     const article = document.createElement('article');
     article.className = 'project-editorial reveal';
 
-    const useWebP = await supportsWebP();
-    const imageUrl = `projects/${project.id}/${project.cover.replace(/\.(png|jpg|jpeg)$/, useWebP ? '.webp' : '$&')}`;
+    const media = project.media?.[project.cover];
+    const imageUrl = media?.src || `projects/${project.id}/${project.cover}`;
     const fallbackUrl = `projects/${project.id}/${project.cover}`;
     const projectNum = String(index + 1).padStart(2, '0'); // 生成 01, 02...
 
     article.innerHTML = `
         <div class="project-image">
             <a href="project.html?id=${project.id}">
-                <img src="${imageUrl}" alt="${project.title}室內設計案例" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${fallbackUrl}';">
+                <img src="${imageUrl}" ${imageAttributes(media, '(max-width: 600px) calc(100vw - 32px), (max-width: 900px) 46vw, 380px')} alt="${project.title}，案例封面" loading="lazy" decoding="async" onerror="this.onerror=null;this.removeAttribute('srcset');this.src='${fallbackUrl}';">
             </a>
         </div>
         <div class="project-info">
             <span class="project-number">${projectNum}</span>
             <h3>${project.title}</h3>
-            <p>${project.description.substring(0, 80)}...</p>
+            <p>${project.description.length > 80 ? project.description.substring(0, 80) + '…' : project.description}</p>
             <a href="project.html?id=${project.id}" class="discover-btn">查看設計 <span>&rarr;</span></a>
         </div>
     `;
@@ -122,7 +183,6 @@ async function createProjectCard(project, index) {
 
 async function displayProjectDetails(project) {
     const container = document.getElementById('projectDetails');
-    const useWebP = await supportsWebP();
 
     // 添加標題
     const title = document.createElement('h1');
@@ -153,59 +213,66 @@ async function displayProjectDetails(project) {
     imageGrid.className = 'project-images';
 
     // 添加所有項目圖片
-    let loadedImageCount = 0;
-
-    project.images.forEach(imageName => {
+    project.images.forEach((imageName, index) => {
         const imageContainer = document.createElement('div');
-        imageContainer.className = 'image-container';
+        const media = project.media?.[imageName];
+        imageContainer.className = `image-container ${media && media.height > media.width ? 'portrait' : 'landscape'}`;
 
         const img = document.createElement('img');
-        img.src = `projects/${project.id}/${imageName.replace(/\.(png|jpg|jpeg)$/, useWebP ? '.webp' : '$&')}`;
-        img.alt = `${project.title}台中住宅室內設計完工照片`;
+        if (media) {
+            img.width = media.width;
+            img.height = media.height;
+            img.srcset = media.variants.map(v => `${v.src} ${v.width}w`).join(', ');
+            img.sizes = media.height > media.width ? '(max-width: 900px) calc(100vw - 40px), 470px' : '(max-width: 1000px) calc(100vw - 40px), 960px';
+        }
+        img.src = media?.src || `projects/${project.id}/${imageName}`;
+        const stage = project.id === 'project26' && index < 2 ? '翻新前空間紀錄' : '空間設計圖片';
+        img.alt = `${project.title}，${stage} ${index + 1}`;
         img.loading = 'lazy';
         img.decoding = 'async';
 
         // 如果 WebP 載入失敗，回退到原始格式
         img.onerror = function () {
             this.onerror = null;
+            this.removeAttribute('srcset');
             this.src = `projects/${project.id}/${imageName}`;
         };
 
         // 圖片加載完成後確定方向
-        img.onload = function () {
+        if (!media) img.onload = function () {
             const isPortrait = this.naturalHeight > this.naturalWidth;
-            imageContainer.classList.add(isPortrait ? 'portrait' : 'landscape');
-            loadedImageCount += 1;
-            if (loadedImageCount === project.images.length) {
-                const portraitContainers = [...imageGrid.querySelectorAll('.portrait')];
-                if (portraitContainers.length % 2 === 1) {
-                    portraitContainers.at(-1).classList.add('portrait-single');
-                }
-            }
+            imageContainer.classList.toggle('portrait', isPortrait);
+            imageContainer.classList.toggle('landscape', !isPortrait);
+            markSinglePortrait(imageGrid);
         };
 
         imageContainer.appendChild(img);
         imageGrid.appendChild(imageContainer);
     });
 
+    markSinglePortrait(imageGrid);
     container.appendChild(imageGrid);
 
     const consultation = document.createElement('section');
     consultation.className = 'project-consultation';
-    consultation.innerHTML = `<p>你也有類似的格局、收納或翻新問題嗎？</p><h2>先把案場和需求聊清楚</h2><p>不急著做決定，讓我們先了解屋況、預算方向與預計時程。</p><a class="button button-primary" href="https://lin.ee/OdVZUpf" target="_blank" rel="noopener noreferrer">LINE 預約初步諮詢</a>`;
+    consultation.innerHTML = `<p>你也有類似的格局、收納或翻新問題嗎？</p><h2>先把案場和需求聊清楚</h2><p>提供案場地區、房屋類型、室內坪數、預計交屋時間與預算方向，就能開始討論。</p><a class="button button-primary" href="https://lin.ee/OdVZUpf" target="_blank" rel="noopener noreferrer" data-track="line-project-end">LINE 預約初步諮詢</a>`;
     container.appendChild(consultation);
 }
 
 function updateProjectMetadata(project) {
-    const pageUrl = new URL(window.location.href);
+    const pageUrl = new URL(window.location.pathname, window.location.origin);
+    pageUrl.searchParams.set('id', project.id);
     const description = project.description.replace(/\s+/g, ' ').slice(0, 155);
     const image = new URL(`projects/${project.id}/${project.cover}`, window.location.href).href;
-    document.title = `${project.title}｜台中室內設計案例｜玥森設計`;
+    document.title = `${project.title}｜住宅室內設計案例｜玥森設計`;
     setMeta('name', 'description', description);
     setMeta('property', 'og:title', document.title);
     setMeta('property', 'og:description', description);
     setMeta('property', 'og:image', image);
     setMeta('property', 'og:url', pageUrl.href);
+    setMeta('name', 'twitter:title', document.title);
+    setMeta('name', 'twitter:description', description);
+    setMeta('name', 'twitter:image', image);
     document.querySelector('link[rel="canonical"]').href = pageUrl.href;
 }
 
@@ -221,41 +288,23 @@ function setMeta(attribute, key, content) {
 
 function showProjectError(message) {
     const container = document.getElementById('projectDetails');
-    container.innerHTML = `<div class="project-error"><h1>${message}</h1><p><a href="index.html#portfolio">返回精選案例</a></p></div>`;
+    container.innerHTML = `<div class="project-error"><h1>${message}</h1><p><a href="projects.html">返回住宅案例列表</a></p></div>`;
 }
 
-
-async function waitForImages(project) {
-    const useWebP = await supportsWebP();
-
-    const imagePromises = project.images.map(imageName => {
-        return new Promise((resolve, reject) => {
-            const img = new Image();
-            img.onload = resolve;
-            img.onerror = () => {
-                // 如果 WebP 載入失敗，嘗試載入原始格式
-                img.onerror = reject;
-                img.src = `projects/${project.id}/${imageName}`;
-            };
-            img.src = `projects/${project.id}/${imageName.replace(/\.(png|jpg|jpeg)$/, useWebP ? '.webp' : '$&')}`;
-        });
-    });
-
-    return Promise.all(imagePromises);
-}
 
 // 加入 Intersection Observer 處理滾動浮現動畫
 function initScrollAnimations() {
     const elements = document.querySelectorAll('.reveal:not(.active)');
-    if (!('IntersectionObserver' in window)) {
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         elements.forEach(el => el.classList.add('active'));
         return;
     }
 
+    document.body.classList.add('motion-ready');
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.15
+        threshold: 0.05
     };
 
     const observer = new IntersectionObserver((entries, observer) => {

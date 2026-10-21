@@ -17,6 +17,83 @@
                 "decision": "自然光是這個家的重要條件。與其增加造型，我們先整理家具尺度、行走距離與視線落點，讓窗邊光線能深入室內。",
                 "solution": "客廳以低矮家具保留開闊度，主要量體集中在牆側；圓形茶几降低動線碰撞，也讓多人使用時更容易自由移動。",
                 "detail": "米色織品、溫潤木色與石材控制在相近明度，材質靠觸感和光澤形成層次。間接照明只在夜間需要的位置補光。"
+            },
+            "media": {
+                "cover.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project30/cover-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project30/cover-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project30/cover-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image1.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project30/image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project30/image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project30/image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image2.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project30/image2-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project30/image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project30/image2-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image3.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project30/image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project30/image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project30/image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image4.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project30/image4-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project30/image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project30/image4-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                }
             }
         },
         {
@@ -45,6 +122,238 @@
                 "decision": "設計不以滿室黑灰製造氣氛，而是先確定深色量體的位置，再利用木質、皮革與窗邊自然光平衡明暗。",
                 "solution": "收納與展示整合於弧形牆面，減少櫃體邊界切割空間。展示層架只保留適量開放格，其他日用品以封閉櫃維持畫面安定。",
                 "detail": "咖啡色皮革、深色石材與木皮各有不同反光程度；背光與間接光負責顯示材質深度，主要照明則維持日常使用所需亮度。"
+            },
+            "media": {
+                "cover.png": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project1/cover-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project1/cover-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project1/cover-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image1.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project1/image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project1/image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project1/image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image2.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project1/image2-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project1/image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project1/image2-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image3.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project1/image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project1/image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project1/image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image4.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project1/image4-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project1/image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project1/image4-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image5.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project1/image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project1/image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project1/image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image6.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project1/image6-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project1/image6-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project1/image6-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image7.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project1/image7-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project1/image7-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project1/image7-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image8.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project1/image8-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project1/image8-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project1/image8-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image9.webp": {
+                    "width": 1920,
+                    "height": 1314,
+                    "src": "responsive/projects/project1/image9-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project1/image9-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project1/image9-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project1/image9-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image10.webp": {
+                    "width": 1920,
+                    "height": 1314,
+                    "src": "responsive/projects/project1/image10-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project1/image10-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project1/image10-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project1/image10-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image11.webp": {
+                    "width": 1920,
+                    "height": 1314,
+                    "src": "responsive/projects/project1/image11-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project1/image11-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project1/image11-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project1/image11-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image12.webp": {
+                    "width": 1920,
+                    "height": 1314,
+                    "src": "responsive/projects/project1/image12-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project1/image12-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project1/image12-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project1/image12-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image14.webp": {
+                    "width": 1920,
+                    "height": 1314,
+                    "src": "responsive/projects/project1/image14-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project1/image14-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project1/image14-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project1/image14-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                }
             }
         },
         {
@@ -69,7 +378,218 @@
                 "brief": "床頭上方的樑柱與既有浴室門，原本讓主臥視覺顯得零碎",
                 "decision": "我們以弧形木作順著結構轉折，再用木皮隱藏門統一床頭立面",
                 "solution": "沒有刻意遮掩所有條件，而是把必要的結構轉化成連續、安定的空間界面",
-                "detail": "材料、色彩與照明維持一致邏輯，並依使用頻率與維護方式選擇適合的位置及做法。"
+                "detail": "米灰色牆面搭配淺木紋衣櫃，床頭上方以暖色間接光帶出牆面紋理；木紋門片與櫃體接續排列，讓入口融入完整立面。公共空間延續相近色調，餐桌上方的銅色吊燈與局部展示格，成為柔和背景中的視覺重點。"
+            },
+            "media": {
+                "cover.png": {
+                    "width": 2560,
+                    "height": 2560,
+                    "src": "responsive/projects/project2/cover-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project2/cover-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project2/cover-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project2/cover-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image1.webp": {
+                    "width": 2560,
+                    "height": 2560,
+                    "src": "responsive/projects/project2/image1-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project2/image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project2/image1-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project2/image1-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image2.webp": {
+                    "width": 2560,
+                    "height": 2560,
+                    "src": "responsive/projects/project2/image2-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project2/image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project2/image2-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project2/image2-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image3.webp": {
+                    "width": 2560,
+                    "height": 2560,
+                    "src": "responsive/projects/project2/image3-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project2/image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project2/image3-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project2/image3-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image4.webp": {
+                    "width": 2560,
+                    "height": 2560,
+                    "src": "responsive/projects/project2/image4-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project2/image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project2/image4-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project2/image4-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image5.webp": {
+                    "width": 2560,
+                    "height": 2560,
+                    "src": "responsive/projects/project2/image5-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project2/image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project2/image5-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project2/image5-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image6.webp": {
+                    "width": 2560,
+                    "height": 2560,
+                    "src": "responsive/projects/project2/image6-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project2/image6-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project2/image6-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project2/image6-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image7.webp": {
+                    "width": 2560,
+                    "height": 2560,
+                    "src": "responsive/projects/project2/image7-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project2/image7-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project2/image7-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project2/image7-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image8.webp": {
+                    "width": 2560,
+                    "height": 2560,
+                    "src": "responsive/projects/project2/image8-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project2/image8-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project2/image8-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project2/image8-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image9.webp": {
+                    "width": 2560,
+                    "height": 2560,
+                    "src": "responsive/projects/project2/image9-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project2/image9-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project2/image9-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project2/image9-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image10.webp": {
+                    "width": 2560,
+                    "height": 2560,
+                    "src": "responsive/projects/project2/image10-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project2/image10-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project2/image10-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project2/image10-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                }
             }
         },
         {
@@ -87,7 +607,85 @@
                 "brief": "在有限坪數裡，屋主選擇把衣物收納與睡眠區適度分開，讓主臥回到單純休息的用途",
                 "decision": "弧形床頭銜接浴室隱藏門，降低入口的存在感",
                 "solution": "藝術塗料與分層照明則控制明暗與觸感，避免小空間塞入過多造型",
-                "detail": "材料、色彩與照明維持一致邏輯，並依使用頻率與維護方式選擇適合的位置及做法。"
+                "detail": "床頭以米色牆面與細直格柵形成疏密對比，側邊門片沿同一色調收整，降低門口的存在感。黑色壁燈與金色吊燈分置床側，搭配天花邊緣的間接光；灰、白與棕色寢具延續低彩度層次，讓小主臥保有安靜的休息氛圍。"
+            },
+            "media": {
+                "cover.png": {
+                    "width": 2560,
+                    "height": 1753,
+                    "src": "responsive/projects/project3/cover-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project3/cover-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project3/cover-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project3/cover-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image1.webp": {
+                    "width": 2560,
+                    "height": 1753,
+                    "src": "responsive/projects/project3/image1-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project3/image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project3/image1-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project3/image1-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image2.webp": {
+                    "width": 2560,
+                    "height": 2560,
+                    "src": "responsive/projects/project3/image2-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project3/image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project3/image2-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project3/image2-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image3.webp": {
+                    "width": 1840,
+                    "height": 1840,
+                    "src": "responsive/projects/project3/image3-1840.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project3/image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project3/image3-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project3/image3-1840.webp",
+                            "width": 1840
+                        }
+                    ]
+                }
             }
         },
         {
@@ -116,6 +714,246 @@
                 "decision": "容易影響完工結果的材料、尺寸與工種銜接，不能等到完成後才確認。因此把溝通節點安排在實際施工前，而不是只在發生問題時回報。",
                 "solution": "工程期間以固定進度整理與現場核對，讓屋主看見圖面如何轉為實體；涉及使用習慣的細節，則在可調整的階段再次確認。",
                 "detail": "設計端持續比對圖面、材料與現況，遇到差異先釐清影響再做決定。這些看不見的過程，是降低追加、誤解與完工落差的重要部分。"
+            },
+            "media": {
+                "cover.png": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project4/cover-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project4/cover-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project4/cover-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image1.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project4/image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project4/image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project4/image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image2.webp": {
+                    "width": 2906,
+                    "height": 3632,
+                    "src": "responsive/projects/project4/image2-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project4/image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project4/image2-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project4/image2-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image3.webp": {
+                    "width": 2994,
+                    "height": 3743,
+                    "src": "responsive/projects/project4/image3-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project4/image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project4/image3-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project4/image3-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image4.webp": {
+                    "width": 2458,
+                    "height": 3072,
+                    "src": "responsive/projects/project4/image4-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project4/image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project4/image4-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project4/image4-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image5.webp": {
+                    "width": 2902,
+                    "height": 3627,
+                    "src": "responsive/projects/project4/image5-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project4/image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project4/image5-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project4/image5-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image6.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project4/image6-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project4/image6-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project4/image6-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image7.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project4/image7-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project4/image7-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project4/image7-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image8.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project4/image8-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project4/image8-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project4/image8-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image9.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project4/image9-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project4/image9-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project4/image9-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image10.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project4/image10-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project4/image10-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project4/image10-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image11.webp": {
+                    "width": 2816,
+                    "height": 3520,
+                    "src": "responsive/projects/project4/image11-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project4/image11-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project4/image11-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project4/image11-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image12.webp": {
+                    "width": 2458,
+                    "height": 3072,
+                    "src": "responsive/projects/project4/image12-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project4/image12-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project4/image12-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project4/image12-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image13.webp": {
+                    "width": 2458,
+                    "height": 3072,
+                    "src": "responsive/projects/project4/image13-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project4/image13-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project4/image13-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project4/image13-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                }
             }
         },
         {
@@ -142,6 +980,220 @@
                 "decision": "設計不以大量櫃體和天花造型填滿空間，而是先控制量體深度、視線穿透與主要照明位置，降低小尺度住宅的壓迫感。",
                 "solution": "主臥以鋁件衣架、黑玻和鏡面整理衣物收納，公共區域則用可獨立控制的鋁條燈建立不同情境；天花轉折以圓弧柔化高低差。",
                 "detail": "灰黑石紋、木質、金屬與玻璃維持相近色階，床頭及床底的間接光讓量體稍微抽離地面，也補足夜間所需的柔和亮度。"
+            },
+            "media": {
+                "cover.png": {
+                    "width": 4080,
+                    "height": 3072,
+                    "src": "responsive/projects/project6/cover-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project6/cover-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project6/cover-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project6/cover-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image1.webp": {
+                    "width": 4080,
+                    "height": 3072,
+                    "src": "responsive/projects/project6/image1-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project6/image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project6/image1-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project6/image1-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image2.webp": {
+                    "width": 4080,
+                    "height": 3072,
+                    "src": "responsive/projects/project6/image2-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project6/image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project6/image2-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project6/image2-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image3.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project6/image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project6/image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project6/image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image4.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project6/image4-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project6/image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project6/image4-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image5.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project6/image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project6/image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project6/image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image6.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project6/image6-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project6/image6-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project6/image6-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image7.webp": {
+                    "width": 3010,
+                    "height": 3010,
+                    "src": "responsive/projects/project6/image7-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project6/image7-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project6/image7-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project6/image7-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image8.webp": {
+                    "width": 4080,
+                    "height": 3072,
+                    "src": "responsive/projects/project6/image8-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project6/image8-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project6/image8-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project6/image8-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "project7-image1.webp": {
+                    "width": 2048,
+                    "height": 1212,
+                    "src": "responsive/projects/project6/project7-image1-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project6/project7-image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project6/project7-image1-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project6/project7-image1-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "project7-image2.webp": {
+                    "width": 2048,
+                    "height": 1212,
+                    "src": "responsive/projects/project6/project7-image2-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project6/project7-image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project6/project7-image2-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project6/project7-image2-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "project7-image3.webp": {
+                    "width": 2048,
+                    "height": 1212,
+                    "src": "responsive/projects/project6/project7-image3-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project6/project7-image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project6/project7-image3-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project6/project7-image3-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                }
             }
         },
         {
@@ -169,6 +1221,219 @@
                 "decision": "原格局沒有主臥衛浴，日常使用需要穿越走道。設計先從動線與門口尺度著手，再判斷衛浴、水電及必要工程的配置。",
                 "solution": "在主臥增設衛浴，重新調整床位、走道與入口關係，使主要動線更直接。樑體不以厚重天花包覆，而用圓弧轉折柔化視覺壓迫。",
                 "detail": "床邊與夜間行走路徑補足分區照明，避免只有中央主燈。材料選擇以好清潔、耐用與降低日後維護負擔為優先。"
+            },
+            "media": {
+                "cover.png": {
+                    "width": 1080,
+                    "height": 1080,
+                    "src": "responsive/projects/project8/cover-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project8/cover-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project8/cover-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image1.webp": {
+                    "width": 1350,
+                    "height": 1080,
+                    "src": "responsive/projects/project8/image1-1350.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project8/image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project8/image1-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project8/image1-1350.webp",
+                            "width": 1350
+                        }
+                    ]
+                },
+                "image2.webp": {
+                    "width": 1350,
+                    "height": 1080,
+                    "src": "responsive/projects/project8/image2-1350.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project8/image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project8/image2-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project8/image2-1350.webp",
+                            "width": 1350
+                        }
+                    ]
+                },
+                "image3.webp": {
+                    "width": 1080,
+                    "height": 1080,
+                    "src": "responsive/projects/project8/image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project8/image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project8/image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image4.webp": {
+                    "width": 1080,
+                    "height": 1080,
+                    "src": "responsive/projects/project8/image4-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project8/image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project8/image4-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image5.webp": {
+                    "width": 1040,
+                    "height": 1080,
+                    "src": "responsive/projects/project8/image5-1040.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project8/image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project8/image5-1040.webp",
+                            "width": 1040
+                        }
+                    ]
+                },
+                "image6.webp": {
+                    "width": 1080,
+                    "height": 1080,
+                    "src": "responsive/projects/project8/image6-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project8/image6-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project8/image6-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image7.webp": {
+                    "width": 1080,
+                    "height": 1080,
+                    "src": "responsive/projects/project8/image7-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project8/image7-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project8/image7-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image8.webp": {
+                    "width": 2080,
+                    "height": 1080,
+                    "src": "responsive/projects/project8/image8-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project8/image8-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project8/image8-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project8/image8-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image9.webp": {
+                    "width": 1040,
+                    "height": 1080,
+                    "src": "responsive/projects/project8/image9-1040.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project8/image9-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project8/image9-1040.webp",
+                            "width": 1040
+                        }
+                    ]
+                },
+                "image10.webp": {
+                    "width": 1040,
+                    "height": 1080,
+                    "src": "responsive/projects/project8/image10-1040.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project8/image10-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project8/image10-1040.webp",
+                            "width": 1040
+                        }
+                    ]
+                },
+                "image11.webp": {
+                    "width": 2080,
+                    "height": 1080,
+                    "src": "responsive/projects/project8/image11-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project8/image11-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project8/image11-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project8/image11-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image12.webp": {
+                    "width": 1040,
+                    "height": 1080,
+                    "src": "responsive/projects/project8/image12-1040.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project8/image12-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project8/image12-1040.webp",
+                            "width": 1040
+                        }
+                    ]
+                }
             }
         },
         {
@@ -188,7 +1453,99 @@
                 "brief": "空間以白色和淺木色維持自然採光，收納則集中整合，避免櫃體切割視線",
                 "decision": "家具配置保留主要動線與使用彈性，間接照明只放在需要補足層次的位置",
                 "solution": "整體不追求造型堆疊，而是讓日用品放得下、空間也能維持呼吸感",
-                "detail": "材料、色彩與照明維持一致邏輯，並依使用頻率與維護方式選擇適合的位置及做法。"
+                "detail": "木紋地坪延伸至客餐廳，電視立面則以深色背板、灰色石紋與垂直線條拉出層次。低檯面與側邊玻璃展示櫃連成一體，櫃內燈光照亮收藏；淺色窗簾與天花邊緣的光線，平衡深色量體的份量。"
+            },
+            "media": {
+                "cover.png": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project9/cover-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project9/cover-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project9/cover-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image1.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project9/image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project9/image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project9/image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image2.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project9/image2-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project9/image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project9/image2-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image3.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project9/image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project9/image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project9/image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image4.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project9/image4-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project9/image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project9/image4-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image5.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project9/image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project9/image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project9/image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                }
             }
         },
         {
@@ -208,7 +1565,99 @@
                 "brief": "灰階與木質形成沉穩基底，大面窗景則保留室內的明亮感",
                 "decision": "收納依使用頻率安排於主要立面，減少零散櫃體造成的視覺干擾",
                 "solution": "材質和線條維持一致，讓物品收好之後，空間仍能回到安定俐落的狀態",
-                "detail": "材料、色彩與照明維持一致邏輯，並依使用頻率與維護方式選擇適合的位置及做法。"
+                "detail": "入口以淺木紋整面櫃體銜接公共空間，搭配深色門片與細框玻璃界定邊界。客廳的灰色石紋檯面、深色電視背板與木紋地坪形成明暗對比，天花線型燈順著長向配置，讓玄關到客廳的視線保持連續。"
+            },
+            "media": {
+                "cover.png": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project10/cover-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project10/cover-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project10/cover-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image1.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project10/image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project10/image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project10/image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image2.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project10/image2-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project10/image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project10/image2-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image3.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project10/image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project10/image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project10/image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image4.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project10/image4-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project10/image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project10/image4-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image5.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project10/image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project10/image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project10/image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                }
             }
         },
         {
@@ -229,6 +1678,114 @@
                 "decision": "我們先依使用頻率盤點收納：每天拿取的放在順手位置，低頻與大型物品集中處理，避免每個角落各自增加櫃體。",
                 "solution": "櫃體深度與開放比例依空間尺度調整，主要動線保留視覺留白。收納量不是單看櫃體面積，而是讓內部分類真正符合物品尺寸。",
                 "detail": "考量海線濕度，櫃體採用 V313 等級防潮板；板材運用位置、通風條件與收口同時確認，讓防潮規格落實在使用環境。"
+            },
+            "media": {
+                "cover.png": {
+                    "width": 1800,
+                    "height": 1440,
+                    "src": "responsive/projects/project11/cover-1800.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project11/cover-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project11/cover-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project11/cover-1800.webp",
+                            "width": 1800
+                        }
+                    ]
+                },
+                "image1.webp": {
+                    "width": 1800,
+                    "height": 1440,
+                    "src": "responsive/projects/project11/image1-1800.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project11/image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project11/image1-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project11/image1-1800.webp",
+                            "width": 1800
+                        }
+                    ]
+                },
+                "image2.webp": {
+                    "width": 1080,
+                    "height": 1080,
+                    "src": "responsive/projects/project11/image2-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project11/image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project11/image2-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image3.webp": {
+                    "width": 1080,
+                    "height": 1080,
+                    "src": "responsive/projects/project11/image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project11/image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project11/image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image4.webp": {
+                    "width": 1350,
+                    "height": 1080,
+                    "src": "responsive/projects/project11/image4-1350.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project11/image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project11/image4-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project11/image4-1350.webp",
+                            "width": 1350
+                        }
+                    ]
+                },
+                "image5.webp": {
+                    "width": 1350,
+                    "height": 1080,
+                    "src": "responsive/projects/project11/image5-1350.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project11/image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project11/image5-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project11/image5-1350.webp",
+                            "width": 1350
+                        }
+                    ]
+                }
             }
         },
         {
@@ -262,6 +1819,329 @@
                 "decision": "比起把每面牆做滿，設計先確認自然光、通風和主要動線，再決定櫃體位置與展示比例，避免機能切斷空間。",
                 "solution": "開放展示與封閉收納集中於主要立面，常用與低頻物品分區配置；客餐廳的視線保持連續，同一空間也能回應不同時段。",
                 "detail": "白色、米色和淺木提高室內明度，深木色局部穩定畫面。照明依使用位置補足，不用滿室主燈換取亮度。"
+            },
+            "media": {
+                "cover.png": {
+                    "width": 1080,
+                    "height": 1080,
+                    "src": "responsive/projects/project12/cover-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/cover-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/cover-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image1.webp": {
+                    "width": 1080,
+                    "height": 1080,
+                    "src": "responsive/projects/project12/image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image2.webp": {
+                    "width": 1080,
+                    "height": 1080,
+                    "src": "responsive/projects/project12/image2-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/image2-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image3.webp": {
+                    "width": 1080,
+                    "height": 1080,
+                    "src": "responsive/projects/project12/image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image4.webp": {
+                    "width": 3072,
+                    "height": 4080,
+                    "src": "responsive/projects/project12/image4-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/image4-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project12/image4-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image5.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project12/image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image6.webp": {
+                    "width": 1080,
+                    "height": 1080,
+                    "src": "responsive/projects/project12/image6-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/image6-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/image6-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project13-image1.webp": {
+                    "width": 4080,
+                    "height": 2295,
+                    "src": "responsive/projects/project12/project13-image1-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/project13-image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/project13-image1-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project12/project13-image1-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "project13-image2.webp": {
+                    "width": 1080,
+                    "height": 607,
+                    "src": "responsive/projects/project12/project13-image2-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/project13-image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/project13-image2-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project13-image3.webp": {
+                    "width": 4080,
+                    "height": 2295,
+                    "src": "responsive/projects/project12/project13-image3-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/project13-image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/project13-image3-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project12/project13-image3-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "project13-image4.webp": {
+                    "width": 4080,
+                    "height": 2295,
+                    "src": "responsive/projects/project12/project13-image4-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/project13-image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/project13-image4-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project12/project13-image4-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "project13-image5.webp": {
+                    "width": 1080,
+                    "height": 607,
+                    "src": "responsive/projects/project12/project13-image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/project13-image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/project13-image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project13-image6.webp": {
+                    "width": 4080,
+                    "height": 2295,
+                    "src": "responsive/projects/project12/project13-image6-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/project13-image6-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/project13-image6-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project12/project13-image6-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "project13-image7.webp": {
+                    "width": 4080,
+                    "height": 2295,
+                    "src": "responsive/projects/project12/project13-image7-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/project13-image7-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/project13-image7-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project12/project13-image7-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "project14-image1.webp": {
+                    "width": 1080,
+                    "height": 1080,
+                    "src": "responsive/projects/project12/project14-image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/project14-image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/project14-image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project14-image2.webp": {
+                    "width": 1836,
+                    "height": 2295,
+                    "src": "responsive/projects/project12/project14-image2-1836.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/project14-image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/project14-image2-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project12/project14-image2-1836.webp",
+                            "width": 1836
+                        }
+                    ]
+                },
+                "project14-image3.webp": {
+                    "width": 1836,
+                    "height": 2295,
+                    "src": "responsive/projects/project12/project14-image3-1836.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/project14-image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/project14-image3-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project12/project14-image3-1836.webp",
+                            "width": 1836
+                        }
+                    ]
+                },
+                "project14-image4.webp": {
+                    "width": 1350,
+                    "height": 1080,
+                    "src": "responsive/projects/project12/project14-image4-1350.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/project14-image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/project14-image4-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project12/project14-image4-1350.webp",
+                            "width": 1350
+                        }
+                    ]
+                },
+                "project14-image5.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project12/project14-image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project12/project14-image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project12/project14-image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                }
             }
         },
         {
@@ -292,6 +2172,248 @@
                 "decision": "設計先盤點行走和取物關係，把收納、設備與展示集中處理，減少各自突出的櫃體與淺色空間裡容易被放大的零碎線條。",
                 "solution": "開放格、封閉櫃與留白配置在同一展示立面，常用機能靠近主要動線；家具尺度則保留一家人共同使用公共區域的彈性。",
                 "detail": "白、灰與原木維持相近明度，燈光依閱讀、展示與夜間休息分區配置，避免單一主燈讓空間顯得扁平。"
+            },
+            "media": {
+                "cover.png": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project15/cover-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project15/cover-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project15/cover-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image1.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project15/image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project15/image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project15/image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image2.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project15/image2-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project15/image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project15/image2-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image3.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project15/image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project15/image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project15/image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image4.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project15/image4-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project15/image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project15/image4-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image5.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project15/image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project15/image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project15/image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project16-image1.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project15/project16-image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project15/project16-image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project15/project16-image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project16-image2.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project15/project16-image2-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project15/project16-image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project15/project16-image2-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project16-image3.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project15/project16-image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project15/project16-image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project15/project16-image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project16-image4.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project15/project16-image4-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project15/project16-image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project15/project16-image4-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project16-image5.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project15/project16-image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project15/project16-image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project15/project16-image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project17-image1.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project15/project17-image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project15/project17-image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project15/project17-image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project17-image2.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project15/project17-image2-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project15/project17-image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project15/project17-image2-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project17-image3.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project15/project17-image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project15/project17-image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project15/project17-image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project17-image4.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project15/project17-image4-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project15/project17-image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project15/project17-image4-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project17-image5.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project15/project17-image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project15/project17-image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project15/project17-image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                }
             }
         },
         {
@@ -312,6 +2434,122 @@
                 "decision": "原屋高有限，兩台壁掛冷氣仍可正常使用。若改為吊隱式設備，會同時增加預算並壓低天花，因此決定保留既有冷氣。",
                 "solution": "三種機能依採光與使用順序分區，更衣室以長虹玻璃鋁框門界定，關門後仍能透光，避免隔間把 10.5 坪切成狹小房間。",
                 "detail": "奶茶色降低老屋改造後的生硬感，非直接照明沿主要量體配置；玻璃、鋁框與木質收口控制在簡潔線條，維持視覺連續。"
+            },
+            "media": {
+                "cover.png": {
+                    "width": 2560,
+                    "height": 1440,
+                    "src": "responsive/projects/project18/cover-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project18/cover-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project18/cover-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project18/cover-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image1.webp": {
+                    "width": 2560,
+                    "height": 1440,
+                    "src": "responsive/projects/project18/image1-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project18/image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project18/image1-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project18/image1-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image2.webp": {
+                    "width": 2560,
+                    "height": 1440,
+                    "src": "responsive/projects/project18/image2-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project18/image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project18/image2-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project18/image2-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image3.webp": {
+                    "width": 2560,
+                    "height": 1440,
+                    "src": "responsive/projects/project18/image3-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project18/image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project18/image3-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project18/image3-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image4.webp": {
+                    "width": 2560,
+                    "height": 1440,
+                    "src": "responsive/projects/project18/image4-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project18/image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project18/image4-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project18/image4-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                },
+                "image5.webp": {
+                    "width": 2560,
+                    "height": 1440,
+                    "src": "responsive/projects/project18/image5-1920.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project18/image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project18/image5-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project18/image5-1920.webp",
+                            "width": 1920
+                        }
+                    ]
+                }
             }
         },
         {
@@ -342,6 +2580,233 @@
                 "decision": "收納不為追求立面對稱而犧牲效率，而是依實際物品尺寸、使用頻率和視線焦點分配開放與封閉位置。",
                 "solution": "常用物品靠近活動區，低頻物品集中收整；主要櫃體整合進牆面與家具關係，減少零散量體造成的視覺干擾。",
                 "detail": "米白與灰色構成主要立面，黑色線條收整櫃體、門框與燈光位置；木質只留在地坪，為冷靜的灰白基調補上一點溫度。局部光源分別回應走動、閱讀和展示需求，讓夜間空間仍有清楚層次。"
+            },
+            "media": {
+                "image3.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project19/image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project19/image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project19/image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project21-image5.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project19/project21-image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project19/project21-image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project19/project21-image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project21-image4.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project19/project21-image4-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project19/project21-image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project19/project21-image4-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project20-image1.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project19/project20-image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project19/project20-image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project19/project20-image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project20-image2.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project19/project20-image2-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project19/project20-image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project19/project20-image2-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project20-image3.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project19/project20-image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project19/project20-image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project19/project20-image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project20-image4.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project19/project20-image4-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project19/project20-image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project19/project20-image4-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project20-image5.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project19/project20-image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project19/project20-image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project19/project20-image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project21-image1.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project19/project21-image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project19/project21-image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project19/project21-image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project21-image2.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project19/project21-image2-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project19/project21-image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project19/project21-image2-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image4.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project19/image4-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project19/image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project19/image4-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image1.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project19/image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project19/image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project19/image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image2.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project19/image2-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project19/image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project19/image2-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image5.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project19/image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project19/image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project19/image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project21-image3.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project19/project21-image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project19/project21-image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project19/project21-image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                }
             }
         },
         {
@@ -372,6 +2837,248 @@
                 "decision": "設計先梳理家庭成員在各樓層的活動頻率，再分配收納、家具與照明；視覺風格則以共通材質串聯，而不是每層重新設定。",
                 "solution": "常用物品配置在主要活動區，較少使用的集中收整；櫃體依牆面與家具尺度整合，保留採光與行走所需的開闊度。",
                 "detail": "白色作為明亮基底，灰階帶來安定感，木質調節溫度。主要照度與情境光分開控制，兼顧活動清晰度與休息氛圍。"
+            },
+            "media": {
+                "cover.png": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project22/cover-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project22/cover-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project22/cover-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image1.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project22/image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project22/image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project22/image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image2.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project22/image2-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project22/image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project22/image2-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image3.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project22/image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project22/image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project22/image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image4.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project22/image4-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project22/image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project22/image4-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image5.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project22/image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project22/image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project22/image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project23-image1.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project22/project23-image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project22/project23-image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project22/project23-image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project23-image2.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project22/project23-image2-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project22/project23-image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project22/project23-image2-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project23-image3.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project22/project23-image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project22/project23-image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project22/project23-image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project23-image4.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project22/project23-image4-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project22/project23-image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project22/project23-image4-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project23-image5.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project22/project23-image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project22/project23-image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project22/project23-image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project24-image1.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project22/project24-image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project22/project24-image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project22/project24-image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project24-image2.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project22/project24-image2-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project22/project24-image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project22/project24-image2-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project24-image3.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project22/project24-image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project22/project24-image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project22/project24-image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project24-image4.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project22/project24-image4-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project22/project24-image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project22/project24-image4-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project24-image5.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project22/project24-image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project22/project24-image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project22/project24-image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                }
             }
         },
         {
@@ -392,7 +3099,114 @@
                 "brief": "原有電視牆寬度不足，我們以格柵延伸視覺，再用黑玻保留客餐廚之間的穿透感",
                 "decision": "結晶鋼烤中島與石英石檯面建立餐廚重心，不同色塊界定各區用途，卻不切斷開闊感",
                 "solution": "設計完成七成基底，其餘留給屋主用家具與收藏慢慢長出自己的樣子",
-                "detail": "材料、色彩與照明維持一致邏輯，並依使用頻率與維護方式選擇適合的位置及做法。"
+                "detail": "客餐廚以白色櫃門、淺木紋與灰色石紋維持明亮基調，廚房的淺綠色背牆為中性色空間加入色彩。中島搭配三盞吊燈界定備餐區；臥室則將大面木紋櫃門與床頭收納整合，局部開放格保留順手放置物品的位置。"
+            },
+            "media": {
+                "cover.png": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project25/cover-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project25/cover-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project25/cover-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image1.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project25/image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project25/image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project25/image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image2.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project25/image2-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project25/image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project25/image2-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image3.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project25/image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project25/image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project25/image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image4.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project25/image4-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project25/image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project25/image4-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image5.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project25/image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project25/image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project25/image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image6.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project25/image6-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project25/image6-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project25/image6-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                }
             }
         },
         {
@@ -416,7 +3230,159 @@
                 "brief": "翻新不需要把每個角落都設計滿",
                 "decision": "我們先完成格局、材質、收納與必要機能，保留部分空間讓屋主以家具、照片和收藏延續生活",
                 "solution": "電子相框與家人影像自然融入空間，也讓設計退到適當位置，成為承接家庭記憶的背景",
-                "detail": "材料、色彩與照明維持一致邏輯，並依使用頻率與維護方式選擇適合的位置及做法。"
+                "detail": "翻新前的照片保留了原有花紋天花與零散家具配置，更新後則以木紋地坪、深木色天花及灰色布面沙發建立一致基調。電視牆以淺灰紋理面搭配懸空低櫃，玻璃展示櫃加入直向燈光，讓收藏與日常收納各有清楚的位置。"
+            },
+            "media": {
+                "cover.png": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project26/cover-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project26/cover-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project26/cover-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image1.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project26/image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project26/image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project26/image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image2.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project26/image2-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project26/image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project26/image2-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image3.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project26/image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project26/image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project26/image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image4.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project26/image4-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project26/image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project26/image4-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image5.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project26/image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project26/image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project26/image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image6.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project26/image6-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project26/image6-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project26/image6-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image7.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project26/image7-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project26/image7-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project26/image7-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image8.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project26/image8-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project26/image8-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project26/image8-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image9.webp": {
+                    "width": 1080,
+                    "height": 864,
+                    "src": "responsive/projects/project26/image9-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project26/image9-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project26/image9-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                }
             }
         },
         {
@@ -449,6 +3415,326 @@
                 "decision": "清水模質感只放在主要視覺面，其餘材料控制在相近色階。公共與私領域以同一套語彙延續，再透過對比強弱區分空間性格。",
                 "solution": "收納立面整合水泥紋、板材與金屬細節，黑色烤玻用於高頻且需要清潔的區域；臥室降低材質對比，保留較柔和的視覺節奏。",
                 "detail": "仿清水模塗料、Egger 板材、Cleaf 門板、金屬開關與黑色烤玻各自處理觸感、耐用和清潔需求，介面收口則維持俐落一致。"
+            },
+            "media": {
+                "cover.png": {
+                    "width": 1350,
+                    "height": 1080,
+                    "src": "responsive/projects/project27/cover-1350.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project27/cover-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project27/cover-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project27/cover-1350.webp",
+                            "width": 1350
+                        }
+                    ]
+                },
+                "image1.webp": {
+                    "width": 1350,
+                    "height": 1080,
+                    "src": "responsive/projects/project27/image1-1350.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project27/image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project27/image1-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project27/image1-1350.webp",
+                            "width": 1350
+                        }
+                    ]
+                },
+                "image2.webp": {
+                    "width": 1350,
+                    "height": 1080,
+                    "src": "responsive/projects/project27/image2-1350.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project27/image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project27/image2-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project27/image2-1350.webp",
+                            "width": 1350
+                        }
+                    ]
+                },
+                "image3.webp": {
+                    "width": 1350,
+                    "height": 1080,
+                    "src": "responsive/projects/project27/image3-1350.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project27/image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project27/image3-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project27/image3-1350.webp",
+                            "width": 1350
+                        }
+                    ]
+                },
+                "image4.webp": {
+                    "width": 1350,
+                    "height": 1080,
+                    "src": "responsive/projects/project27/image4-1350.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project27/image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project27/image4-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project27/image4-1350.webp",
+                            "width": 1350
+                        }
+                    ]
+                },
+                "image5.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project27/image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project27/image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project27/image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "image6.webp": {
+                    "width": 1350,
+                    "height": 1080,
+                    "src": "responsive/projects/project27/image6-1350.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project27/image6-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project27/image6-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project27/image6-1350.webp",
+                            "width": 1350
+                        }
+                    ]
+                },
+                "project28-image1.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project27/project28-image1-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project27/project28-image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project27/project28-image1-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project28-image2.webp": {
+                    "width": 1350,
+                    "height": 1080,
+                    "src": "responsive/projects/project27/project28-image2-1350.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project27/project28-image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project27/project28-image2-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project27/project28-image2-1350.webp",
+                            "width": 1350
+                        }
+                    ]
+                },
+                "project28-image3.webp": {
+                    "width": 1350,
+                    "height": 1080,
+                    "src": "responsive/projects/project27/project28-image3-1350.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project27/project28-image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project27/project28-image3-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project27/project28-image3-1350.webp",
+                            "width": 1350
+                        }
+                    ]
+                },
+                "project28-image4.webp": {
+                    "width": 1350,
+                    "height": 1080,
+                    "src": "responsive/projects/project27/project28-image4-1350.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project27/project28-image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project27/project28-image4-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project27/project28-image4-1350.webp",
+                            "width": 1350
+                        }
+                    ]
+                },
+                "project28-image5.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project27/project28-image5-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project27/project28-image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project27/project28-image5-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project29-image1.webp": {
+                    "width": 1350,
+                    "height": 1080,
+                    "src": "responsive/projects/project27/project29-image1-1350.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project27/project29-image1-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project27/project29-image1-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project27/project29-image1-1350.webp",
+                            "width": 1350
+                        }
+                    ]
+                },
+                "project29-image2.webp": {
+                    "width": 1350,
+                    "height": 1080,
+                    "src": "responsive/projects/project27/project29-image2-1350.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project27/project29-image2-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project27/project29-image2-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project27/project29-image2-1350.webp",
+                            "width": 1350
+                        }
+                    ]
+                },
+                "project29-image3.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project27/project29-image3-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project27/project29-image3-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project27/project29-image3-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project29-image4.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project27/project29-image4-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project27/project29-image4-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project27/project29-image4-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                },
+                "project29-image5.webp": {
+                    "width": 1350,
+                    "height": 1080,
+                    "src": "responsive/projects/project27/project29-image5-1350.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project27/project29-image5-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project27/project29-image5-1280.webp",
+                            "width": 1280
+                        },
+                        {
+                            "src": "responsive/projects/project27/project29-image5-1350.webp",
+                            "width": 1350
+                        }
+                    ]
+                },
+                "project29-image6.webp": {
+                    "width": 1080,
+                    "height": 1350,
+                    "src": "responsive/projects/project27/project29-image6-1080.webp",
+                    "variants": [
+                        {
+                            "src": "responsive/projects/project27/project29-image6-640.webp",
+                            "width": 640
+                        },
+                        {
+                            "src": "responsive/projects/project27/project29-image6-1080.webp",
+                            "width": 1080
+                        }
+                    ]
+                }
             }
         }
     ]
