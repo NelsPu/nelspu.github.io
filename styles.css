@@ -150,6 +150,9 @@ a {
 .home-guide-card p { max-width:300px; font-size:.9rem; line-height:1.8; }
 .home-guide-card b { position:absolute; right:1.6rem; bottom:1.5rem; color:#987249; font-size:1.15rem; font-weight:400; transition:transform .25s ease; }
 .home-guide-card:hover b { transform:translate(3px,-3px); }
+.home-guide-latest { margin-bottom:.35rem; color:#555a54; }
+.home-guide-latest a { color:#5f4932; border-bottom:1px solid #b19b78; }
+.home-guide-latest a:hover,.home-guide-latest a:focus-visible { color:#242521; border-bottom-color:#5f4932; }
 .difference-section { background:#e4e0d7; padding:8rem 0; }
 .difference-grid { display:grid; grid-template-columns:repeat(2,1fr); border-top:1px solid #aaa99f; }
 .difference-grid article { padding:2.2rem 2.2rem 2.2rem 0; border-bottom:1px solid #aaa99f; }
