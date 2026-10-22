@@ -1,0 +1,14 @@
+{
+  "name": "全方位會員 訓練計時器",
+  "short_name": "全方位訓練",
+  "description": "全方位會員使用的循環訓練計時器",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f1e8",
+  "theme_color": "#f5f1e8",
+  "lang": "zh-Hant",
+  "icons": [
+    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#f5f1e8">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="全方位訓練">
+  <title>全方位會員 訓練計時器</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icon.svg">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main id="setup-view" class="app-shell">
+    <header class="topbar">
+      <div><p class="eyebrow">全方位會員</p><h1>訓練計時器</h1></div>
+      <button id="sound-toggle" class="icon-button" aria-pressed="false" aria-label="關閉語音">聲音開</button>
+    </header>
+
+    <section class="template-panel" aria-labelledby="template-title">
+      <div class="section-heading"><div><p class="section-kicker">我的模板</p><h2 id="template-title">快速開始</h2></div><button id="template-menu-button" class="secondary-button">管理</button></div>
+      <label class="template-select-label" for="template-select">目前模板</label>
+      <select id="template-select" class="template-select"></select>
+    </section>
+
+    <section class="controls-grid" aria-label="訓練設定">
+      <article class="value-card accent-work work-time-card" data-field="work" data-kind="time"><div><span>訓練時間</span><strong data-output>0:30</strong></div><div class="split-time-controls"><div class="minute-stepper"><span>分鐘</span><button data-step="-60" aria-label="減少一分鐘">−</button><strong data-minute-output>0 分</strong><button data-step="60" aria-label="增加一分鐘">＋</button></div><div class="second-control"><span>秒數</span><div class="stepper"><button data-step="-1" aria-label="減少一秒">−</button><input data-range data-range-mode="seconds" type="range" min="0" max="59" step="1" value="30" aria-label="訓練秒數滑桿"><button data-step="1" aria-label="增加一秒">＋</button></div></div></div></article>
+      <article class="value-card accent-rest split-time-card" data-field="rest" data-kind="time"><div><span>休息時間</span><strong data-output>0:30</strong></div><div class="split-time-controls"><div class="minute-stepper"><span>分鐘</span><button data-step="-60" aria-label="減少一分鐘休息">−</button><strong data-minute-output>0 分</strong><button data-step="60" aria-label="增加一分鐘休息">＋</button></div><div class="second-control"><span>秒數</span><div class="stepper"><button data-step="-1" aria-label="減少一秒休息">−</button><input data-range data-range-mode="seconds" type="range" min="0" max="59" step="1" value="30" aria-label="休息秒數滑桿"><button data-step="1" aria-label="增加一秒休息">＋</button></div></div></div></article>
+      <article class="value-card" data-field="sets" data-kind="count"><div><span>每循環組數</span><strong data-output>16 組</strong></div><div class="stepper"><button data-step="-1" aria-label="減少組數">−</button><input data-range type="range" min="1" max="20" step="1" value="16" aria-label="組數滑桿"><button data-step="1" aria-label="增加組數">＋</button></div></article>
+      <article class="value-card" data-field="cycles" data-kind="count"><div><span>循環</span><strong data-output>1 次</strong></div><div class="stepper"><button data-step="-1" aria-label="減少循環">−</button><input data-range type="range" min="1" max="20" step="1" value="1" aria-label="循環滑桿"><button data-step="1" aria-label="增加循環">＋</button></div></article>
+      <article class="value-card accent-long split-time-card" data-field="longRest" data-kind="time"><div><span>循環間大休息</span><strong data-output>0:00</strong></div><div class="split-time-controls"><div class="minute-stepper"><span>分鐘</span><button data-step="-60" aria-label="減少一分鐘大休息">−</button><strong data-minute-output>0 分</strong><button data-step="60" aria-label="增加一分鐘大休息">＋</button></div><div class="second-control"><span>秒數</span><div class="stepper"><button data-step="-1" aria-label="減少一秒大休息">−</button><input data-range data-range-mode="seconds" type="range" min="0" max="59" step="1" value="0" aria-label="大休息秒數滑桿"><button data-step="1" aria-label="增加一秒大休息">＋</button></div></div></div></article>
+    </section>
+    <p id="unsaved-note" class="unsaved-note" hidden>設定已調整，尚未儲存到模板。</p>
+    <button id="start-button" class="start-button"><span>開始訓練</span><small id="start-summary">16 組 · 1 循環</small></button>
+  </main>
+
+  <main id="timer-view" class="timer-view" hidden>
+    <div class="timer-top"><span id="timer-template">基本訓練</span><button id="timer-sound" class="timer-icon">聲音開</button></div>
+    <div class="timer-center">
+      <p id="phase-label" class="phase-label">準備</p>
+      <p id="timer-digits" class="timer-digits">0:03</p>
+      <p id="next-label" class="next-label">接著：訓練</p>
+    </div>
+    <div class="timer-status"><div><span>組數</span><strong id="set-status">1 / 16</strong></div><div><span>循環</span><strong id="cycle-status">1 / 1</strong></div></div>
+    <div class="progress-track"><span id="progress-bar"></span></div>
+    <div class="timer-actions"><button id="pause-button" class="primary-action">暫停</button><button id="skip-button">跳過</button><button id="stop-button">結束</button></div>
+  </main>
+
+  <dialog id="template-dialog" class="sheet-dialog"><form method="dialog"><div class="dialog-handle"></div><div class="dialog-title"><h2>管理模板</h2><button value="cancel" aria-label="關閉">×</button></div><div id="template-list" class="template-list"></div><div class="dialog-actions"><button type="button" id="new-template" class="primary-action">新增模板</button><button type="button" id="save-template">儲存目前設定</button><button type="button" id="save-as-template">另存新模板</button></div></form></dialog>
+  <dialog id="confirm-dialog" class="confirm-dialog"><form method="dialog"><p class="dialog-symbol">!</p><h2 id="confirm-title">確定嗎？</h2><p id="confirm-message"></p><div><button value="cancel">取消</button><button value="confirm" class="danger-button">確定</button></div></form></dialog>
+  <dialog id="name-dialog" class="name-dialog"><form method="dialog"><h2 id="name-title">模板名稱</h2><label for="template-name-input">名稱</label><input id="template-name-input" maxlength="30" autocomplete="off"><div><button value="cancel">取消</button><button value="confirm" class="primary-action">儲存</button></div></form></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="./app.mjs"></script>
+</body>
+</html>
