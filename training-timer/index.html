@@ -22,8 +22,8 @@
     </header>
 
     <section class="template-panel" aria-labelledby="template-title">
-      <div class="section-heading"><div><p class="section-kicker">我的模板</p><h2 id="template-title">快速開始</h2></div><button id="template-menu-button" class="secondary-button">管理</button></div>
-      <label class="template-select-label" for="template-select">目前模板</label>
+      <div class="section-heading"><div><p class="section-kicker">我的訓練計劃</p><h2 id="template-title">快速開始</h2></div><button id="template-menu-button" class="secondary-button">管理</button></div>
+      <label class="template-select-label" for="template-select">目前訓練計劃</label>
       <select id="template-select" class="template-select"></select>
     </section>
 
@@ -34,7 +34,7 @@
       <article class="value-card" data-field="cycles" data-kind="count"><div><span>循環</span><strong data-output>1 次</strong></div><div class="stepper"><button data-step="-1" aria-label="減少循環">−</button><input data-range type="range" min="1" max="20" step="1" value="1" aria-label="循環滑桿"><button data-step="1" aria-label="增加循環">＋</button></div></article>
       <article class="value-card accent-long split-time-card" data-field="longRest" data-kind="time"><div><span>循環間大休息</span><strong data-output>0:00</strong></div><div class="split-time-controls"><div class="minute-stepper"><span>分鐘</span><button data-step="-60" aria-label="減少一分鐘大休息">−</button><strong data-minute-output>0 分</strong><button data-step="60" aria-label="增加一分鐘大休息">＋</button></div><div class="second-control"><span>秒數</span><div class="stepper"><button data-step="-1" aria-label="減少一秒大休息">−</button><input data-range data-range-mode="seconds" type="range" min="0" max="59" step="1" value="0" aria-label="大休息秒數滑桿"><button data-step="1" aria-label="增加一秒大休息">＋</button></div></div></div></article>
     </section>
-    <p id="unsaved-note" class="unsaved-note" hidden>設定已調整，尚未儲存到模板。</p>
+    <p id="unsaved-note" class="unsaved-note" hidden>設定已調整，尚未儲存到訓練計劃。</p>
     <button id="start-button" class="start-button"><span>開始訓練</span><small id="start-summary">16 組 · 1 循環</small></button>
   </main>
 
@@ -50,9 +50,9 @@
     <div class="timer-actions"><button id="pause-button" class="primary-action">暫停</button><button id="skip-button">跳過</button><button id="stop-button">結束</button></div>
   </main>
 
-  <dialog id="template-dialog" class="sheet-dialog"><form method="dialog"><div class="dialog-handle"></div><div class="dialog-title"><h2>管理模板</h2><button value="cancel" aria-label="關閉">×</button></div><div id="template-list" class="template-list"></div><div class="dialog-actions"><button type="button" id="new-template" class="primary-action">新增模板</button><button type="button" id="save-template">儲存目前設定</button><button type="button" id="save-as-template">另存新模板</button></div></form></dialog>
+  <dialog id="template-dialog" class="sheet-dialog"><form method="dialog"><div class="dialog-handle"></div><div class="dialog-title"><h2>管理訓練計劃</h2><button value="cancel" aria-label="關閉">×</button></div><label class="template-search-label" for="template-search">搜尋訓練計劃</label><input id="template-search" class="template-search" type="search" placeholder="輸入訓練計劃名稱" autocomplete="off"><div id="template-list" class="template-list"></div><div class="dialog-actions"><button type="button" id="new-template" class="primary-action">新增訓練計劃</button><button type="button" id="save-template">儲存目前設定</button><button type="button" id="save-as-template">另存新訓練計劃</button></div></form></dialog>
   <dialog id="confirm-dialog" class="confirm-dialog"><form method="dialog"><p class="dialog-symbol">!</p><h2 id="confirm-title">確定嗎？</h2><p id="confirm-message"></p><div><button value="cancel">取消</button><button value="confirm" class="danger-button">確定</button></div></form></dialog>
-  <dialog id="name-dialog" class="name-dialog"><form method="dialog"><h2 id="name-title">模板名稱</h2><label for="template-name-input">名稱</label><input id="template-name-input" maxlength="30" autocomplete="off"><div><button value="cancel">取消</button><button value="confirm" class="primary-action">儲存</button></div></form></dialog>
+  <dialog id="name-dialog" class="name-dialog"><form method="dialog"><h2 id="name-title">訓練計劃名稱</h2><label for="template-name-input">名稱</label><input id="template-name-input" maxlength="30" autocomplete="off"><div><button value="cancel">取消</button><button value="confirm" class="primary-action">儲存</button></div></form></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script type="module" src="./app.mjs"></script>
 </body>

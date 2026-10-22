@@ -79,33 +79,38 @@ all("[data-range]").forEach(range => range.addEventListener("input", () => {
 }));
 
 $("#template-select").addEventListener("change", event => {
-  if (isDirty() && !window.confirm("目前設定尚未儲存，仍要切換模板嗎？")) { event.target.value = current.id; return; }
+  if (isDirty() && !window.confirm("目前設定尚未儲存，仍要切換訓練計劃嗎？")) { event.target.value = current.id; return; }
   current = normalizeTemplate(store.templates.find(t => t.id === event.target.value)); savedSnapshot = JSON.stringify(current); renderSetup();
 });
 
 function renderTemplateList() {
-  $("#template-list").innerHTML = store.templates.map(t => `<div class="template-row" data-id="${escapeHtml(t.id)}"><div><p>${escapeHtml(t.name)} ${t.id === store.defaultId ? '<span class="default-badge">預設</span>' : ""}</p><small>${formatTime(t.work)} 訓練 · ${formatTime(t.rest)} 休息 · ${t.sets} 組 × ${t.cycles}</small></div><div class="template-row-actions"><button data-action="default" title="設為預設">★</button><button data-action="copy" title="複製">複製</button><button data-action="rename" title="重新命名">改名</button><button data-action="delete" title="刪除">刪除</button></div></div>`).join("");
+  const query = $("#template-search").value.trim().toLocaleLowerCase("zh-Hant");
+  const matches = store.templates.filter(t => t.name.toLocaleLowerCase("zh-Hant").includes(query));
+  $("#template-list").innerHTML = matches.length
+    ? matches.map(t => `<div class="template-row" data-id="${escapeHtml(t.id)}"><div><p>${escapeHtml(t.name)} ${t.id === store.defaultId ? '<span class="default-badge">預設</span>' : ""}</p><small>${formatTime(t.work)} 訓練 · ${formatTime(t.rest)} 休息 · ${t.sets} 組 × ${t.cycles}</small></div><div class="template-row-actions"><button data-action="default" title="設為預設">★</button><button data-action="copy" title="複製">複製</button><button data-action="rename" title="重新命名">改名</button><button data-action="delete" title="刪除">刪除</button></div></div>`).join("")
+    : '<p class="template-empty">找不到符合的訓練計劃</p>';
 }
 
-$("#template-menu-button").addEventListener("click", () => { renderTemplateList(); $("#template-dialog").showModal(); });
+$("#template-menu-button").addEventListener("click", () => { $("#template-search").value = ""; renderTemplateList(); $("#template-dialog").showModal(); });
+$("#template-search").addEventListener("input", renderTemplateList);
 $("#template-list").addEventListener("click", async event => {
   const button = event.target.closest("button"); if (!button) return;
   const id = button.closest(".template-row").dataset.id; const item = store.templates.find(t => t.id === id);
-  if (button.dataset.action === "default") { store.defaultId = id; persist(); renderTemplateList(); renderSetup(); toast("已設為預設模板"); }
-  if (button.dataset.action === "copy") { const name = await askName("複製模板", `${item.name} 複本`); if (name) addTemplate({ ...item, id: crypto.randomUUID(), name }); }
+  if (button.dataset.action === "default") { store.defaultId = id; persist(); renderTemplateList(); renderSetup(); toast("已設為預設訓練計劃"); }
+  if (button.dataset.action === "copy") { const name = await askName("複製訓練計劃", `${item.name} 複本`); if (name) addTemplate({ ...item, id: crypto.randomUUID(), name }); }
   if (button.dataset.action === "rename") { const name = await askName("重新命名", item.name); if (name) { item.name = name; if (current.id === id) current.name = name; persist(); savedSnapshot = current.id === id ? JSON.stringify(current) : savedSnapshot; renderTemplateList(); renderSetup(); } }
   if (button.dataset.action === "delete") {
-    if (store.templates.length === 1) return toast("至少需要保留一套模板");
-    if (id === store.defaultId) return toast("請先將另一套模板設為預設");
-    if (await confirmAction("刪除模板？", `「${item.name}」刪除後無法復原。`)) { store.templates = store.templates.filter(t => t.id !== id); if (current.id === id) { current = normalizeTemplate(store.templates.find(t => t.id === store.defaultId)); savedSnapshot = JSON.stringify(current); } persist(); renderTemplateList(); renderSetup(); }
+    if (store.templates.length === 1) return toast("至少需要保留一套訓練計劃");
+    if (id === store.defaultId) return toast("請先將另一套訓練計劃設為預設");
+    if (await confirmAction("刪除訓練計劃？", `「${item.name}」刪除後無法復原。`)) { store.templates = store.templates.filter(t => t.id !== id); if (current.id === id) { current = normalizeTemplate(store.templates.find(t => t.id === store.defaultId)); savedSnapshot = JSON.stringify(current); } persist(); renderTemplateList(); renderSetup(); }
   }
 });
 
-$("#new-template").addEventListener("click", async () => { const name = await askName("新增模板", "新訓練"); if (name) addTemplate({ ...DEFAULT, id: crypto.randomUUID(), name }); });
-$("#save-as-template").addEventListener("click", async () => { const name = await askName("另存新模板", `${current.name} 複本`); if (name) addTemplate({ ...current, id: crypto.randomUUID(), name }); });
-$("#save-template").addEventListener("click", () => { const index = store.templates.findIndex(t => t.id === current.id); if (index < 0) return; store.templates[index] = normalizeTemplate(current); persist(); savedSnapshot = JSON.stringify(current); renderTemplateList(); renderSetup(); toast("模板已儲存"); });
+$("#new-template").addEventListener("click", async () => { const name = await askName("新增訓練計劃", "新訓練"); if (name) addTemplate({ ...DEFAULT, id: crypto.randomUUID(), name }); });
+$("#save-as-template").addEventListener("click", async () => { const name = await askName("另存新訓練計劃", `${current.name} 複本`); if (name) addTemplate({ ...current, id: crypto.randomUUID(), name }); });
+$("#save-template").addEventListener("click", () => { const index = store.templates.findIndex(t => t.id === current.id); if (index < 0) return; store.templates[index] = normalizeTemplate(current); persist(); savedSnapshot = JSON.stringify(current); renderTemplateList(); renderSetup(); toast("訓練計劃已儲存"); });
 
-function addTemplate(template) { const item = normalizeTemplate(template); store.templates.push(item); current = item; savedSnapshot = JSON.stringify(item); persist(); renderTemplateList(); renderSetup(); toast("模板已新增"); }
+function addTemplate(template) { const item = normalizeTemplate(template); store.templates.push(item); current = item; savedSnapshot = JSON.stringify(item); persist(); $("#template-search").value = ""; renderTemplateList(); renderSetup(); toast("訓練計劃已新增"); }
 function askName(title, value) { return new Promise(resolve => { const dialog = $("#name-dialog"), input = $("#template-name-input"); $("#name-title").textContent = title; input.value = value; dialog.showModal(); requestAnimationFrame(() => input.select()); dialog.addEventListener("close", () => resolve(dialog.returnValue === "confirm" ? input.value.trim().slice(0, 30) : ""), { once: true }); }); }
 function confirmAction(title, message) { return new Promise(resolve => { const dialog = $("#confirm-dialog"); $("#confirm-title").textContent = title; $("#confirm-message").textContent = message; dialog.showModal(); dialog.addEventListener("close", () => resolve(dialog.returnValue === "confirm"), { once: true }); }); }
 
