@@ -1,4 +1,4 @@
-import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=15";
+import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=16";
 
 const STORE_KEY = "moonforest-training-timer-v1";
 const DEFAULT = normalizeTemplate({ id: "basic", name: "基本訓練", prep: 3, work: 30, rest: 30, sets: 16, cycles: 1, longRest: 0 });
@@ -15,6 +15,7 @@ let tickHandle = 0;
 let lastSpokenSecond = null;
 let wakeLock = null;
 let toastTimer = 0;
+let lastTotalSecond = null;
 
 function loadStore() {
   try {
@@ -140,7 +141,7 @@ $("#sound-toggle").addEventListener("click", toggleSound); $("#timer-sound").add
 
 $("#start-button").addEventListener("click", async () => {
   speechSynthesis.cancel(); if (store.sound) speak("");
-  session = createSession(current); running = true; lastSpokenSecond = null;
+  session = createSession(current); running = true; lastSpokenSecond = null; lastTotalSecond = null;
   $("#setup-view").hidden = true; $("#timer-view").hidden = false;
   await requestWakeLock(); startPhaseClock(session.remaining); renderTimer();
 });
@@ -178,12 +179,25 @@ function nextPhaseDescription(value) {
   return "";
 }
 
+function remainingWorkoutTime(value) {
+  let cursor = structuredClone(value);
+  let seconds = Math.max(0, cursor.remaining);
+  const maxTransitions = cursor.config.sets * cursor.config.cycles * 3 + cursor.config.cycles + 5;
+  for (let index = 0; index < maxTransitions && !cursor.done; index += 1) {
+    cursor = resumeAwareAdvance(cursor).session;
+    if (!cursor.done) seconds += Math.max(0, cursor.remaining);
+  }
+  return Math.ceil(seconds);
+}
+
 function renderTimer() {
   if (!session) return;
   const view = $("#timer-view"); view.className = `timer-view phase-${session.phase}`;
   view.classList.toggle("is-countdown", running && !session.done && session.remaining > 0 && session.remaining <= 3);
   view.classList.toggle("is-paused", !running && !session.done);
   $("#timer-template").textContent = session.config.name; $("#phase-label").textContent = phaseLabel(session.phase);
+  const currentSecond = Math.ceil(session.remaining);
+  if (currentSecond !== lastTotalSecond) { $("#timer-total-remaining").textContent = `預估剩餘 ${formatTime(remainingWorkoutTime(session))}`; lastTotalSecond = currentSecond; }
   $("#timer-digits").textContent = formatTime(session.remaining); $("#next-label").textContent = nextPhaseDescription(session);
   const remainingPercent = Math.min(100, Math.max(0, session.remaining / Math.max(1, phaseDuration(session)) * 100));
   $("#timer-ring-progress").style.strokeDashoffset = String(100 - remainingPercent);
@@ -208,7 +222,7 @@ function advanceCurrent(value) { return resumeAwareAdvance(value); }
 
 // Replace tick's phase transition without duplicating its timing loop.
 function transitionNow() {
-  const result = advanceCurrent(session); session = result.session; lastSpokenSecond = null;
+  const result = advanceCurrent(session); session = result.session; lastSpokenSecond = null; lastTotalSecond = null;
   if (result.announcement) speak(result.announcement);
   if (session.done) finishSession(); else startPhaseClock(session.remaining);
 }
@@ -221,6 +235,12 @@ $("#stop-button").addEventListener("click", async () => {
   if (session?.done) return exitTimer();
   if (await confirmAction("結束這次訓練？", "本次會直接停止，不會播放「訓練完畢」。")) exitTimer();
 });
+$("#restart-button").addEventListener("click", async () => {
+  if (!session || !await confirmAction("重新開始這次訓練？", "將回到準備階段，組數與循環會重新計算。")) return;
+  speechSynthesis.cancel(); session = createSession(session.config); running = true; lastSpokenSecond = null; lastTotalSecond = null;
+  $("#pause-button").disabled = false; $("#skip-button").disabled = false; $("#stop-button").textContent = "結束";
+  startPhaseClock(session.remaining); renderTimer(); toast("已重新開始本次訓練");
+});
 
 function finishSession() { running = false; clearInterval(tickHandle); releaseWakeLock(); renderTimer(); $("#pause-button").disabled = true; $("#skip-button").disabled = true; $("#stop-button").textContent = "返回設定"; }
 function exitTimer() { running = false; clearInterval(tickHandle); speechSynthesis.cancel(); releaseWakeLock(); session = null; $("#timer-view").hidden = true; $("#setup-view").hidden = false; $("#pause-button").disabled = false; $("#skip-button").disabled = false; $("#stop-button").textContent = "結束"; renderSetup(); }
@@ -232,5 +252,5 @@ function speak(text) { if (!store.sound || !("speechSynthesis" in window)) retur
 function toast(message) { const node = $("#toast"); node.textContent = message; node.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => node.classList.remove("show"), 2200); }
 function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]); }
 
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=15").catch(() => {});
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=16").catch(() => {});
 renderSetup();
