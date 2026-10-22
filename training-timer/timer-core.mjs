@@ -4,6 +4,7 @@ export function normalizeTemplate(input = {}) {
   return {
     id: String(input.id || crypto.randomUUID()),
     name: String(input.name || "未命名訓練").trim().slice(0, 30) || "未命名訓練",
+    prep: clampInt(input.prep, 3, 15, 3),
     work: clampInt(input.work, 1, 600, 30),
     rest: clampInt(input.rest, 0, 120, 30),
     sets: clampInt(input.sets, 1, 20, 16),
@@ -19,7 +20,7 @@ function clampInt(value, min, max, fallback) {
 
 export function createSession(template) {
   const config = normalizeTemplate(template);
-  return { config, phase: PHASE.PREP, remaining: 3, set: 1, cycle: 1, resumePhase: null, done: false };
+  return { config, phase: PHASE.PREP, remaining: config.prep, set: 1, cycle: 1, resumePhase: null, done: false };
 }
 
 export function advance(session) {

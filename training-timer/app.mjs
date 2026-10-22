@@ -1,7 +1,7 @@
 import { PHASE, advance, createSession, nextLabel, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs";
 
 const STORE_KEY = "moonforest-training-timer-v1";
-const DEFAULT = normalizeTemplate({ id: "basic", name: "基本訓練", work: 30, rest: 30, sets: 16, cycles: 1, longRest: 0 });
+const DEFAULT = normalizeTemplate({ id: "basic", name: "基本訓練", prep: 3, work: 30, rest: 30, sets: 16, cycles: 1, longRest: 0 });
 const $ = selector => document.querySelector(selector);
 const all = selector => [...document.querySelectorAll(selector)];
 
@@ -37,7 +37,7 @@ function renderSetup() {
   select.value = current.id;
   all(".value-card").forEach(card => {
     const field = card.dataset.field; const value = current[field];
-    card.querySelector("[data-output]").textContent = card.dataset.kind === "time" ? formatTime(value) : `${value} ${field === "sets" ? "組" : "次"}`;
+    card.querySelector("[data-output]").textContent = card.dataset.kind === "time" ? formatTime(value) : card.dataset.kind === "seconds" ? `${value} 秒` : `${value} ${field === "sets" ? "組" : "次"}`;
     const range = card.querySelector("[data-range]");
     const rangeValue = range?.dataset.rangeMode === "seconds" ? value % 60 : value;
     if (range) { range.value = String(rangeValue); range.style.setProperty("--range-progress", `${(rangeValue - Number(range.min)) / (Number(range.max) - Number(range.min)) * 100}%`); }
@@ -56,7 +56,7 @@ function renderSound() {
 }
 
 function adjust(field, delta) {
-  const limits = { work: [1, 600], rest: [0, 120], sets: [1, 20], cycles: [1, 20], longRest: [0, 300] }[field];
+  const limits = { prep: [3, 15], work: [1, 600], rest: [0, 120], sets: [1, 20], cycles: [1, 20], longRest: [0, 300] }[field];
   current = { ...current, [field]: Math.min(limits[1], Math.max(limits[0], current[field] + delta)) };
   renderSetup();
 }
@@ -73,7 +73,7 @@ all("[data-range]").forEach(range => range.addEventListener("input", () => {
   const card = range.closest(".value-card");
   const field = card.dataset.field;
   const value = range.dataset.rangeMode === "seconds" ? Math.floor(current[field] / 60) * 60 + Number(range.value) : Number(range.value);
-  const limits = { work: [1, 600], rest: [0, 120], sets: [1, 20], cycles: [1, 20], longRest: [0, 300] }[field];
+  const limits = { prep: [3, 15], work: [1, 600], rest: [0, 120], sets: [1, 20], cycles: [1, 20], longRest: [0, 300] }[field];
   current = { ...current, [field]: Math.min(limits[1], Math.max(limits[0], value)) };
   renderSetup();
 }));
@@ -87,7 +87,7 @@ function renderTemplateList() {
   const query = $("#template-search").value.trim().toLocaleLowerCase("zh-Hant");
   const matches = store.templates.filter(t => t.name.toLocaleLowerCase("zh-Hant").includes(query));
   $("#template-list").innerHTML = matches.length
-    ? matches.map(t => `<div class="template-row" data-id="${escapeHtml(t.id)}"><div><p>${escapeHtml(t.name)} ${t.id === store.defaultId ? '<span class="default-badge">預設</span>' : ""}</p><small>${formatTime(t.work)} 訓練 · ${formatTime(t.rest)} 休息 · ${t.sets} 組 × ${t.cycles}</small></div><div class="template-row-actions"><button data-action="default" title="設為預設">★</button><button data-action="copy" title="複製">複製</button><button data-action="rename" title="重新命名">改名</button><button data-action="delete" title="刪除">刪除</button></div></div>`).join("")
+    ? matches.map(t => `<div class="template-row" data-id="${escapeHtml(t.id)}"><div><p>${escapeHtml(t.name)} ${t.id === store.defaultId ? '<span class="default-badge">預設</span>' : ""}</p><small>${t.prep} 秒準備 · ${formatTime(t.work)} 訓練 · ${formatTime(t.rest)} 休息 · ${t.sets} 組 × ${t.cycles}</small></div><div class="template-row-actions"><button data-action="default" title="設為預設">★</button><button data-action="copy" title="複製">複製</button><button data-action="rename" title="重新命名">改名</button><button data-action="delete" title="刪除">刪除</button></div></div>`).join("")
     : '<p class="template-empty">找不到符合的訓練計劃</p>';
 }
 
@@ -121,7 +121,7 @@ $("#start-button").addEventListener("click", async () => {
   speechSynthesis.cancel(); if (store.sound) speak("");
   session = createSession(current); running = true; lastSpokenSecond = null;
   $("#setup-view").hidden = true; $("#timer-view").hidden = false;
-  await requestWakeLock(); startPhaseClock(3); renderTimer();
+  await requestWakeLock(); startPhaseClock(session.remaining); renderTimer();
 });
 
 function startPhaseClock(seconds) { session.remaining = seconds; endAt = performance.now() + seconds * 1000; clearInterval(tickHandle); tickHandle = setInterval(tick, 80); tick(); }

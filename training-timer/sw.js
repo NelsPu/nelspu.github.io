@@ -1,5 +1,5 @@
 const CACHE_PREFIX = "training-timer-";
-const CACHE = `${CACHE_PREFIX}v7`;
+const CACHE = `${CACHE_PREFIX}v8`;
 const APP_SHELL = new URL("./", self.location).href;
 const ASSETS = ["./", "./styles.css", "./app.mjs", "./timer-core.mjs", "./manifest.webmanifest", "./icon.svg"];
 
