@@ -1,4 +1,4 @@
-import { PHASE, advance, createSession, nextLabel, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=10";
+import { PHASE, advance, createSession, nextLabel, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=11";
 
 const STORE_KEY = "moonforest-training-timer-v1";
 const DEFAULT = normalizeTemplate({ id: "basic", name: "基本訓練", prep: 3, work: 30, rest: 30, sets: 16, cycles: 1, longRest: 0 });
@@ -57,7 +57,7 @@ function renderSound() {
 }
 
 function adjust(field, delta) {
-  const limits = { prep: [3, 15], work: [1, 600], rest: [0, 120], sets: [1, 20], cycles: [1, 20], longRest: [0, 300] }[field];
+  const limits = { prep: [3, 30], work: [1, 600], rest: [0, 120], sets: [1, 20], cycles: [1, 20], longRest: [0, 300] }[field];
   current = { ...current, [field]: Math.min(limits[1], Math.max(limits[0], current[field] + delta)) };
   renderSetup();
 }
@@ -74,7 +74,7 @@ all("[data-range]").forEach(range => range.addEventListener("input", () => {
   const card = range.closest(".value-card");
   const field = card.dataset.field;
   const value = range.dataset.rangeMode === "seconds" ? Math.floor(current[field] / 60) * 60 + Number(range.value) : Number(range.value);
-  const limits = { prep: [3, 15], work: [1, 600], rest: [0, 120], sets: [1, 20], cycles: [1, 20], longRest: [0, 300] }[field];
+  const limits = { prep: [3, 30], work: [1, 600], rest: [0, 120], sets: [1, 20], cycles: [1, 20], longRest: [0, 300] }[field];
   current = { ...current, [field]: Math.min(limits[1], Math.max(limits[0], value)) };
   renderSetup();
 }));
@@ -185,5 +185,5 @@ function speak(text) { if (!store.sound || !("speechSynthesis" in window)) retur
 function toast(message) { const node = $("#toast"); node.textContent = message; node.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => node.classList.remove("show"), 2200); }
 function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]); }
 
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=10").catch(() => {});
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=11").catch(() => {});
 renderSetup();

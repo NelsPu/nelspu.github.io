@@ -12,7 +12,7 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./icon.svg">
-  <link rel="stylesheet" href="./styles.css?v=10">
+  <link rel="stylesheet" href="./styles.css?v=11">
 </head>
 <body>
   <main id="setup-view" class="app-shell">
@@ -28,7 +28,7 @@
     </section>
 
     <section class="controls-grid" aria-label="訓練設定">
-      <article class="value-card full-width-card" data-field="prep" data-kind="seconds"><div><span>準備時間</span><strong data-output>3 秒</strong></div><div class="stepper"><button data-step="-1" aria-label="減少一秒準備時間">−</button><input data-range type="range" min="3" max="15" step="1" value="3" aria-label="準備時間滑桿"><button data-step="1" aria-label="增加一秒準備時間">＋</button></div></article>
+      <article class="value-card full-width-card" data-field="prep" data-kind="seconds"><div><span>準備時間</span><strong data-output>3 秒</strong></div><div class="stepper"><button data-step="-1" aria-label="減少一秒準備時間">−</button><input data-range type="range" min="3" max="30" step="1" value="3" aria-label="準備時間滑桿"><button data-step="1" aria-label="增加一秒準備時間">＋</button></div></article>
       <article class="value-card accent-work work-time-card" data-field="work" data-kind="time"><div><span>訓練時間</span><strong data-output>0:30</strong></div><div class="split-time-controls"><div class="minute-stepper"><span>分鐘</span><button data-step="-60" aria-label="減少一分鐘">−</button><strong data-minute-output>0 分</strong><button data-step="60" aria-label="增加一分鐘">＋</button></div><div class="second-control"><span>秒數</span><div class="stepper"><button data-step="-1" aria-label="減少一秒">−</button><input data-range data-range-mode="seconds" type="range" min="0" max="59" step="1" value="30" aria-label="訓練秒數滑桿"><button data-step="1" aria-label="增加一秒">＋</button></div></div></div></article>
       <article class="value-card accent-rest split-time-card" data-field="rest" data-kind="time"><div><span>休息時間</span><strong data-output>0:30</strong></div><div class="split-time-controls"><div class="minute-stepper"><span>分鐘</span><button data-step="-60" aria-label="減少一分鐘休息">−</button><strong data-minute-output>0 分</strong><button data-step="60" aria-label="增加一分鐘休息">＋</button></div><div class="second-control"><span>秒數</span><div class="stepper"><button data-step="-1" aria-label="減少一秒休息">−</button><input data-range data-range-mode="seconds" type="range" min="0" max="59" step="1" value="30" aria-label="休息秒數滑桿"><button data-step="1" aria-label="增加一秒休息">＋</button></div></div></div></article>
       <article class="value-card" data-field="sets" data-kind="count"><div><span>每循環組數</span><strong data-output>16 組</strong></div><div class="stepper"><button data-step="-1" aria-label="減少組數">−</button><input data-range type="range" min="1" max="20" step="1" value="16" aria-label="組數滑桿"><button data-step="1" aria-label="增加組數">＋</button></div></article>
@@ -55,6 +55,6 @@
   <dialog id="confirm-dialog" class="confirm-dialog"><form method="dialog"><p class="dialog-symbol">!</p><h2 id="confirm-title">確定嗎？</h2><p id="confirm-message"></p><div><button value="cancel">取消</button><button value="confirm" class="danger-button">確定</button></div></form></dialog>
   <dialog id="name-dialog" class="name-dialog"><form method="dialog"><h2 id="name-title">訓練計劃名稱</h2><label for="template-name-input">名稱</label><input id="template-name-input" maxlength="30" autocomplete="off"><div><button value="cancel">取消</button><button value="confirm" class="primary-action">儲存</button></div></form></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="./app.mjs?v=10"></script>
+  <script type="module" src="./app.mjs?v=11"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@ export function normalizeTemplate(input = {}) {
   return {
     id: String(input.id || crypto.randomUUID()),
     name: String(input.name || "未命名訓練").trim().slice(0, 30) || "未命名訓練",
-    prep: clampInt(input.prep, 3, 15, 3),
+    prep: clampInt(input.prep, 3, 30, 3),
     work: clampInt(input.work, 1, 600, 30),
     rest: clampInt(input.rest, 0, 120, 30),
     sets: clampInt(input.sets, 1, 20, 16),
