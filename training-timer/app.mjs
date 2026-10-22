@@ -1,4 +1,4 @@
-import { PHASE, advance, createSession, nextLabel, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=11";
+import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=12";
 
 const STORE_KEY = "moonforest-training-timer-v1";
 const DEFAULT = normalizeTemplate({ id: "basic", name: "基本訓練", prep: 3, work: 30, rest: 30, sets: 16, cycles: 1, longRest: 0 });
@@ -135,11 +135,38 @@ function tick() {
   renderTimer();
 }
 
+function phaseDuration(value) {
+  if (value.phase === PHASE.PREP) return value.resumePhase ? 3 : value.config.prep;
+  if (value.phase === PHASE.WORK) return value.config.work;
+  if (value.phase === PHASE.REST) return value.config.rest;
+  if (value.phase === PHASE.LONG_REST) return value.config.longRest;
+  return 1;
+}
+
+function nextPhaseDescription(value) {
+  const time = seconds => formatTime(seconds);
+  if (value.done) return "做得很好，訓練完成";
+  if (value.phase === PHASE.PREP) return value.resumePhase ? `接著：繼續${phaseLabel(value.resumePhase)}` : `接著：訓練 ${time(value.config.work)}`;
+  if (value.phase === PHASE.REST || value.phase === PHASE.LONG_REST) return `接著：訓練 ${time(value.config.work)}`;
+  if (value.phase === PHASE.WORK) {
+    const finalSet = value.set >= value.config.sets;
+    const finalCycle = value.cycle >= value.config.cycles;
+    if (finalSet && finalCycle) return "接著：訓練完成";
+    if (finalSet) return value.config.longRest > 0 ? `接著：大休息 ${time(value.config.longRest)}` : `接著：訓練 ${time(value.config.work)}`;
+    return value.config.rest > 0 ? `接著：休息 ${time(value.config.rest)}` : `接著：訓練 ${time(value.config.work)}`;
+  }
+  return "";
+}
+
 function renderTimer() {
   if (!session) return;
   const view = $("#timer-view"); view.className = `timer-view phase-${session.phase}`;
+  view.classList.toggle("is-countdown", running && !session.done && session.remaining > 0 && session.remaining <= 3);
+  view.classList.toggle("is-paused", !running && !session.done);
   $("#timer-template").textContent = current.name; $("#phase-label").textContent = phaseLabel(session.phase);
-  $("#timer-digits").textContent = formatTime(session.remaining); $("#next-label").textContent = session.done ? "做得很好" : `接著：${nextLabel(session)}`;
+  $("#timer-digits").textContent = formatTime(session.remaining); $("#next-label").textContent = nextPhaseDescription(session);
+  const remainingPercent = Math.min(100, Math.max(0, session.remaining / Math.max(1, phaseDuration(session)) * 100));
+  $("#timer-ring-progress").style.strokeDashoffset = String(100 - remainingPercent);
   $("#set-status").textContent = `${session.set} / ${session.config.sets}`; $("#cycle-status").textContent = `${session.cycle} / ${session.config.cycles}`;
   $("#progress-bar").style.width = `${overallProgress(session) * 100}%`;
   $("#pause-button").textContent = running ? "暫停" : "繼續";
@@ -185,5 +212,5 @@ function speak(text) { if (!store.sound || !("speechSynthesis" in window)) retur
 function toast(message) { const node = $("#toast"); node.textContent = message; node.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => node.classList.remove("show"), 2200); }
 function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]); }
 
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=11").catch(() => {});
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=12").catch(() => {});
 renderSetup();

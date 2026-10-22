@@ -12,7 +12,7 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./icon.svg">
-  <link rel="stylesheet" href="./styles.css?v=11">
+  <link rel="stylesheet" href="./styles.css?v=12">
 </head>
 <body>
   <main id="setup-view" class="app-shell">
@@ -43,18 +43,21 @@
     <div class="timer-top"><span id="timer-template">基本訓練</span><button id="timer-sound" class="timer-icon">聲音開</button></div>
     <div class="timer-center">
       <p id="phase-label" class="phase-label">準備</p>
-      <p id="timer-digits" class="timer-digits">0:03</p>
+      <div class="timer-ring-wrap">
+        <svg class="timer-ring" viewBox="0 0 120 120" aria-hidden="true"><circle class="timer-ring-track" cx="60" cy="60" r="52"></circle><circle id="timer-ring-progress" class="timer-ring-progress" cx="60" cy="60" r="52" pathLength="100"></circle></svg>
+        <p id="timer-digits" class="timer-digits" aria-live="off">0:03</p>
+      </div>
       <p id="next-label" class="next-label">接著：訓練</p>
     </div>
-    <div class="timer-status"><div><span>組數</span><strong id="set-status">1 / 16</strong></div><div><span>循環</span><strong id="cycle-status">1 / 1</strong></div></div>
+    <div class="timer-status"><div><span>目前組數</span><strong id="set-status">1 / 16</strong></div><div><span>目前循環</span><strong id="cycle-status">1 / 1</strong></div></div>
     <div class="progress-track"><span id="progress-bar"></span></div>
-    <div class="timer-actions"><button id="pause-button" class="primary-action">暫停</button><button id="skip-button">跳過</button><button id="stop-button">結束</button></div>
+    <div class="timer-actions"><button id="pause-button" class="primary-action">暫停</button><button id="skip-button" class="secondary-action">跳過</button><button id="stop-button" class="quiet-action">結束</button></div>
   </main>
 
   <dialog id="template-dialog" class="sheet-dialog"><form method="dialog"><div class="dialog-handle"></div><div class="dialog-title"><h2>管理訓練計劃</h2><button value="cancel" aria-label="關閉">×</button></div><label class="template-search-label" for="template-search">搜尋訓練計劃</label><input id="template-search" class="template-search" type="search" placeholder="輸入訓練計劃名稱" autocomplete="off"><div id="template-list" class="template-list"></div><div class="dialog-actions"><button type="button" id="new-template" class="primary-action">新增訓練計劃</button><button type="button" id="save-template">儲存目前設定</button><button type="button" id="save-as-template">另存新訓練計劃</button></div></form></dialog>
   <dialog id="confirm-dialog" class="confirm-dialog"><form method="dialog"><p class="dialog-symbol">!</p><h2 id="confirm-title">確定嗎？</h2><p id="confirm-message"></p><div><button value="cancel">取消</button><button value="confirm" class="danger-button">確定</button></div></form></dialog>
   <dialog id="name-dialog" class="name-dialog"><form method="dialog"><h2 id="name-title">訓練計劃名稱</h2><label for="template-name-input">名稱</label><input id="template-name-input" maxlength="30" autocomplete="off"><div><button value="cancel">取消</button><button value="confirm" class="primary-action">儲存</button></div></form></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="./app.mjs?v=11"></script>
+  <script type="module" src="./app.mjs?v=12"></script>
 </body>
 </html>
