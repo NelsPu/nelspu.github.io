@@ -5,6 +5,11 @@
   gap: 8px;
 }
 
+.start-button {
+  background: var(--rest);
+  box-shadow: 0 10px 24px #2f81503d;
+}
+
 .start-button .button-main b {
   font-size: 1.05rem;
 }
@@ -52,6 +57,20 @@
 
 .timer-actions button:disabled {
   opacity: .46;
+}
+
+.timer-actions .quiet-action {
+  border-color: var(--danger);
+  background: var(--danger);
+  color: #fff;
+  box-shadow: 0 10px 24px #c9514338;
+}
+
+.timer-actions .quiet-action.is-return {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+  box-shadow: 0 10px 24px #29261f2e;
 }
 
 @media (max-width: 380px) {
