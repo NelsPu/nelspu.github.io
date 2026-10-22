@@ -41,7 +41,7 @@ for path in pages:
         errors.append(f'{path}: duplicate IDs')
     for data in re.findall(r'<script type="application/ld\+json">(.*?)</script>', source, re.S):
         json.loads(data)
-    if not re.search(r'styles\.css\?v=12\.0', source):
+    if not re.search(r'styles\.css\?v=12\.1', source):
         errors.append(f'{path}: stale stylesheet revision')
 
 for path, page in parsed.items():
