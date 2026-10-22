@@ -1,4 +1,4 @@
-import { PHASE, advance, createSession, nextLabel, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs";
+import { PHASE, advance, createSession, nextLabel, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=9";
 
 const STORE_KEY = "moonforest-training-timer-v1";
 const DEFAULT = normalizeTemplate({ id: "basic", name: "基本訓練", prep: 3, work: 30, rest: 30, sets: 16, cycles: 1, longRest: 0 });
@@ -36,9 +36,10 @@ function renderSetup() {
   select.innerHTML = store.templates.map(t => `<option value="${escapeHtml(t.id)}">${escapeHtml(t.name)}${t.id === store.defaultId ? "（預設）" : ""}</option>`).join("");
   select.value = current.id;
   all(".value-card").forEach(card => {
-    const field = card.dataset.field; const value = current[field];
+    const field = card.dataset.field; const range = card.querySelector("[data-range]");
+    const storedValue = Number(current[field]);
+    const value = Number.isFinite(storedValue) ? storedValue : Number(range?.value || 0);
     card.querySelector("[data-output]").textContent = card.dataset.kind === "time" ? formatTime(value) : card.dataset.kind === "seconds" ? `${value} 秒` : `${value} ${field === "sets" ? "組" : "次"}`;
-    const range = card.querySelector("[data-range]");
     const rangeValue = range?.dataset.rangeMode === "seconds" ? value % 60 : value;
     if (range) { range.value = String(rangeValue); range.style.setProperty("--range-progress", `${(rangeValue - Number(range.min)) / (Number(range.max) - Number(range.min)) * 100}%`); }
     const minuteOutput = card.querySelector("[data-minute-output]");
@@ -184,5 +185,5 @@ function speak(text) { if (!store.sound || !("speechSynthesis" in window)) retur
 function toast(message) { const node = $("#toast"); node.textContent = message; node.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => node.classList.remove("show"), 2200); }
 function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]); }
 
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js").catch(() => {});
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=9").catch(() => {});
 renderSetup();
