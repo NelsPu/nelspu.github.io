@@ -1,4 +1,4 @@
-import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=12";
+import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=13";
 
 const STORE_KEY = "moonforest-training-timer-v1";
 const DEFAULT = normalizeTemplate({ id: "basic", name: "基本訓練", prep: 3, work: 30, rest: 30, sets: 16, cycles: 1, longRest: 0 });
@@ -51,9 +51,13 @@ function renderSetup() {
 }
 
 function renderSound() {
-  const label = store.sound ? "聲音開" : "已靜音";
-  $("#sound-toggle").textContent = label; $("#timer-sound").textContent = label;
-  $("#sound-toggle").setAttribute("aria-pressed", String(!store.sound));
+  const label = store.sound ? "關閉語音" : "開啟語音";
+  [$("#sound-toggle"), $("#timer-sound")].forEach(button => {
+    button.classList.toggle("is-muted", !store.sound);
+    button.setAttribute("aria-pressed", String(!store.sound));
+    button.setAttribute("aria-label", label);
+    button.title = label;
+  });
 }
 
 function adjust(field, delta) {
@@ -92,7 +96,13 @@ function renderTemplateList() {
     : '<p class="template-empty">找不到符合的訓練計劃</p>';
 }
 
-$("#template-menu-button").addEventListener("click", () => { $("#template-search").value = ""; renderTemplateList(); $("#template-dialog").showModal(); });
+function openTemplateDialog(focusSearch = false) {
+  $("#template-search").value = ""; renderTemplateList(); $("#template-dialog").showModal();
+  if (focusSearch) requestAnimationFrame(() => $("#template-search").focus());
+}
+
+$("#template-menu-button").addEventListener("click", () => openTemplateDialog());
+$("#template-search-button").addEventListener("click", () => openTemplateDialog(true));
 $("#template-search").addEventListener("input", renderTemplateList);
 $("#template-list").addEventListener("click", async event => {
   const button = event.target.closest("button"); if (!button) return;
@@ -212,5 +222,5 @@ function speak(text) { if (!store.sound || !("speechSynthesis" in window)) retur
 function toast(message) { const node = $("#toast"); node.textContent = message; node.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => node.classList.remove("show"), 2200); }
 function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]); }
 
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=12").catch(() => {});
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=13").catch(() => {});
 renderSetup();

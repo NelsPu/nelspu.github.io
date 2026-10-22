@@ -12,13 +12,16 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./icon.svg">
-  <link rel="stylesheet" href="./styles.css?v=12">
+  <link rel="stylesheet" href="./styles.css?v=13">
 </head>
 <body>
   <main id="setup-view" class="app-shell">
     <header class="topbar">
       <div><p class="eyebrow">全方位會員</p><h1>訓練計時器</h1></div>
-      <button id="sound-toggle" class="icon-button" aria-pressed="false" aria-label="關閉語音">聲音開</button>
+      <div class="topbar-actions">
+        <button id="sound-toggle" class="icon-button sound-button" aria-pressed="false" aria-label="關閉語音" title="關閉語音"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="sound-speaker" d="M4 9v6h4l5 4V5L8 9H4Z"></path><path class="sound-waves" d="M16 8.5c1.4 1.9 1.4 5.1 0 7M18.8 6c3 3.4 3 8.6 0 12"></path><path class="sound-muted-mark" d="m16.5 9 5 6m0-6-5 6"></path></svg></button>
+        <button id="template-search-button" class="icon-button" aria-label="搜尋訓練計劃" title="搜尋訓練計劃"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path></svg></button>
+      </div>
     </header>
 
     <section class="template-panel" aria-labelledby="template-title">
@@ -40,7 +43,7 @@
   </main>
 
   <main id="timer-view" class="timer-view" hidden>
-    <div class="timer-top"><span id="timer-template">基本訓練</span><button id="timer-sound" class="timer-icon">聲音開</button></div>
+    <div class="timer-top"><span id="timer-template">基本訓練</span><button id="timer-sound" class="timer-icon sound-button" aria-pressed="false" aria-label="關閉語音" title="關閉語音"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="sound-speaker" d="M4 9v6h4l5 4V5L8 9H4Z"></path><path class="sound-waves" d="M16 8.5c1.4 1.9 1.4 5.1 0 7M18.8 6c3 3.4 3 8.6 0 12"></path><path class="sound-muted-mark" d="m16.5 9 5 6m0-6-5 6"></path></svg></button></div>
     <div class="timer-center">
       <p id="phase-label" class="phase-label">準備</p>
       <div class="timer-ring-wrap">
@@ -58,6 +61,6 @@
   <dialog id="confirm-dialog" class="confirm-dialog"><form method="dialog"><p class="dialog-symbol">!</p><h2 id="confirm-title">確定嗎？</h2><p id="confirm-message"></p><div><button value="cancel">取消</button><button value="confirm" class="danger-button">確定</button></div></form></dialog>
   <dialog id="name-dialog" class="name-dialog"><form method="dialog"><h2 id="name-title">訓練計劃名稱</h2><label for="template-name-input">名稱</label><input id="template-name-input" maxlength="30" autocomplete="off"><div><button value="cancel">取消</button><button value="confirm" class="primary-action">儲存</button></div></form></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="./app.mjs?v=12"></script>
+  <script type="module" src="./app.mjs?v=13"></script>
 </body>
 </html>
