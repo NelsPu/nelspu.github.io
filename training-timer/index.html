@@ -12,7 +12,7 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./icon.svg">
-  <link rel="stylesheet" href="./styles.css?v=16">
+  <link rel="stylesheet" href="./styles.css?v=17">
 </head>
 <body>
   <main id="setup-view" class="app-shell">
@@ -59,8 +59,8 @@
 
   <dialog id="template-dialog" class="sheet-dialog"><form method="dialog"><div class="dialog-handle"></div><div class="dialog-title"><h2>管理訓練計劃</h2><button value="cancel" aria-label="關閉">×</button></div><label class="template-search-label" for="template-search">搜尋訓練計劃</label><input id="template-search" class="template-search" type="search" placeholder="輸入訓練計劃名稱" autocomplete="off"><div id="template-list" class="template-list"></div><div class="dialog-actions"><button type="button" id="new-template" class="primary-action">＋ 建立全新訓練計劃</button></div></form></dialog>
   <dialog id="confirm-dialog" class="confirm-dialog"><form method="dialog"><p class="dialog-symbol">!</p><h2 id="confirm-title">確定嗎？</h2><p id="confirm-message"></p><div><button value="cancel">取消</button><button value="confirm" class="danger-button">確定</button></div></form></dialog>
-  <dialog id="name-dialog" class="name-dialog"><form method="dialog"><h2 id="name-title">訓練計劃名稱</h2><label for="template-name-input">名稱</label><input id="template-name-input" maxlength="30" autocomplete="off"><div><button value="cancel">取消</button><button value="confirm" class="primary-action">儲存</button></div></form></dialog>
+  <dialog id="name-dialog" class="name-dialog"><form method="dialog"><h2 id="name-title">訓練計劃名稱</h2><label for="template-name-input">名稱</label><input id="template-name-input" maxlength="30" autocomplete="off"><div><button value="cancel">取消</button><button id="name-confirm-button" value="confirm" class="primary-action">確認儲存</button></div></form></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="./app.mjs?v=16"></script>
+  <script type="module" src="./app.mjs?v=17"></script>
 </body>
 </html>

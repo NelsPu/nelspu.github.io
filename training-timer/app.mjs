@@ -1,4 +1,4 @@
-import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=16";
+import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=17";
 
 const STORE_KEY = "moonforest-training-timer-v1";
 const DEFAULT = normalizeTemplate({ id: "basic", name: "基本訓練", prep: 3, work: 30, rest: 30, sets: 16, cycles: 1, longRest: 0 });
@@ -133,7 +133,7 @@ $("#save-as-template").addEventListener("click", async () => { const name = awai
 $("#save-template").addEventListener("click", () => { const index = store.templates.findIndex(t => t.id === current.id); if (index < 0) return; store.templates[index] = normalizeTemplate(current); persist(); savedSnapshot = JSON.stringify(current); renderTemplateList(); renderSetup(); toast("訓練計劃已儲存"); });
 
 function addTemplate(template) { const item = normalizeTemplate(template); store.templates.push(item); current = item; savedSnapshot = JSON.stringify(item); persist(); $("#template-search").value = ""; renderTemplateList(); renderSetup(); toast("訓練計劃已新增"); }
-function askName(title, value) { return new Promise(resolve => { const dialog = $("#name-dialog"), input = $("#template-name-input"); $("#name-title").textContent = title; input.value = value; dialog.showModal(); requestAnimationFrame(() => input.select()); dialog.addEventListener("close", () => resolve(dialog.returnValue === "confirm" ? input.value.trim().slice(0, 30) : ""), { once: true }); }); }
+function askName(title, value) { return new Promise(resolve => { const dialog = $("#name-dialog"), input = $("#template-name-input"); $("#name-title").textContent = title; $("#name-confirm-button").textContent = title === "重新命名" ? "確認修改" : "確認儲存"; input.value = value; dialog.showModal(); requestAnimationFrame(() => input.select()); dialog.addEventListener("close", () => resolve(dialog.returnValue === "confirm" ? input.value.trim().slice(0, 30) : ""), { once: true }); }); }
 function confirmAction(title, message) { return new Promise(resolve => { const dialog = $("#confirm-dialog"); $("#confirm-title").textContent = title; $("#confirm-message").textContent = message; dialog.showModal(); dialog.addEventListener("close", () => resolve(dialog.returnValue === "confirm"), { once: true }); }); }
 
 function toggleSound() { store.sound = !store.sound; persist(); if (!store.sound) speechSynthesis.cancel(); renderSound(); }
@@ -252,5 +252,5 @@ function speak(text) { if (!store.sound || !("speechSynthesis" in window)) retur
 function toast(message) { const node = $("#toast"); node.textContent = message; node.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => node.classList.remove("show"), 2200); }
 function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]); }
 
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=16").catch(() => {});
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=17").catch(() => {});
 renderSetup();
