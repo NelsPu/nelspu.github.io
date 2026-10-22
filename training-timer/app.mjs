@@ -1,4 +1,4 @@
-import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=14";
+import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=15";
 
 const STORE_KEY = "moonforest-training-timer-v1";
 const DEFAULT = normalizeTemplate({ id: "basic", name: "基本訓練", prep: 3, work: 30, rest: 30, sets: 16, cycles: 1, longRest: 0 });
@@ -45,8 +45,13 @@ function renderSetup() {
     const minuteOutput = card.querySelector("[data-minute-output]");
     if (minuteOutput) minuteOutput.textContent = `${Math.floor(value / 60)} 分`;
   });
+  const dirty = isDirty();
+  const status = $("#plan-save-status");
+  status.classList.toggle("is-dirty", dirty);
+  $("#plan-save-status-text").textContent = dirty ? "有未儲存變更" : "已儲存";
+  $("#save-template").disabled = !dirty;
+  $("#start-plan-name").textContent = current.name;
   $("#start-summary").textContent = summary(current);
-  $("#unsaved-note").hidden = !isDirty();
   renderSound();
 }
 
@@ -92,7 +97,7 @@ function renderTemplateList() {
   const query = $("#template-search").value.trim().toLocaleLowerCase("zh-Hant");
   const matches = store.templates.filter(t => t.name.toLocaleLowerCase("zh-Hant").includes(query));
   $("#template-list").innerHTML = matches.length
-    ? matches.map(t => `<div class="template-row" data-id="${escapeHtml(t.id)}"><div><p>${escapeHtml(t.name)} ${t.id === store.defaultId ? '<span class="default-badge">預設</span>' : ""}</p><small>${t.prep} 秒準備 · ${formatTime(t.work)} 訓練 · ${formatTime(t.rest)} 休息 · ${t.sets} 組 × ${t.cycles}</small></div><div class="template-row-actions"><button data-action="default" title="設為預設">★</button><button data-action="copy" title="複製">複製</button><button data-action="rename" title="重新命名">改名</button><button data-action="delete" title="刪除">刪除</button></div></div>`).join("")
+    ? matches.map(t => `<div class="template-row" data-id="${escapeHtml(t.id)}"><div><p>${escapeHtml(t.name)} ${t.id === store.defaultId ? '<span class="default-badge">預設</span>' : ""}</p><small>${t.prep} 秒準備 · ${formatTime(t.work)} 訓練 · ${formatTime(t.rest)} 休息 · ${t.sets} 組 × ${t.cycles}</small></div><div class="template-row-actions"><button type="button" data-action="select" class="use-plan-button">使用</button><button type="button" data-action="default" title="設為預設">★</button><button type="button" data-action="copy" title="複製">複製</button><button type="button" data-action="rename" title="重新命名">改名</button><button type="button" data-action="delete" title="刪除">刪除</button></div></div>`).join("")
     : '<p class="template-empty">找不到符合的訓練計劃</p>';
 }
 
@@ -108,6 +113,10 @@ $("#template-search").addEventListener("input", renderTemplateList);
 $("#template-list").addEventListener("click", async event => {
   const button = event.target.closest("button"); if (!button) return;
   const id = button.closest(".template-row").dataset.id; const item = store.templates.find(t => t.id === id);
+  if (button.dataset.action === "select") {
+    if (isDirty() && !window.confirm("目前設定尚未儲存，仍要切換訓練計劃嗎？")) return;
+    current = normalizeTemplate(item); savedSnapshot = JSON.stringify(current); renderSetup(); $("#template-dialog").close(); toast(`已選用「${current.name}」`); return;
+  }
   if (button.dataset.action === "default") { store.defaultId = id; persist(); renderTemplateList(); renderSetup(); toast("已設為預設訓練計劃"); }
   if (button.dataset.action === "copy") { const name = await askName("複製訓練計劃", `${item.name} 複本`); if (name) addTemplate({ ...item, id: crypto.randomUUID(), name }); }
   if (button.dataset.action === "rename") { const name = await askName("重新命名", item.name); if (name) { item.name = name; if (current.id === id) current.name = name; persist(); savedSnapshot = current.id === id ? JSON.stringify(current) : savedSnapshot; renderTemplateList(); renderSetup(); } }
@@ -118,7 +127,7 @@ $("#template-list").addEventListener("click", async event => {
   }
 });
 
-$("#new-template").addEventListener("click", async () => { const name = await askName("新增訓練計劃", "新訓練"); if (name) addTemplate({ ...DEFAULT, id: crypto.randomUUID(), name }); });
+$("#new-template").addEventListener("click", async () => { const name = await askName("建立全新訓練計劃", "新訓練"); if (name) { addTemplate({ ...DEFAULT, id: crypto.randomUUID(), name }); $("#template-dialog").close(); } });
 $("#save-as-template").addEventListener("click", async () => { const name = await askName("另存新訓練計劃", `${current.name} 複本`); if (name) addTemplate({ ...current, id: crypto.randomUUID(), name }); });
 $("#save-template").addEventListener("click", () => { const index = store.templates.findIndex(t => t.id === current.id); if (index < 0) return; store.templates[index] = normalizeTemplate(current); persist(); savedSnapshot = JSON.stringify(current); renderTemplateList(); renderSetup(); toast("訓練計劃已儲存"); });
 
@@ -174,7 +183,7 @@ function renderTimer() {
   const view = $("#timer-view"); view.className = `timer-view phase-${session.phase}`;
   view.classList.toggle("is-countdown", running && !session.done && session.remaining > 0 && session.remaining <= 3);
   view.classList.toggle("is-paused", !running && !session.done);
-  $("#timer-template").textContent = current.name; $("#phase-label").textContent = phaseLabel(session.phase);
+  $("#timer-template").textContent = session.config.name; $("#phase-label").textContent = phaseLabel(session.phase);
   $("#timer-digits").textContent = formatTime(session.remaining); $("#next-label").textContent = nextPhaseDescription(session);
   const remainingPercent = Math.min(100, Math.max(0, session.remaining / Math.max(1, phaseDuration(session)) * 100));
   $("#timer-ring-progress").style.strokeDashoffset = String(100 - remainingPercent);
@@ -223,5 +232,5 @@ function speak(text) { if (!store.sound || !("speechSynthesis" in window)) retur
 function toast(message) { const node = $("#toast"); node.textContent = message; node.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => node.classList.remove("show"), 2200); }
 function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]); }
 
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=14").catch(() => {});
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=15").catch(() => {});
 renderSetup();
