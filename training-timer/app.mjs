@@ -1,4 +1,4 @@
-import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=17";
+import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=18";
 
 const STORE_KEY = "moonforest-training-timer-v1";
 const DEFAULT = normalizeTemplate({ id: "basic", name: "基本訓練", prep: 3, work: 30, rest: 30, sets: 16, cycles: 1, longRest: 0 });
@@ -203,7 +203,9 @@ function renderTimer() {
   $("#timer-ring-progress").style.strokeDashoffset = String(100 - remainingPercent);
   $("#set-status").textContent = `${session.set} / ${session.config.sets}`; $("#cycle-status").textContent = `${session.cycle} / ${session.config.cycles}`;
   $("#progress-bar").style.width = `${overallProgress(session) * 100}%`;
-  $("#pause-button").textContent = running ? "暫停" : "繼續";
+  $("#pause-button span").textContent = running ? "暫停" : "繼續";
+  $("#pause-button").classList.toggle("is-resume", !running);
+  $("#pause-button").setAttribute("aria-label", running ? "暫停訓練" : "繼續訓練");
 }
 
 $("#pause-button").addEventListener("click", () => {
@@ -238,12 +240,12 @@ $("#stop-button").addEventListener("click", async () => {
 $("#restart-button").addEventListener("click", async () => {
   if (!session || !await confirmAction("重新開始這次訓練？", "將回到準備階段，組數與循環會重新計算。")) return;
   speechSynthesis.cancel(); session = createSession(session.config); running = true; lastSpokenSecond = null; lastTotalSecond = null;
-  $("#pause-button").disabled = false; $("#skip-button").disabled = false; $("#stop-button").textContent = "結束";
+  $("#pause-button").disabled = false; $("#skip-button").disabled = false; $("#stop-button span").textContent = "結束"; $("#stop-button").classList.remove("is-return"); $("#stop-button").setAttribute("aria-label", "結束訓練");
   startPhaseClock(session.remaining); renderTimer(); toast("已重新開始本次訓練");
 });
 
-function finishSession() { running = false; clearInterval(tickHandle); releaseWakeLock(); renderTimer(); $("#pause-button").disabled = true; $("#skip-button").disabled = true; $("#stop-button").textContent = "返回設定"; }
-function exitTimer() { running = false; clearInterval(tickHandle); speechSynthesis.cancel(); releaseWakeLock(); session = null; $("#timer-view").hidden = true; $("#setup-view").hidden = false; $("#pause-button").disabled = false; $("#skip-button").disabled = false; $("#stop-button").textContent = "結束"; renderSetup(); }
+function finishSession() { running = false; clearInterval(tickHandle); releaseWakeLock(); renderTimer(); $("#pause-button").disabled = true; $("#skip-button").disabled = true; $("#stop-button span").textContent = "返回設定"; $("#stop-button").classList.add("is-return"); $("#stop-button").setAttribute("aria-label", "返回設定"); }
+function exitTimer() { running = false; clearInterval(tickHandle); speechSynthesis.cancel(); releaseWakeLock(); session = null; $("#timer-view").hidden = true; $("#setup-view").hidden = false; $("#pause-button").disabled = false; $("#skip-button").disabled = false; $("#stop-button span").textContent = "結束"; $("#stop-button").classList.remove("is-return"); $("#stop-button").setAttribute("aria-label", "結束訓練"); renderSetup(); }
 
 async function requestWakeLock() { try { if ("wakeLock" in navigator) { wakeLock = await navigator.wakeLock.request("screen"); wakeLock.addEventListener("release", () => { wakeLock = null; }); } else toast("此瀏覽器不支援保持螢幕常亮"); } catch { toast("無法保持螢幕常亮，請檢查瀏覽器設定"); } }
 function releaseWakeLock() { wakeLock?.release().catch(() => {}); wakeLock = null; }
@@ -252,5 +254,5 @@ function speak(text) { if (!store.sound || !("speechSynthesis" in window)) retur
 function toast(message) { const node = $("#toast"); node.textContent = message; node.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => node.classList.remove("show"), 2200); }
 function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]); }
 
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=17").catch(() => {});
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=18").catch(() => {});
 renderSetup();
