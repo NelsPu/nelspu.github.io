@@ -12,8 +12,9 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./icon.svg">
-  <link rel="stylesheet" href="./styles.css?v=19">
-  <link rel="stylesheet" href="./action-icons.css?v=19">
+  <link rel="stylesheet" href="./styles.css?v=20">
+  <link rel="stylesheet" href="./action-icons.css?v=20">
+  <link rel="stylesheet" href="./plan-editor.css?v=20">
 </head>
 <body>
   <main id="setup-view" class="app-shell">
@@ -25,14 +26,13 @@
       </div>
     </header>
 
-    <section class="template-panel" aria-labelledby="template-title">
-      <div class="section-heading"><div><p class="section-kicker">我的訓練計劃</p><h2 id="template-title">快速開始</h2></div><button id="template-menu-button" class="secondary-button">管理</button></div>
+    <section class="template-panel" aria-label="目前訓練計劃">
       <label class="template-select-label" for="template-select">目前訓練計劃</label>
       <select id="template-select" class="template-select"></select>
       <div class="plan-save-bar"><p id="plan-save-status" class="plan-save-status"><span></span><strong id="plan-save-status-text">已儲存</strong></p><div><button type="button" id="save-as-template" class="secondary-button">另存新計劃</button><button type="button" id="save-template" class="save-plan-button" disabled>儲存變更</button></div></div>
     </section>
 
-    <section class="controls-grid" aria-label="訓練設定">
+    <section id="setup-controls" class="controls-grid" aria-label="訓練設定">
       <article class="value-card full-width-card" data-field="prep" data-kind="seconds"><div><span>準備時間</span><strong data-output>3 秒</strong></div><div class="stepper"><button data-step="-1" aria-label="減少一秒準備時間">−</button><input data-range type="range" min="3" max="30" step="1" value="3" aria-label="準備時間滑桿"><button data-step="1" aria-label="增加一秒準備時間">＋</button></div></article>
       <article class="value-card accent-work work-time-card" data-field="work" data-kind="time"><div><span>訓練時間</span><strong data-output>0:30</strong></div><div class="split-time-controls"><div class="minute-stepper"><span>分鐘</span><button data-step="-60" aria-label="減少一分鐘">−</button><strong data-minute-output>0 分</strong><button data-step="60" aria-label="增加一分鐘">＋</button></div><div class="second-control"><span>秒數</span><div class="stepper"><button data-step="-1" aria-label="減少一秒">−</button><input data-range data-range-mode="seconds" type="range" min="0" max="59" step="1" value="30" aria-label="訓練秒數滑桿"><button data-step="1" aria-label="增加一秒">＋</button></div></div></div></article>
       <article class="value-card accent-rest split-time-card" data-field="rest" data-kind="time"><div><span>休息時間</span><strong data-output>0:30</strong></div><div class="split-time-controls"><div class="minute-stepper"><span>分鐘</span><button data-step="-60" aria-label="減少一分鐘休息">−</button><strong data-minute-output>0 分</strong><button data-step="60" aria-label="增加一分鐘休息">＋</button></div><div class="second-control"><span>秒數</span><div class="stepper"><button data-step="-1" aria-label="減少一秒休息">−</button><input data-range data-range-mode="seconds" type="range" min="0" max="59" step="1" value="30" aria-label="休息秒數滑桿"><button data-step="1" aria-label="增加一秒休息">＋</button></div></div></div></article>
@@ -59,9 +59,10 @@
   </main>
 
   <dialog id="template-dialog" class="sheet-dialog"><form method="dialog"><div class="dialog-handle"></div><div class="dialog-title"><h2>管理訓練計劃</h2><button value="cancel" aria-label="關閉">×</button></div><label class="template-search-label" for="template-search">搜尋訓練計劃</label><input id="template-search" class="template-search" type="search" placeholder="輸入訓練計劃名稱" autocomplete="off"><div id="template-list" class="template-list"></div><div class="dialog-actions"><button type="button" id="new-template" class="primary-action">＋ 建立全新訓練計劃</button></div></form></dialog>
+  <dialog id="plan-editor-dialog" class="plan-editor-dialog"><div class="plan-editor-shell"><header><div><p>訓練計劃</p><h2 id="plan-editor-title">另存新訓練計劃</h2></div><button type="button" id="plan-editor-close" aria-label="關閉">×</button></header><main><label for="plan-editor-name">名稱</label><input id="plan-editor-name" maxlength="30" autocomplete="off" placeholder="輸入訓練計劃名稱"><div id="plan-editor-controls"></div></main><footer><button type="button" id="plan-editor-cancel">取消</button><button type="button" id="plan-editor-save" class="primary-action">確認儲存</button></footer></div></dialog>
   <dialog id="confirm-dialog" class="confirm-dialog"><form method="dialog"><p class="dialog-symbol">!</p><h2 id="confirm-title">確定嗎？</h2><p id="confirm-message"></p><div><button value="cancel">取消</button><button value="confirm" class="danger-button">確定</button></div></form></dialog>
   <dialog id="name-dialog" class="name-dialog"><form method="dialog"><h2 id="name-title">訓練計劃名稱</h2><label for="template-name-input">名稱</label><input id="template-name-input" maxlength="30" autocomplete="off"><div><button value="cancel">取消</button><button id="name-confirm-button" value="confirm" class="primary-action">確認儲存</button></div></form></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="./app.mjs?v=19"></script>
+  <script type="module" src="./app.mjs?v=20"></script>
 </body>
 </html>

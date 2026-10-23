@@ -1,0 +1,157 @@
+.template-panel > .template-select-label {
+  margin-top: 0;
+}
+
+.plan-editor-dialog {
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--bg);
+}
+
+.plan-editor-dialog::backdrop {
+  background: var(--bg);
+}
+
+.plan-editor-shell {
+  min-height: 100dvh;
+  background:
+    radial-gradient(circle at 92% -8%, #f3dca9 0, transparent 35%),
+    linear-gradient(180deg, #fffdf8 0, #f5f1e8 48%, #eee8dc 100%);
+}
+
+.plan-editor-shell > header {
+  position: sticky;
+  z-index: 5;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: max(18px, env(safe-area-inset-top)) 18px 14px;
+  border-bottom: 1px solid #e8dfcfb8;
+  background: #fffdf8e8;
+  box-shadow: 0 8px 24px #6c573012;
+  backdrop-filter: blur(16px);
+}
+
+.plan-editor-shell > header p {
+  margin: 0 0 4px;
+  color: var(--gold);
+  font-size: .72rem;
+  font-weight: 850;
+  letter-spacing: .13em;
+}
+
+.plan-editor-shell > header h2 {
+  margin: 0;
+  font-size: clamp(1.45rem, 6vw, 2rem);
+  letter-spacing: -.04em;
+}
+
+#plan-editor-close {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: #fffefa;
+  color: var(--ink);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.plan-editor-shell > main {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  padding: 22px 18px max(122px, calc(env(safe-area-inset-bottom) + 104px));
+}
+
+.plan-editor-shell > main > label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: .86rem;
+  font-weight: 750;
+}
+
+#plan-editor-name {
+  width: 100%;
+  min-height: 58px;
+  padding: 14px 16px;
+  border: 2px solid var(--ink);
+  border-radius: 16px;
+  background: #fffefa;
+  color: var(--ink);
+  font-size: 1.12rem;
+  font-weight: 750;
+}
+
+#plan-editor-name:focus {
+  outline: 4px solid #b7853626;
+  outline-offset: 2px;
+}
+
+#plan-editor-controls {
+  margin-top: 18px;
+}
+
+.plan-editor-controls {
+  margin-top: 0;
+}
+
+.plan-editor-shell > footer {
+  position: fixed;
+  z-index: 6;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: minmax(110px, .7fr) minmax(180px, 1.3fr);
+  gap: 10px;
+  width: min(760px, 100%);
+  margin: 0 auto;
+  padding: 12px 18px max(12px, env(safe-area-inset-bottom));
+  border-top: 1px solid #e4dbcb;
+  background: #fffdf8ee;
+  box-shadow: 0 -12px 34px #5f503526;
+  backdrop-filter: blur(16px);
+}
+
+.plan-editor-shell > footer button {
+  min-height: 58px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fffefa;
+  color: var(--ink);
+  font-size: 1.02rem;
+  font-weight: 850;
+}
+
+.plan-editor-shell > footer #plan-editor-save {
+  border-color: var(--rest);
+  background: var(--rest);
+  color: #fff;
+  box-shadow: 0 10px 24px #2f81503d;
+}
+
+.plan-editor-shell button:active {
+  transform: scale(.98);
+}
+
+@media (max-width: 560px) {
+  .plan-editor-shell > main {
+    padding-inline: 14px;
+  }
+
+  .plan-editor-controls .value-card {
+    padding: 16px;
+  }
+}
