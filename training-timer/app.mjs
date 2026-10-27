@@ -1,4 +1,4 @@
-import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=21";
+import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=22";
 
 const STORE_KEY = "moonforest-training-timer-v1";
 const DEFAULT = normalizeTemplate({ id: "basic", name: "基本訓練", prep: 3, work: 30, rest: 30, sets: 16, cycles: 1, longRest: 0 });
@@ -127,7 +127,17 @@ $("#template-list").addEventListener("click", async event => {
   }
   if (button.dataset.action === "default") { store.defaultId = id; persist(); renderTemplateList(); renderSetup(); toast("已設為預設訓練計劃"); }
   if (button.dataset.action === "copy") { const name = await askName("複製訓練計劃", `${item.name} 複本`); if (name) addTemplate({ ...item, id: crypto.randomUUID(), name }); }
-  if (button.dataset.action === "rename") { const name = await askName("重新命名", item.name); if (name) { item.name = name; if (current.id === id) current.name = name; persist(); savedSnapshot = current.id === id ? JSON.stringify(current) : savedSnapshot; renderTemplateList(); renderSetup(); } }
+  if (button.dataset.action === "rename") {
+    const name = await askName("重新命名", item.name);
+    if (name) {
+      item.name = name;
+      if (current.id === id) {
+        current.name = name;
+        savedSnapshot = JSON.stringify({ ...JSON.parse(savedSnapshot), name });
+      }
+      persist(); renderTemplateList(); renderSetup();
+    }
+  }
   if (button.dataset.action === "delete") {
     if (store.templates.length === 1) return toast("至少需要保留一套訓練計劃");
     if (id === store.defaultId) return toast("請先將另一套訓練計劃設為預設");
@@ -258,7 +268,12 @@ function renderTimer() {
 $("#pause-button").addEventListener("click", () => {
   if (!session || session.done) return;
   if (running) { session.remaining = Math.max(0, (endAt - performance.now()) / 1000); running = false; clearInterval(tickHandle); speechSynthesis.cancel(); renderTimer(); }
-  else { const pausedPhase = session.phase; const pausedRemaining = session.remaining; session.phase = PHASE.PREP; session.resumePhase = pausedPhase; session.remaining = 3; session.pausedRemaining = pausedRemaining; running = true; lastSpokenSecond = null; startPhaseClock(3); }
+  else {
+    if (!session.resumePhase) {
+      session.resumePhase = session.phase; session.pausedRemaining = session.remaining;
+    }
+    session.phase = PHASE.PREP; session.remaining = 3; running = true; lastSpokenSecond = null; lastTotalSecond = null; startPhaseClock(3);
+  }
 });
 
 function resumeAwareAdvance(value) {
@@ -273,11 +288,17 @@ function advanceCurrent(value) { return resumeAwareAdvance(value); }
 function transitionNow() {
   const result = advanceCurrent(session); session = result.session; lastSpokenSecond = null; lastTotalSecond = null;
   if (result.announcement) speak(result.announcement);
-  if (session.done) finishSession(); else startPhaseClock(session.remaining);
+  if (session.done) finishSession();
+  else if (running) startPhaseClock(session.remaining);
+  else renderTimer();
 }
 
 $("#skip-button").addEventListener("click", async () => {
-  if (!session || session.done || !await confirmAction("跳過目前階段？", `將直接結束「${phaseLabel(session.phase)}」並前往下一階段。`)) return;
+  if (!session || session.done) return;
+  const requestedSession = session;
+  if (!await confirmAction("跳過目前階段？", `將直接結束「${phaseLabel(session.phase)}」並前往下一階段。`)) return;
+  // A running phase may finish while its confirmation is open.
+  if (session !== requestedSession || session.done) return;
   speechSynthesis.cancel(); transitionNow();
 });
 $("#stop-button").addEventListener("click", async () => {
@@ -301,5 +322,5 @@ function speak(text) { if (!store.sound || !("speechSynthesis" in window)) retur
 function toast(message) { const node = $("#toast"); node.textContent = message; node.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => node.classList.remove("show"), 2200); }
 function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]); }
 
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=21").catch(() => {});
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=22").catch(() => {});
 renderSetup();

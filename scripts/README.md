@@ -17,7 +17,14 @@ Before publishing:
 python scripts/check-site.py
 node --check main.js
 node --test scripts/interactions.test.cjs
+node --test scripts/training-timer-core.test.mjs scripts/training-timer-ui.test.mjs
 ```
+
+Training timer UI tests exercise the actual app event handlers with a deterministic
+clock and a small DOM substitute. They cover every timer phase, pause/resume,
+skip confirmations, restart/stop, plan switching, adjustment limits and saved
+state. These complement browser checks; they do not simulate mobile audio,
+screen locking or service worker lifecycle.
 
 GA4 contact events use `contact_click` with `contact_method`,
 `contact_location`, and `page_path`. They measure a contact-link click;
