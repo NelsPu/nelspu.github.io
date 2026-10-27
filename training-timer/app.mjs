@@ -1,4 +1,4 @@
-import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=20";
+import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=21";
 
 const STORE_KEY = "moonforest-training-timer-v1";
 const DEFAULT = normalizeTemplate({ id: "basic", name: "基本訓練", prep: 3, work: 30, rest: 30, sets: 16, cycles: 1, longRest: 0 });
@@ -120,7 +120,10 @@ $("#template-list").addEventListener("click", async event => {
   const id = button.closest(".template-row").dataset.id; const item = store.templates.find(t => t.id === id);
   if (button.dataset.action === "select") {
     if (isDirty() && !window.confirm("目前設定尚未儲存，仍要切換訓練計劃嗎？")) return;
-    current = normalizeTemplate(item); savedSnapshot = JSON.stringify(current); renderSetup(); $("#template-dialog").close(); toast(`已選用「${current.name}」`); return;
+    if (session && !session.done && !await confirmAction("切換訓練計劃？", "將結束目前訓練，並返回所選計劃的設定。")) return;
+    current = normalizeTemplate(item); savedSnapshot = JSON.stringify(current);
+    if (session) exitTimer(); else renderSetup();
+    $("#template-dialog").close(); toast(`已選用「${current.name}」`); return;
   }
   if (button.dataset.action === "default") { store.defaultId = id; persist(); renderTemplateList(); renderSetup(); toast("已設為預設訓練計劃"); }
   if (button.dataset.action === "copy") { const name = await askName("複製訓練計劃", `${item.name} 複本`); if (name) addTemplate({ ...item, id: crypto.randomUUID(), name }); }
@@ -298,5 +301,5 @@ function speak(text) { if (!store.sound || !("speechSynthesis" in window)) retur
 function toast(message) { const node = $("#toast"); node.textContent = message; node.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => node.classList.remove("show"), 2200); }
 function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]); }
 
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=20").catch(() => {});
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=21").catch(() => {});
 renderSetup();
