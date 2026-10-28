@@ -1,11 +1,13 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
+import { setImmediate as flush } from 'node:timers/promises';
 import { readFileSync } from 'node:fs';
 import * as core from '../training-timer/timer-core.mjs';
 
 const source = readFileSync(new URL('../training-timer/app.mjs', import.meta.url), 'utf8').replace(/^import .*;\r?\n/, '');
-function setup() {
+function setup(navigator = {}) {
+  const documentListeners = {};
   const nodes = new Map();
   const node = selector => {
     if (!nodes.has(selector)) nodes.set(selector, {
@@ -18,15 +20,15 @@ function setup() {
     return nodes.get(selector);
   };
   const context = vm.createContext({ ...core, structuredClone,
-    document: { querySelector: node, querySelectorAll: () => [], addEventListener() {} },
-    localStorage: { getItem: () => null, setItem() {} }, navigator: {}, window: { confirm: () => true }, crypto,
+    document: { visibilityState: 'visible', querySelector: node, querySelectorAll: () => [], addEventListener(type, listener) { documentListeners[type] = listener; } },
+    localStorage: { getItem: () => null, setItem() {} }, navigator, window: { confirm: () => true }, crypto,
     speechSynthesis: { cancel() {} }, clearInterval() {}, clearTimeout() {}, setTimeout: () => 1,
   });
   vm.runInContext(source, context);
   vm.runInContext(`store.templates.push(normalizeTemplate({ ...DEFAULT, id: 'next', name: '下一套', work: 45 }));`, context);
   const select = () => node('#template-list').listeners.click({ target: { closest: () => ({ dataset: { action: 'select' }, closest: () => ({ dataset: { id: 'next' } }) }) } });
   const action = (action, id = 'next') => node('#template-list').listeners.click({ target: { closest: () => ({ dataset: { action }, closest: () => ({ dataset: { id } }) }) } });
-  return { node, context, select, action, run: code => vm.runInContext(code, context) };
+  return { node, context, select, action, documentListeners, run: code => vm.runInContext(code, context) };
 }
 
 test('completed workout switches to the selected setup and can start a fresh session', async () => {
@@ -221,4 +223,61 @@ test('sound toggle updates both controls and saved preference', () => {
   app.node('#timer-sound').listeners.click();
   assert.equal(app.run('store.sound'), true);
   assert.equal(app.node('#sound-toggle').title, '關閉語音');
+});
+
+test('page requests wake lock on load and retains it after finish and returning to setup', async () => {
+  let requests = 0, releases = 0;
+  const lock = { released: false, addEventListener() {}, async release() { releases++; } };
+  const app = setup({ wakeLock: { async request(type) { assert.equal(type, 'screen'); requests++; return lock; } } });
+  await flush();
+  assert.equal(requests, 1);
+  assert.equal(app.run('wakeLock !== null'), true);
+  app.run('session = createSession(current); session.done = true; finishSession(); exitTimer()');
+  assert.equal(releases, 0);
+  assert.equal(app.run('wakeLock !== null'), true);
+  await app.run('requestWakeLock()');
+  assert.equal(requests, 1);
+});
+
+test('returning to visible setup reacquires a browser-released wake lock', async () => {
+  let requests = 0;
+  const callbacks = [];
+  const app = setup({ wakeLock: { async request() { requests++; return { released: false, addEventListener(type, callback) { callbacks.push(callback); } }; } } });
+  await flush();
+  app.context.document.visibilityState = 'hidden';
+  callbacks[0]();
+  app.documentListeners.visibilitychange();
+  assert.equal(requests, 1);
+  app.context.document.visibilityState = 'visible';
+  app.documentListeners.visibilitychange();
+  await flush();
+  assert.equal(requests, 2);
+  callbacks[0]();
+  assert.equal(app.run('wakeLock !== null'), true);
+});
+
+test('overlapping interactions request one lock and release a late lock when hidden', async () => {
+  let requests = 0, releases = 0, resolve;
+  const app = setup({ wakeLock: { request() { requests++; return new Promise(done => { resolve = done; }); } } });
+  app.documentListeners.pointerdown();
+  app.documentListeners.visibilitychange();
+  assert.equal(requests, 1);
+  app.context.document.visibilityState = 'hidden';
+  resolve({ released: false, async release() { releases++; } });
+  await flush();
+  await flush();
+  assert.equal(releases, 1);
+  assert.equal(app.run('wakeLock'), null);
+  assert.equal(app.run('wakeLockPending'), false);
+});
+
+test('denied wake lock can retry on interaction without blocking the page', async () => {
+  let requests = 0;
+  const app = setup({ wakeLock: { async request() { requests++; if (requests === 1) throw new Error('denied'); return { released: false, addEventListener() {} }; } } });
+  await flush();
+  assert.equal(app.run('wakeLockPending'), false);
+  app.documentListeners.pointerdown();
+  await flush();
+  assert.equal(requests, 2);
+  assert.equal(app.run('wakeLock !== null'), true);
 });

@@ -1,7 +1,7 @@
 const CACHE_PREFIX = "training-timer-";
-const CACHE = `${CACHE_PREFIX}v22`;
+const CACHE = `${CACHE_PREFIX}v23`;
 const APP_SHELL = new URL("./", self.location).href;
-const ASSETS = ["./", "./styles.css?v=22", "./action-icons.css?v=22", "./plan-editor.css?v=22", "./app.mjs?v=22", "./timer-core.mjs?v=22", "./manifest.webmanifest", "./icon.svg"];
+const ASSETS = ["./", "./styles.css?v=23", "./action-icons.css?v=23", "./plan-editor.css?v=23", "./app.mjs?v=23", "./timer-core.mjs?v=23", "./manifest.webmanifest", "./icon.svg"];
 
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)));

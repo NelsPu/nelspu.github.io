@@ -1,4 +1,4 @@
-import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=22";
+import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=23";
 
 const STORE_KEY = "moonforest-training-timer-v1";
 const DEFAULT = normalizeTemplate({ id: "basic", name: "基本訓練", prep: 3, work: 30, rest: 30, sets: 16, cycles: 1, longRest: 0 });
@@ -14,6 +14,8 @@ let endAt = 0;
 let tickHandle = 0;
 let lastSpokenSecond = null;
 let wakeLock = null;
+let wakeLockPending = false;
+let wakeLockWarningShown = false;
 let toastTimer = 0;
 let lastTotalSecond = null;
 let editorDraft = null;
@@ -200,7 +202,7 @@ $("#start-button").addEventListener("click", async () => {
   speechSynthesis.cancel(); if (store.sound) speak("");
   session = createSession(current); running = true; lastSpokenSecond = null; lastTotalSecond = null;
   $("#setup-view").hidden = true; $("#timer-view").hidden = false;
-  await requestWakeLock(); startPhaseClock(session.remaining); renderTimer();
+  requestWakeLock(); startPhaseClock(session.remaining); renderTimer();
 });
 
 function startPhaseClock(seconds) { session.remaining = seconds; endAt = performance.now() + seconds * 1000; clearInterval(tickHandle); tickHandle = setInterval(tick, 80); tick(); }
@@ -312,15 +314,31 @@ $("#restart-button").addEventListener("click", async () => {
   startPhaseClock(session.remaining); renderTimer(); toast("已重新開始本次訓練");
 });
 
-function finishSession() { running = false; clearInterval(tickHandle); releaseWakeLock(); renderTimer(); $("#pause-button").disabled = true; $("#skip-button").disabled = true; $("#stop-button span").textContent = "返回設定"; $("#stop-button").classList.add("is-return"); $("#stop-button").setAttribute("aria-label", "返回設定"); }
-function exitTimer() { running = false; clearInterval(tickHandle); speechSynthesis.cancel(); releaseWakeLock(); session = null; $("#timer-view").hidden = true; $("#setup-view").hidden = false; $("#pause-button").disabled = false; $("#skip-button").disabled = false; $("#stop-button span").textContent = "結束"; $("#stop-button").classList.remove("is-return"); $("#stop-button").setAttribute("aria-label", "結束訓練"); renderSetup(); }
+function finishSession() { running = false; clearInterval(tickHandle); renderTimer(); $("#pause-button").disabled = true; $("#skip-button").disabled = true; $("#stop-button span").textContent = "返回設定"; $("#stop-button").classList.add("is-return"); $("#stop-button").setAttribute("aria-label", "返回設定"); }
+function exitTimer() { running = false; clearInterval(tickHandle); speechSynthesis.cancel(); session = null; $("#timer-view").hidden = true; $("#setup-view").hidden = false; $("#pause-button").disabled = false; $("#skip-button").disabled = false; $("#stop-button span").textContent = "結束"; $("#stop-button").classList.remove("is-return"); $("#stop-button").setAttribute("aria-label", "結束訓練"); renderSetup(); }
 
-async function requestWakeLock() { try { if ("wakeLock" in navigator) { wakeLock = await navigator.wakeLock.request("screen"); wakeLock.addEventListener("release", () => { wakeLock = null; }); } else toast("此瀏覽器不支援保持螢幕常亮"); } catch { toast("無法保持螢幕常亮，請檢查瀏覽器設定"); } }
-function releaseWakeLock() { wakeLock?.release().catch(() => {}); wakeLock = null; }
-document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && session && !session.done && !wakeLock) requestWakeLock(); });
+async function requestWakeLock() {
+  if (document.visibilityState !== "visible" || wakeLock || wakeLockPending) return;
+  const warn = message => { if (!wakeLockWarningShown) { wakeLockWarningShown = true; toast(message); } };
+  if (!("wakeLock" in navigator)) { warn("此瀏覽器不支援保持螢幕常亮"); return; }
+  wakeLockPending = true;
+  try {
+    const lock = await navigator.wakeLock.request("screen");
+    if (document.visibilityState !== "visible") { await lock.release(); return; }
+    if (lock.released) return;
+    wakeLock = lock;
+    lock.addEventListener("release", () => { if (wakeLock === lock) wakeLock = null; });
+  } catch { warn("無法保持螢幕常亮，請檢查瀏覽器設定"); }
+  finally { wakeLockPending = false; }
+}
+
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") requestWakeLock(); });
+// Retry after interaction if the browser refused the initial request.
+document.addEventListener("pointerdown", () => { requestWakeLock(); }, { passive: true });
+requestWakeLock();
 function speak(text) { if (!store.sound || !("speechSynthesis" in window)) return; const utterance = new SpeechSynthesisUtterance(text || " "); utterance.lang = "zh-TW"; utterance.rate = .95; speechSynthesis.speak(utterance); }
 function toast(message) { const node = $("#toast"); node.textContent = message; node.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => node.classList.remove("show"), 2200); }
 function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]); }
 
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=22").catch(() => {});
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=23").catch(() => {});
 renderSetup();
