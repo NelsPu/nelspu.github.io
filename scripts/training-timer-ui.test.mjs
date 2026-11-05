@@ -281,3 +281,32 @@ test('denied wake lock can retry on interaction without blocking the page', asyn
   assert.equal(requests, 2);
   assert.equal(app.run('wakeLock !== null'), true);
 });
+
+test('large completed restart starts the same plan in one tap without confirmation', async () => {
+  const app = stage('work');
+  app.run("session.set = 2; session.cycle = 2; transitionNow(); confirmAction = () => { throw new Error('unexpected confirmation'); }");
+  assert.equal(app.node('#completed-restart-button').hidden, false);
+  await app.click('#completed-restart-button');
+  assert.equal(app.run('session.phase'), 'prep');
+  assert.equal(app.run('session.config.work'), 10);
+  assert.equal(app.run('session.remaining'), 3);
+  assert.equal(app.run('session.set'), 1);
+  assert.equal(app.run('session.cycle'), 1);
+  assert.equal(app.run('running'), true);
+  assert.equal(app.node('#completed-restart-button').hidden, true);
+  assert.equal(app.node('#pause-button').disabled, false);
+  assert.equal(app.node('#skip-button').disabled, false);
+  app.run('session.set = 2; session.cycle = 2; session.phase = PHASE.WORK; transitionNow()');
+  await app.click('#completed-restart-button');
+  assert.equal(app.run('session.phase'), 'prep');
+});
+
+test('completed restart ignores active sessions; top restart also needs no confirmation once done', async () => {
+  const app = stage('work');
+  const before = app.run('JSON.stringify(session)');
+  await app.click('#completed-restart-button');
+  assert.equal(app.run('JSON.stringify(session)'), before);
+  app.run("session.set = 2; session.cycle = 2; transitionNow(); confirmAction = () => { throw new Error('unexpected confirmation'); }");
+  await app.click('#restart-button');
+  assert.equal(app.run('session.phase'), 'prep');
+});

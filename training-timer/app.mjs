@@ -1,4 +1,4 @@
-import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=23";
+import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=24";
 
 const STORE_KEY = "moonforest-training-timer-v1";
 const DEFAULT = normalizeTemplate({ id: "basic", name: "基本訓練", prep: 3, work: 30, rest: 30, sets: 16, cycles: 1, longRest: 0 });
@@ -251,6 +251,7 @@ function remainingWorkoutTime(value) {
 
 function renderTimer() {
   if (!session) return;
+  $("#completed-restart-button").hidden = !session.done;
   const view = $("#timer-view"); view.className = `timer-view phase-${session.phase}`;
   view.classList.toggle("is-countdown", running && !session.done && session.remaining > 0 && session.remaining <= 3);
   view.classList.toggle("is-paused", !running && !session.done);
@@ -308,11 +309,18 @@ $("#stop-button").addEventListener("click", async () => {
   if (await confirmAction("結束這次訓練？", "本次會直接停止，不會播放「訓練完畢」。")) exitTimer();
 });
 $("#restart-button").addEventListener("click", async () => {
-  if (!session || !await confirmAction("重新開始這次訓練？", "將回到準備階段，組數與循環會重新計算。")) return;
+  if (!session) return;
+  if (!session.done && !await confirmAction("重新開始這次訓練？", "將回到準備階段，組數與循環會重新計算。")) return;
+  restartSession();
+});
+$("#completed-restart-button").addEventListener("click", () => {
+  if (session?.done) restartSession();
+});
+function restartSession() {
   speechSynthesis.cancel(); session = createSession(session.config); running = true; lastSpokenSecond = null; lastTotalSecond = null;
   $("#pause-button").disabled = false; $("#skip-button").disabled = false; $("#stop-button span").textContent = "結束"; $("#stop-button").classList.remove("is-return"); $("#stop-button").setAttribute("aria-label", "結束訓練");
   startPhaseClock(session.remaining); renderTimer(); toast("已重新開始本次訓練");
-});
+}
 
 function finishSession() { running = false; clearInterval(tickHandle); renderTimer(); $("#pause-button").disabled = true; $("#skip-button").disabled = true; $("#stop-button span").textContent = "返回設定"; $("#stop-button").classList.add("is-return"); $("#stop-button").setAttribute("aria-label", "返回設定"); }
 function exitTimer() { running = false; clearInterval(tickHandle); speechSynthesis.cancel(); session = null; $("#timer-view").hidden = true; $("#setup-view").hidden = false; $("#pause-button").disabled = false; $("#skip-button").disabled = false; $("#stop-button span").textContent = "結束"; $("#stop-button").classList.remove("is-return"); $("#stop-button").setAttribute("aria-label", "結束訓練"); renderSetup(); }
@@ -340,5 +348,5 @@ function speak(text) { if (!store.sound || !("speechSynthesis" in window)) retur
 function toast(message) { const node = $("#toast"); node.textContent = message; node.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => node.classList.remove("show"), 2200); }
 function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]); }
 
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=23").catch(() => {});
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=24").catch(() => {});
 renderSetup();

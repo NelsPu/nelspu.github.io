@@ -83,3 +83,28 @@
     padding-inline: 8px;
   }
 }
+
+.timer-actions #completed-restart-button[hidden] {
+  display: none;
+}
+
+.phase-done .timer-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.phase-done #pause-button,
+.phase-done #skip-button {
+  display: none;
+}
+
+.phase-done #completed-restart-button {
+  min-height: 64px;
+  font-size: 1.25rem;
+}
+
+.phase-done #stop-button {
+  min-height: 48px;
+  white-space: nowrap;
+}
