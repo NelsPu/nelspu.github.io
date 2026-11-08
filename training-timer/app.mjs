@@ -1,4 +1,4 @@
-import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=25";
+import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=26";
 
 const STORE_KEY = "moonforest-training-timer-v1";
 const DEFAULT = normalizeTemplate({ id: "basic", name: "基本訓練", prep: 3, work: 30, rest: 30, sets: 16, cycles: 1, longRest: 0 });
@@ -257,7 +257,7 @@ function renderTimer() {
   view.classList.toggle("is-paused", !running && !session.done);
   $("#timer-template").textContent = session.config.name; $("#phase-label").textContent = phaseLabel(session.phase);
   const currentSecond = Math.ceil(session.remaining);
-  if (currentSecond !== lastTotalSecond) { $("#timer-total-remaining").textContent = `預估剩餘 ${formatTime(remainingWorkoutTime(session))}`; lastTotalSecond = currentSecond; }
+  if (currentSecond !== lastTotalSecond) { $("#timer-total-remaining-value").textContent = formatTime(remainingWorkoutTime(session)); lastTotalSecond = currentSecond; }
   $("#timer-digits").textContent = formatTime(session.remaining); $("#next-label").textContent = nextPhaseDescription(session);
   const remainingPercent = Math.min(100, Math.max(0, session.remaining / Math.max(1, phaseDuration(session)) * 100));
   $("#timer-ring-progress").style.strokeDashoffset = String(100 - remainingPercent);
@@ -348,5 +348,5 @@ function speak(text) { if (!store.sound || !("speechSynthesis" in window)) retur
 function toast(message) { const node = $("#toast"); node.textContent = message; node.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => node.classList.remove("show"), 2200); }
 function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]); }
 
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=25").catch(() => {});
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=26").catch(() => {});
 renderSetup();
