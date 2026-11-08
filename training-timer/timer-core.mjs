@@ -23,6 +23,10 @@ export function createSession(template) {
   return { config, phase: PHASE.PREP, remaining: config.prep, set: 1, cycle: 1, resumePhase: null, done: false };
 }
 
+export function plannedWorkoutTime({ prep, work, rest, sets, cycles, longRest }) {
+  return prep + cycles * (sets * work + (sets - 1) * rest) + (cycles - 1) * longRest;
+}
+
 export function advance(session) {
   const s = structuredClone(session);
   if (s.phase === PHASE.PREP) {

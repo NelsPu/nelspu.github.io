@@ -1,8 +1,20 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { PHASE, advance, createSession, nextLabel, normalizeTemplate } from "../training-timer/timer-core.mjs";
+import { PHASE, advance, createSession, nextLabel, normalizeTemplate, plannedWorkoutTime } from "../training-timer/timer-core.mjs";
 
 const base = { id: "t", name: "測試", prep: 3, work: 30, rest: 30, sets: 2, cycles: 1, longRest: 0 };
+
+test("計劃總時長等於實際階段的總和，不含結束後的休息", () => {
+  for (const config of [base, { ...base, cycles: 3, longRest: 20 }, { ...base, sets: 1, cycles: 2, rest: 0 }]) {
+    let session = createSession(config);
+    let total = 0;
+    while (!session.done) {
+      total += session.remaining;
+      session = advance(session).session;
+    }
+    assert.equal(plannedWorkoutTime(config), total);
+  }
+});
 
 test("設定預設值與實際上限", () => {
   assert.deepEqual(normalizeTemplate({ id: "x", name: "基本訓練" }), { id: "x", name: "基本訓練", prep: 3, work: 30, rest: 30, sets: 16, cycles: 1, longRest: 0 });

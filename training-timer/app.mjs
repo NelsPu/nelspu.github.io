@@ -1,4 +1,4 @@
-import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel } from "./timer-core.mjs?v=26";
+import { PHASE, advance, createSession, normalizeTemplate, overallProgress, phaseLabel, plannedWorkoutTime } from "./timer-core.mjs?v=27";
 
 const STORE_KEY = "moonforest-training-timer-v1";
 const DEFAULT = normalizeTemplate({ id: "basic", name: "基本訓練", prep: 3, work: 30, rest: 30, sets: 16, cycles: 1, longRest: 0 });
@@ -53,6 +53,7 @@ function renderSetup() {
   select.innerHTML = store.templates.map(t => `<option value="${escapeHtml(t.id)}">${escapeHtml(t.name)}${t.id === store.defaultId ? "（預設）" : ""}</option>`).join("");
   select.value = current.id;
   renderValueCards($("#setup-controls"), current);
+  $("#setup-plan-duration").textContent = formatTime(plannedWorkoutTime(current));
   const dirty = isDirty();
   const status = $("#plan-save-status");
   status.classList.toggle("is-dirty", dirty);
@@ -154,7 +155,7 @@ function openPlanEditor(source, title, suggestedName) {
   const controls = $("#setup-controls").cloneNode(true);
   controls.removeAttribute("id"); controls.classList.add("plan-editor-controls");
   $("#plan-editor-controls").replaceChildren(controls);
-  renderValueCards(controls, editorDraft);
+  renderPlanEditor();
   $("#plan-editor-dialog").showModal();
   $("#plan-editor-dialog").scrollTop = 0;
   requestAnimationFrame(() => $("#plan-editor-name").select());
@@ -162,12 +163,17 @@ function openPlanEditor(source, title, suggestedName) {
 
 function closePlanEditor() { $("#plan-editor-dialog").close(); editorDraft = null; }
 
+function renderPlanEditor() {
+  renderValueCards($("#plan-editor-controls"), editorDraft);
+  $("#editor-plan-duration").textContent = formatTime(plannedWorkoutTime(editorDraft));
+}
+
 $("#plan-editor-controls").addEventListener("click", event => {
   const button = event.target.closest("[data-step]"); if (!button || !editorDraft) return;
   const field = button.closest(".value-card").dataset.field;
   const limits = { prep: [3, 30], work: [1, 600], rest: [0, 120], sets: [1, 20], cycles: [1, 20], longRest: [0, 300] }[field];
   editorDraft = { ...editorDraft, [field]: Math.min(limits[1], Math.max(limits[0], editorDraft[field] + Number(button.dataset.step))) };
-  renderValueCards($("#plan-editor-controls"), editorDraft);
+  renderPlanEditor();
 });
 $("#plan-editor-controls").addEventListener("input", event => {
   const range = event.target.closest("[data-range]"); if (!range || !editorDraft) return;
@@ -175,7 +181,7 @@ $("#plan-editor-controls").addEventListener("input", event => {
   const value = range.dataset.rangeMode === "seconds" ? Math.floor(editorDraft[field] / 60) * 60 + Number(range.value) : Number(range.value);
   const limits = { prep: [3, 30], work: [1, 600], rest: [0, 120], sets: [1, 20], cycles: [1, 20], longRest: [0, 300] }[field];
   editorDraft = { ...editorDraft, [field]: Math.min(limits[1], Math.max(limits[0], value)) };
-  renderValueCards($("#plan-editor-controls"), editorDraft);
+  renderPlanEditor();
 });
 $("#plan-editor-close").addEventListener("click", closePlanEditor);
 $("#plan-editor-cancel").addEventListener("click", closePlanEditor);
@@ -348,5 +354,5 @@ function speak(text) { if (!store.sound || !("speechSynthesis" in window)) retur
 function toast(message) { const node = $("#toast"); node.textContent = message; node.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => node.classList.remove("show"), 2200); }
 function escapeHtml(value) { return String(value).replace(/[&<>'"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[char]); }
 
-if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=26").catch(() => {});
+if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js?v=27").catch(() => {});
 renderSetup();
