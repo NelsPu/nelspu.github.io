@@ -1,0 +1,75 @@
+.particle-slot {
+  isolation: isolate;
+  pointer-events: none;
+}
+
+.particle-idle {
+  position: relative;
+  width: clamp(104px, 27vw, 144px);
+  aspect-ratio: 1;
+  margin: 4px auto 0;
+}
+
+.particle-idle + .template-panel { margin-top: 0; }
+
+.particle-timer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.timer-ring-wrap .timer-ring { z-index: 1; }
+.timer-ring-wrap .timer-digits { z-index: 2; }
+
+.particle-slot::before {
+  content: "";
+  position: absolute;
+  inset: 9%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 32% 24%, #72e8eb36, transparent 58%),
+    radial-gradient(ellipse at 66% 65%, #9674fa26, transparent 69%);
+}
+
+.particle-slot::after {
+  content: "";
+  position: absolute;
+  inset: 14%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #3179ba85 0 1px, transparent 1.6px) 0 0 / 7px 7px,
+    radial-gradient(circle, #8065c67a 0 1px, transparent 1.5px) 3px 3px / 11px 11px;
+  mask-image: radial-gradient(circle at 40% 36%, #000 25%, #0009 62%, transparent 74%);
+  animation: particle-breathe 7s ease-in-out infinite;
+}
+
+.particle-timer::after {
+  mask-image: radial-gradient(circle, transparent 20%, #0007 43%, #000 58%, transparent 75%);
+}
+
+.particle-slot[data-particle-state="paused"]::after { animation-play-state: paused; }
+.particle-slot[data-particle-state="done"]::after { animation: particle-reform 1.55s ease-in-out; }
+.particle-slot[data-renderer="webgl"]::after { display: none; }
+
+.particle-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+}
+
+.particle-slot[data-renderer="webgl"] .particle-canvas { visibility: visible; }
+
+@keyframes particle-breathe {
+  0%, 100% { transform: rotate(-7deg) scale(.96); opacity: .67; }
+  50% { transform: rotate(7deg) scale(1.04); opacity: .9; }
+}
+
+@keyframes particle-reform {
+  0%, 100% { transform: scale(1); opacity: .8; }
+  45% { transform: scale(1.18); opacity: .48; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .particle-slot::after { animation: none !important; }
+  .timer-view.is-countdown .timer-digits { animation: none; }
+}
