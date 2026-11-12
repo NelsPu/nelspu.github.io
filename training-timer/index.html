@@ -12,10 +12,9 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./icon.svg">
-  <link rel="stylesheet" href="./styles.css?v=28">
-  <link rel="stylesheet" href="./action-icons.css?v=28">
-  <link rel="stylesheet" href="./plan-editor.css?v=28">
-  <link rel="stylesheet" href="./particle-sphere.css?v=28">
+  <link rel="stylesheet" href="./styles.css?v=29">
+  <link rel="stylesheet" href="./action-icons.css?v=29">
+  <link rel="stylesheet" href="./plan-editor.css?v=29">
 </head>
 <body>
   <main id="setup-view" class="app-shell">
@@ -27,7 +26,6 @@
       </div>
     </header>
 
-    <div id="idle-particles" class="particle-slot particle-idle" aria-hidden="true"></div>
     <section class="template-panel" aria-label="目前訓練計劃">
       <label class="template-select-label" for="template-select">目前訓練計劃</label>
       <select id="template-select" class="template-select"></select>
@@ -51,7 +49,6 @@
     <div class="timer-center">
       <p id="phase-label" class="phase-label">準備</p>
       <div class="timer-ring-wrap">
-        <div id="timer-particles" class="particle-slot particle-timer" aria-hidden="true"></div>
         <svg class="timer-ring" viewBox="0 0 120 120" aria-hidden="true"><circle class="timer-ring-track" cx="60" cy="60" r="52"></circle><circle id="timer-ring-progress" class="timer-ring-progress" cx="60" cy="60" r="52" pathLength="100"></circle></svg>
         <p id="timer-digits" class="timer-digits" aria-live="off">0:03</p>
       </div>
@@ -67,7 +64,6 @@
   <dialog id="confirm-dialog" class="confirm-dialog"><form method="dialog"><p class="dialog-symbol">!</p><h2 id="confirm-title">確定嗎？</h2><p id="confirm-message"></p><div><button value="cancel">取消</button><button value="confirm" class="danger-button">確定</button></div></form></dialog>
   <dialog id="name-dialog" class="name-dialog"><form method="dialog"><h2 id="name-title">訓練計劃名稱</h2><label for="template-name-input">名稱</label><input id="template-name-input" maxlength="30" autocomplete="off"><div><button value="cancel">取消</button><button id="name-confirm-button" value="confirm" class="primary-action">確認儲存</button></div></form></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="./app.mjs?v=28"></script>
-  <script type="module" src="./particle-sphere.mjs?v=28"></script>
+  <script type="module" src="./app.mjs?v=29"></script>
 </body>
 </html>
