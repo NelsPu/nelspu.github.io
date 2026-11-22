@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     if (projectContainer) {
         try {
             const data = await fetchProjects();
-            const featuredIds = ['project30', 'project8', 'project11', 'project18', 'project1', 'project4'];
+            const featuredIds = ['project30', 'project8', 'project11'];
             const visibleProjects = document.body.classList.contains('home-page')
                 ? featuredIds.map(id => data.projects.find(project => project.id === id)).filter(Boolean)
                 : data.projects;
@@ -173,7 +173,7 @@ async function createProjectCard(project, index) {
         <div class="project-info">
             <span class="project-number">${projectNum}</span>
             <h3>${project.title}</h3>
-            <p>${project.description.length > 80 ? project.description.substring(0, 80) + '…' : project.description}</p>
+            <p>${project.story?.headline || project.description}</p>
             <a href="project.html?id=${project.id}" class="discover-btn">查看設計 <span>&rarr;</span></a>
         </div>
     `;
